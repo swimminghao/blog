@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/blog-auth" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/blog-auth" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/blog-blog" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/blog-blog" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/blog-comment" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/blog-comment" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/blog-prototype" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/blog-prototype" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/blog-search" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/blog-search" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/blog-user" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/blog-user" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/blog-vote" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/blog-vote" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/bootstrap-in-action" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/bootstrap-in-action" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/elasticsearch-in-action" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/elasticsearch-in-action" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/hello-world" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/hello-world" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/initializr-start" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/initializr-start" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/jpa-in-action" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/jpa-in-action" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/media-type" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/media-type" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/new-star-blog" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/new-star-blog" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/thymeleaf-in-action" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/gradle-6.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/thymeleaf-in-action" />
+          </set>
+        </option>
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
