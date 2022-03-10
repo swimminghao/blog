@@ -1,8 +1,11 @@
 ---
 title: 个人博客系统设计(支持hexo和halo同步)
-date: 2022-02-28 19:57:47
-tags: [博客,感悟]
+tags:
+  - 博客
+  - 感悟
 categories: 技术
+abbrlink: d2168e68
+date: 2022-02-28 19:57:47
 ---
 # 个人博客系统设计(支持hexo和halo同步)
 

@@ -1,8 +1,11 @@
 ---
 title: 益智游戏克星：BFS暴力搜索算法
-date: 2022-02-28 19:57:47
-tags: [算法,感悟]
+tags:
+  - 算法
+  - 感悟
 categories: 技术
+abbrlink: 20eb9dff
+date: 2022-02-28 19:57:47
 ---
 # 益智游戏克星：BFS暴力搜索算法
 
