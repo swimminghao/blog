@@ -1,8 +1,11 @@
 ---
 title: 14、【对线面试官】SpringMVC
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: c2bf7fb6
+date: 2022-02-28 19:57:47
 ---
 # 14、【对线面试官】SpringMVC
 

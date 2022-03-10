@@ -1,8 +1,11 @@
 ---
 title: 17、【对线面试官】Redis基础
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: 36f701ea
+date: 2022-02-28 19:57:47
 ---
 # 17、【对线面试官】Redis基础
 

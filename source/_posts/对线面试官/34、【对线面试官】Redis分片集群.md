@@ -1,8 +1,11 @@
 ---
 title: 34、【对线面试官】Redis分片集群
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: f4ff0293
+date: 2022-02-28 19:57:47
 ---
 # 34、【对线面试官】Redis分片集群
 

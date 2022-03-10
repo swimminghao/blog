@@ -1,8 +1,11 @@
 ---
 title: 7、【对线面试官】synchronized
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: 844cde9b
+date: 2022-02-28 19:57:47
 ---
 # 7、【对线面试官】synchronized
 

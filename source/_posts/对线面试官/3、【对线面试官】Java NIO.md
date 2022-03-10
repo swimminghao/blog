@@ -1,8 +1,11 @@
 ---
 title: 3、【对线面试官】Java NIO
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: d38e357c
+date: 2022-02-28 19:57:47
 ---
 # 3、【对线面试官】Java NIO
 

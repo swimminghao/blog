@@ -1,8 +1,11 @@
 ---
 title: 12、【对线面试官】List
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: 31fa5cf
+date: 2022-02-28 19:57:47
 ---
 # 12、【对线面试官】List
 

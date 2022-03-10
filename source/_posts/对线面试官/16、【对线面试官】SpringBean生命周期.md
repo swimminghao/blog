@@ -1,8 +1,11 @@
 ---
 title: 16、【对线面试官】SpringBean生命周期
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: 32e97c2c
+date: 2022-02-28 19:57:47
 ---
 # 16、【对线面试官】SpringBean生命周期
 

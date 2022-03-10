@@ -1,8 +1,11 @@
 ---
 title: 18、【对线面试官】Redis持久化
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: eb97ef3e
+date: 2022-02-28 19:57:47
 ---
 # 18、【对线面试官】Redis持久化
 

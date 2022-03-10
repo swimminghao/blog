@@ -1,8 +1,11 @@
 ---
 title: 15、【对线面试官】Spring基础
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: 51360fe0
+date: 2022-02-28 19:57:47
 ---
 # 15、【对线面试官】Spring基础
 

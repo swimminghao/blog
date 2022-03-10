@@ -1,9 +1,11 @@
-
 ---
-title:  8、【对线面试官】AQS & ReentrantLock
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+title: 8、【对线面试官】AQS & ReentrantLock
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: 3c567306
+date: 2022-02-28 19:57:47
 ---
 # 8、【对线面试官】AQS & ReentrantLock
 

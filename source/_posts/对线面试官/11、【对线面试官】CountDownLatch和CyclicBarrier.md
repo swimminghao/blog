@@ -1,8 +1,11 @@
 ---
 title: 11、【对线面试官】CountDownLatch和CyclicBarrier
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: 58f7b356
+date: 2022-02-28 19:57:47
 ---
 # 11、【对线面试官】CountDownLatch和CyclicBarrier
 

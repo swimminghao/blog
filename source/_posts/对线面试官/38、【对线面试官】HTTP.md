@@ -1,8 +1,11 @@
 ---
 title: 38、【对线面试官】HTTP
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: 561aa315
+date: 2022-02-28 19:57:47
 ---
 # 今天要不来聊聊HTTP吧
 ## 今天要不来聊聊HTTP吧？

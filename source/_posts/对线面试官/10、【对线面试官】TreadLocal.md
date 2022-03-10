@@ -1,8 +1,11 @@
 ---
 title: 10、【对线面试官】TreadLocal
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: 2d4446ad
+date: 2022-02-28 19:57:47
 ---
 # 10、【对线面试官】TreadLocal
 ## 今天要不来聊聊ThreadLocal吧？

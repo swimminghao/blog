@@ -1,8 +1,11 @@
 ---
 title: 21、【对线面试官】Mysql索引
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: ace2edeb
+date: 2022-02-28 19:57:47
 ---
 # 21、【对线面试官】Mysql索引
 ## 我看你简历上写了MySQL，对MySQL InnoDB引擎的索引了解吗？

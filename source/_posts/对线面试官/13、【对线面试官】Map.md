@@ -1,8 +1,11 @@
 ---
 title: 13、【对线面试官】Map
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: f78aff48
+date: 2022-02-28 19:57:47
 ---
 # 13、【对线面试官】Map
 

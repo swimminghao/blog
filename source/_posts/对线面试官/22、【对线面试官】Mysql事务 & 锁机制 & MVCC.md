@@ -1,8 +1,11 @@
 ---
 title: 23、【对线面试官】InnoDB引擎中的事务
-date: 2022-02-28 19:57:47
-tags: [面试,记录]
+tags:
+  - 面试
+  - 记录
 categories: 技术
+abbrlink: b4eb9a6c
+date: 2022-02-28 19:57:47
 ---
 
 # 这次我想问下，你是怎么理解InnoDB引擎中的事务的？

@@ -1,11 +1,10 @@
 ---
-title: 什么是注解？
+title: Hexo-Next 主题博客个性化配置(2022年更新版本)
 tags:
-  - 面试
-  - 记录
+- 面试
+- 记录
 categories: 技术
-date: '2022-03-06 09:10:00# java注解'
-abbrlink: a1cb1a5b
+date: 2022-03-06 09:10:00# java注解
 ---
 
 ## 什么是注解？
