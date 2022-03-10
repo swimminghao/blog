@@ -12,6 +12,7 @@ date: 2022-02-28 19:57:47
 1. 本文主要介绍自己的博客系统是如何设计的，并使用[Halo博客同步器](https://github.com/linshenkx/haloSyncServer) 将hexo（git pages: [https://linshenkx.github.io](https://linshenkx.github.io/) ）文章自动同步到halo( [http://linshenkx.cn](http://linshenkx.cn/) )。
    实现一次编写、两套博客系统并存、多个网址访问的效果。
 2. test
+3. test2
 ## 一 总览
 
 ### 达到效果
