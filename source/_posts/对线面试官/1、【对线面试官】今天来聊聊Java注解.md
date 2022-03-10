@@ -1,10 +1,11 @@
 ---
 title: 什么是注解？
 tags:
-- 面试
-- 记录
+  - 面试
+  - 记录
 categories: 技术
-date: 2022-03-06 09:10:00# java注解
+date: '2022-03-06 09:10:00# java注解'
+abbrlink: a1cb1a5b
 ---
 
 ## 什么是注解？
