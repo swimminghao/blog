@@ -1,10 +1,10 @@
 ---
 title: 1、【对线面试官】今天来聊聊Java注解
 tags:
-- 面试
-- 记录
-categories: 技术 
-abbrlink: a1cb1a5b
+  - 面试
+  - 记录
+categories: 技术
+abbrlink: dc033d1f
 date: 2022-03-06 09:10:00
 ---
 # 1、【对线面试官】今天来聊聊Java注解
