@@ -1,8 +1,10 @@
 ---
 title: git推送文件夹到github仓库
-date: 2022-02-28 19:57:47
-tags: [git]
+tags:
+  - git
 categories: 技术
+abbrlink: e5591b74
+date: 2022-02-28 19:57:47
 ---
 # Git推送文件夹到github仓库
 

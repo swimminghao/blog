@@ -1,8 +1,10 @@
 ---
 title: idea效率
-date: 2022-02-28 19:57:47
-tags: [idea]
+tags:
+  - idea
 categories: 工具
+abbrlink: f15ad5a2
+date: 2022-02-28 19:57:47
 ---
 ## 如何用 IDEA 提升十倍开发效率？
 

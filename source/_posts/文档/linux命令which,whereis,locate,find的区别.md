@@ -1,8 +1,11 @@
 ---
-title: linux命令which,whereis,locate,find的区别
-date: 2022-02-28 19:57:47
-tags: [linux,理解]
+title: 'linux命令which,whereis,locate,find的区别'
+tags:
+  - linux
+  - 理解
 categories: 技术
+abbrlink: de82442a
+date: 2022-02-28 19:57:47
 ---
 # linux命令which,whereis,locate,find的区别
 

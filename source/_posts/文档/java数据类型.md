@@ -1,8 +1,11 @@
 ---
 title: java数据类型
-date: 2022-02-28 19:57:47
-tags: [java,感悟]
+tags:
+  - java
+  - 感悟
 categories: 技术
+abbrlink: dac885d1
+date: 2022-02-28 19:57:47
 ---
 # Java基本类型占用字节数（或 bit数）
 

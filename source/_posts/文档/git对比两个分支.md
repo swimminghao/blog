@@ -1,8 +1,10 @@
 ---
 title: git对比两个分支
-date: 2022-02-28 19:57:47
-tags: [git]
+tags:
+  - git
 categories: 技术
+abbrlink: 1ed54b1d
+date: 2022-02-28 19:57:47
 ---
  # git 对比两个分支差异
 

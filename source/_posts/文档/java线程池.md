@@ -1,8 +1,11 @@
 ---
 title: java线程池
-date: 2022-02-28 19:57:47
-tags: [线程,感悟]
+tags:
+  - 线程
+  - 感悟
 categories: 技术
+abbrlink: 98e86a33
+date: 2022-02-28 19:57:47
 ---
 # 深入理解java线程池—ThreadPoolExecutor
 

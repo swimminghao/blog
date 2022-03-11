@@ -1,8 +1,10 @@
 ---
 title: git切换分支保存修改的代码的方法
-date: 2022-02-28 19:57:47
-tags: [git]
+tags:
+  - git
 categories: 技术
+abbrlink: b72a0472
+date: 2022-02-28 19:57:47
 ---
 # git切换分支保存修改的代码的方法
 

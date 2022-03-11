@@ -1,8 +1,11 @@
 ---
 title: sql难点记录
-date: 2022-02-28 19:57:47
-tags: [编程,感悟]
+tags:
+  - 编程
+  - 感悟
 categories: 技术
+abbrlink: f1919e86
+date: 2022-02-28 19:57:47
 ---
 
 

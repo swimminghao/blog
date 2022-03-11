@@ -1,8 +1,10 @@
 ---
 title: git远程分支
-date: 2022-02-28 19:57:47
-tags: [git]
+tags:
+  - git
 categories: 技术
+abbrlink: 53bfd3b2
+date: 2022-02-28 19:57:47
 ---
 # 从远程仓库获取最新代码合并到本地分支
 

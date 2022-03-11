@@ -1,8 +1,11 @@
 ---
 title: Mysql获取每组前N条记录
-date: 2022-02-28 19:57:47
-tags: [sql,理解]
+tags:
+  - sql
+  - 理解
 categories: 技术
+abbrlink: c1e8765f
+date: 2022-02-28 19:57:47
 ---
 # Mysql获取每组前N条记录
 
