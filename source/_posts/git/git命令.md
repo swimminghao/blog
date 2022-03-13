@@ -1,8 +1,10 @@
 ---
 title: git命令
-date: 2022-02-28 19:57:47
-tags: [git]
+tags:
+  - git
 categories: 技术
+abbrlink: 341ecd43
+date: 2022-02-28 19:57:47
 ---
 # git指令
 

@@ -1,8 +1,10 @@
 ---
 title: Java 内存模型
-date: 2022-02-28 19:57:47
-tags: [java]
+tags:
+  - java
 categories: 技术
+abbrlink: 2a3a86ee
+date: 2022-02-28 19:57:47
 ---
 
 # Java 内存模型

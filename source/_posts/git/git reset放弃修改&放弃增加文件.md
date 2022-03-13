@@ -1,8 +1,10 @@
 ---
 title: git reset放弃修改&放弃增加文件
-date: 2022-02-28 19:57:47
-tags: [git]
+tags:
+  - git
 categories: 技术
+abbrlink: d664f3f3
+date: 2022-02-28 19:57:47
 ---
 
 # git reset放弃修改&放弃增加文件

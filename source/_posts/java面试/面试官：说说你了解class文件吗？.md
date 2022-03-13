@@ -1,8 +1,10 @@
 ---
 title: 面试官：说说你了解class文件吗？
-date: 2022-02-28 19:57:47
-tags: [java]
+tags:
+  - java
 categories: 技术
+abbrlink: 4d79f088
+date: 2022-02-28 19:57:47
 ---
 # 面试官：说说你了解class文件吗？ 
 

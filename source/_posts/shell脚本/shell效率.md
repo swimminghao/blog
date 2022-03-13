@@ -1,8 +1,10 @@
 ---
 title: shell效率
-date: 2022-02-28 19:57:47
-tags: [shell]
+tags:
+  - shell
 categories: 工具
+abbrlink: 98b63d5c
+date: 2022-02-28 19:57:47
 ---
 
 # §1效率

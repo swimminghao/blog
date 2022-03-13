@@ -1,8 +1,10 @@
 ---
 title: explain结果每个字段的含义说明
-date: 2022-02-28 19:57:47
-tags: [mysql]
+tags:
+  - mysql
 categories: 技术
+abbrlink: cec762c6
+date: 2022-02-28 19:57:47
 ---
 # explain结果每个字段的含义说明
 

@@ -1,8 +1,10 @@
 ---
 title: JAVA基础
-date: 2022-02-28 19:57:47
-tags: [java]
+tags:
+  - java
 categories: 技术
+abbrlink: 43d73074
+date: 2022-02-28 19:57:47
 ---
 - [一、基础篇](#一基础篇)
   - [网络基础](#网络基础)

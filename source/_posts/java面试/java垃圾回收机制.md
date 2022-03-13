@@ -1,8 +1,10 @@
 ---
 title: java垃圾回收机制
-date: 2022-02-28 19:57:47
-tags: [java]
+tags:
+  - java
 categories: 技术
+abbrlink: 638ae112
+date: 2022-02-28 19:57:47
 ---
 # java垃圾回收
 

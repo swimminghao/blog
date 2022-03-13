@@ -1,8 +1,10 @@
 ---
 title: git流程
-date: 2022-02-28 19:57:47
-tags: [git]
+tags:
+  - git
 categories: 技术
+abbrlink: f44eb3a2
+date: 2022-02-28 19:57:47
 ---
 
 # git 流程

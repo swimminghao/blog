@@ -1,8 +1,10 @@
 ---
 title: java 名词
-date: 2022-02-28 19:57:47
-tags: [java]
+tags:
+  - java
 categories: 技术
+abbrlink: 22472e9c
+date: 2022-02-28 19:57:47
 ---
 # java 名词
 

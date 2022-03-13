@@ -1,8 +1,10 @@
 ---
 title: idea .gitignore(git文件忽略)
-date: 2022-02-28 19:57:47
-tags: [git]
+tags:
+  - git
 categories: 技术
+abbrlink: 734afda2
+date: 2022-02-28 19:57:47
 ---
 
 # idea .gitignore(git文件忽略)

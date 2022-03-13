@@ -1,8 +1,10 @@
 ---
 title: NAS上搭建SS客户端
-date: 2022-02-28 19:57:47
-tags: [nas]
+tags:
+  - nas
 categories: 工具
+abbrlink: e215f7cb
+date: 2022-02-28 19:57:47
 ---
 
 # 群辉NAS上搭建SS客户端来连接远程并提供本地HTTP/Socks5代理

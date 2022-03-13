@@ -1,8 +1,10 @@
 ---
 title: Dockerfile
-date: 2022-02-28 19:57:47
-tags: [docker]
+tags:
+  - docker
 categories: 技术
+abbrlink: 5624fad4
+date: 2022-02-28 19:57:47
 ---
 # Docker相关指令
 

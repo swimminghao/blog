@@ -1,8 +1,10 @@
 ---
 title: java学习路线问题整理
-date: 2022-02-28 19:57:47
-tags: [java]
+tags:
+  - java
 categories: 技术
+abbrlink: 6e379f18
+date: 2022-02-28 19:57:47
 ---
 
 

@@ -1,8 +1,10 @@
 ---
 title: Java线程池实现原理及其在美团业务中的实践
-date: 2022-02-28 19:57:47
-tags: [java]
+tags:
+  - java
 categories: 技术
+abbrlink: 211da837
+date: 2022-02-28 19:57:47
 ---
 # [Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html)
 

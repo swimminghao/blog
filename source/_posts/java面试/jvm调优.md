@@ -1,8 +1,10 @@
 ---
 title: jvm调优
-date: 2022-02-28 19:57:47
-tags: [java]
+tags:
+  - java
 categories: 技术
+abbrlink: a269a036
+date: 2022-02-28 19:57:47
 ---
 # jvm调优
 

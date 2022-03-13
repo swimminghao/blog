@@ -1,8 +1,10 @@
 ---
 title: shell知识点
-date: 2022-02-28 19:57:47
-tags: [shell]
+tags:
+  - shell
 categories: 工具
+abbrlink: 5832e44e
+date: 2022-02-28 19:57:47
 ---
 
 # $1易混淆点

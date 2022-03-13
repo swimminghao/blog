@@ -1,8 +1,10 @@
 ---
 title: Spring SchedulingConfigurer 实现动态定时任务
-date: 2022-02-28 19:57:47
-tags: [java]
+tags:
+  - java
 categories: 技术
+abbrlink: e4d53ddb
+date: 2022-02-28 19:57:47
 ---
 
 # Spring SchedulingConfigurer 实现动态定时任务

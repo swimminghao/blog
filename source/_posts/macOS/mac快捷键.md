@@ -1,8 +1,10 @@
 ---
 title: mac快捷键
-date: 2022-02-28 19:57:47
-tags: [mac]
+tags:
+  - mac
 categories: 工具
+abbrlink: d7c70a78
+date: 2022-02-28 19:57:47
 ---
 
 # mac快捷键

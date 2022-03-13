@@ -1,8 +1,10 @@
 ---
 title: git命令作业
-date: 2022-02-28 19:57:47
-tags: [git]
+tags:
+  - git
 categories: 技术
+abbrlink: ba167550
+date: 2022-02-28 19:57:47
 ---
 # 正常上线
 ```java

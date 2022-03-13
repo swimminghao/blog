@@ -1,8 +1,10 @@
 ---
 title: java学习路线图
-date: 2022-02-28 19:57:47
-tags: [java]
+tags:
+  - java
 categories: 技术
+abbrlink: cad299ae
+date: 2022-02-28 19:57:47
 ---
 
 

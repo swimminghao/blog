@@ -1,8 +1,10 @@
 ---
 title: jav8类型相互转
-date: 2022-02-28 19:57:47
-tags: [java8]
+tags:
+  - java8
 categories: 语法
+abbrlink: 74cfd586
+date: 2022-02-28 19:57:47
 ---
 
 # jav8类型相互转

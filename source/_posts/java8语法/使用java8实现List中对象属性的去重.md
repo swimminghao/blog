@@ -1,8 +1,10 @@
 ---
 title: 使用java8实现List中对象属性的去重
-date: 2022-02-28 19:57:47
-tags: [java8]
+tags:
+  - java8
 categories: 语法
+abbrlink: c77b99c1
+date: 2022-02-28 19:57:47
 ---
 # 使用java8实现List中对象属性的去重
 

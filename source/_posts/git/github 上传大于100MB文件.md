@@ -1,8 +1,10 @@
 ---
 title: github 上传大文件100MB姿势
-date: 2022-02-28 19:57:47
-tags: [git]
+tags:
+  - git
 categories: 技术
+abbrlink: 473fac3a
+date: 2022-02-28 19:57:47
 ---
 # github 上传大文件100MB姿势
 
