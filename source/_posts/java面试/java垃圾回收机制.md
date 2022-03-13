@@ -1,9 +1,11 @@
 ---
 title: java垃圾回收机制
 date: 2022-02-28 19:57:47
-tags: [编程,感悟]
+tags: [java]
 categories: 技术
 ---
+# java垃圾回收
+
 ## 一、jvm内存结构
 
 嗯，前面提到了堆分了「新生代」和 「老年代」，「新生代」又分为「Eden」和「Survivor」区，「Survivor」区又分为「From Survivor」和「To Survivor」区

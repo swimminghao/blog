@@ -1,4 +1,11 @@
-Spring SchedulingConfigurer 实现动态定时任务
+---
+title: Spring SchedulingConfigurer 实现动态定时任务
+date: 2022-02-28 19:57:47
+tags: [java]
+categories: 技术
+---
+
+# Spring SchedulingConfigurer 实现动态定时任务
 
 一、前言
 大家在日常工作中，一定使用过 Spring 的 @Scheduled 注解吧，通过该注解可以非常方便的帮助我们实现任务的定时执行。
@@ -12,14 +19,6 @@ Spring SchedulingConfigurer 实现动态定时任务
 这个注解其实大家并不陌生，如果有使用过 @Scheduled 的话，因为 @Scheduled 默认是单线程执行的，因此如果存在多个任务同时触发，可能触发阻塞。使用 SchedulingConfigurer 可以配置用于执行 @Scheduled 的线程池，来避免这个问题。
 
 JAVA
-1
-2
-3
-4
-5
-6
-7
-8
 @Configuration
 public class ScheduleConfig implements SchedulingConfigurer {
     @Override
@@ -36,23 +35,6 @@ public class ScheduleConfig implements SchedulingConfigurer {
 使用到的依赖，除了 Spring 外，还包括：
 
 XML
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
 <dependency>
     <groupId>org.apache.commons</groupId>
     <artifactId>commons-lang3</artifactId>
@@ -74,13 +56,6 @@ XML
 首先需要开启 @EnableScheduling 注解，直接在启动类添加即可：
 
 JAVA
-1
-2
-3
-4
-5
-6
-7
 @EnableScheduling
 @SpringBootApplication
 public class DSApplication {
@@ -96,27 +71,6 @@ cron：该任务执行的 cron 表达式。
 isValid：任务开关
 isChange：用于标识任务参数是否发生了改变
 JAVA
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
 public interface IDSTaskInfo {
     /**
      * 任务 ID
@@ -161,87 +115,6 @@ void checkTask(final T taskInfo, final TriggerTask triggerTask)：检查 IDSTask
 如果任务有效：则注册任务
 Semaphore getSemaphore()：获取信号量属性。
 JAVA
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.scheduling.config.ScheduledTask;
@@ -336,87 +209,6 @@ void configureTasks(ScheduledTaskRegistrar taskRegistrar)：创建 DSContainer �
 void scheduleTask()：首先加载所有任务信息，然后基于 cron 表达式生成 TriggerTask 对象，调用 checkTask() 方法确认是否需要注册/取消任务。当达到执行时间时，调用 execute() 方法，执行任务逻辑。
 void execute(final T taskInfo)：获取信号量，成功后执行任务逻辑。
 JAVA
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
@@ -505,16 +297,6 @@ import java.util.concurrent.TimeUnit;
 为了模拟一个定时任务，我定义了一个 foo() 方法，其中只输出一句话。后续我将通过定时调用该方法，来模拟定时任务。
 
 JAVA
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalTime;
@@ -529,31 +311,6 @@ public class SchedulerTest {
 首先定义 IDSTaskInfo，我这里想通过反射来实现调用 foo() 方法，因此 reference 表示的是要调用方法的全路径。另外我实现了 isChange() 方法，只要 cron、isValid、reference 发生了变动，就认为该任务的配置发生了改变。
 
 JAVA
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
 import com.github.jitwxs.sample.ds.config.IDSTaskInfo;
 import lombok.Builder;
 import lombok.Data;
@@ -593,96 +350,6 @@ public class SchedulerTestTaskInfo implements IDSTaskInfo {
 10s 后，关闭 foo() 定时任务执行。
 10s 后，开启 foo() 定时任务执行。
 JAVA
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
 import com.github.jitwxs.sample.ds.config.AbstractDSHandler;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;

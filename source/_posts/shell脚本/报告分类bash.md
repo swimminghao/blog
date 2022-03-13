@@ -1,9 +1,10 @@
 ---
 title: 报告分类bash
 date: 2022-02-28 19:57:47
-tags: [编程,感悟]
-categories: 技术
+tags: [shell]
+categories: 工具
 ---
+
 # 报告分类bash
 
 ```java

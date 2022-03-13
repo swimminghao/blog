@@ -1,9 +1,11 @@
 ---
 title: jvm调优
 date: 2022-02-28 19:57:47
-tags: [编程,感悟]
+tags: [java]
 categories: 技术
 ---
+# jvm调优
+
 ## 一、优化系统的思路
 
 没有jvm调优经历

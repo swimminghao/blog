@@ -1,7 +1,7 @@
 ---
 title: 面试官：说说你了解class文件吗？
 date: 2022-02-28 19:57:47
-tags: [编程,感悟]
+tags: [java]
 categories: 技术
 ---
 # 面试官：说说你了解class文件吗？ 

@@ -1,7 +1,7 @@
 ---
 title: mysql连表操作后字符集不同导致索引失效问题
 date: 2022-02-28 19:57:47
-tags: [编程,感悟]
+tags: [mysql]
 categories: 技术
 ---
 # mysql 连表操作后字符集不同导致索引失效

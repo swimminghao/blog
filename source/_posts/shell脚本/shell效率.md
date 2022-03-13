@@ -1,10 +1,10 @@
 ---
 title: shell效率
 date: 2022-02-28 19:57:47
-tags: [编程,感悟]
-categories: 技术
+tags: [shell]
+categories: 工具
 ---
-[toc]
+
 # §1效率
 
 ## **输入相似文件名太麻烦**

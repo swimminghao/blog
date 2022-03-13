@@ -1,9 +1,12 @@
 ---
 title: java内存模型
 date: 2022-02-28 19:57:47
-tags: [编程,感悟]
+tags: [java]
 categories: 技术
 ---
+
+# java内存模型
+
 ## 一、为什么有java内存模型？
 
 - 背景

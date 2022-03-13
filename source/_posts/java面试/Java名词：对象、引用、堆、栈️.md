@@ -1,9 +1,11 @@
 ---
-title: Java名词：对象、引用、堆、栈️
+title: java 名词
 date: 2022-02-28 19:57:47
-tags: [编程,感悟]
+tags: [java]
 categories: 技术
 ---
+# java 名词
+
 ## “吃人”的那些Java名词：对象、引用、堆、栈️
 
 经验都是慢慢积累的，天才不多｜ 第170篇

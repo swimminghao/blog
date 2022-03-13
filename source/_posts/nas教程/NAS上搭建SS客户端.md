@@ -1,9 +1,10 @@
 ---
 title: NAS上搭建SS客户端
 date: 2022-02-28 19:57:47
-tags: [编程,感悟]
-categories: 技术
+tags: [nas]
+categories: 工具
 ---
+
 # 群辉NAS上搭建SS客户端来连接远程并提供本地HTTP/Socks5代理
 
 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/mxF2RW_20220217094542.png)

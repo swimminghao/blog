@@ -1,7 +1,7 @@
 ---
-title: JAVA-iMac
+title: JAVA基础
 date: 2022-02-28 19:57:47
-tags: [编程,感悟]
+tags: [java]
 categories: 技术
 ---
 - [一、基础篇](#一基础篇)

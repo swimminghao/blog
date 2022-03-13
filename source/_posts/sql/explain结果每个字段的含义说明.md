@@ -1,7 +1,7 @@
 ---
 title: explain结果每个字段的含义说明
 date: 2022-02-28 19:57:47
-tags: [编程,感悟]
+tags: [mysql]
 categories: 技术
 ---
 # explain结果每个字段的含义说明

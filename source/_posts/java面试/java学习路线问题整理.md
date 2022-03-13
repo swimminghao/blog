@@ -1,7 +1,7 @@
 ---
 title: java学习路线问题整理
 date: 2022-02-28 19:57:47
-tags: [编程,感悟]
+tags: [java]
 categories: 技术
 ---
 

@@ -1,4 +1,10 @@
-[toc]
+---
+title: shell知识点
+date: 2022-02-28 19:57:47
+tags: [shell]
+categories: 工具
+---
+
 # $1易混淆点
 
 ## 一、标准输入和参数的区别

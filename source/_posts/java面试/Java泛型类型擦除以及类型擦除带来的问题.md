@@ -1,10 +1,9 @@
 ---
 title: Java泛型类型擦除以及类型擦除带来的问题
 date: 2022-02-28 19:57:47
-tags: [编程,感悟]
+tags: [java]
 categories: 技术
 ---
-[toc]
 
 # Java泛型类型擦除以及类型擦除带来的问题
 

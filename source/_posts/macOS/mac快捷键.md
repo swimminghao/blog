@@ -1,9 +1,10 @@
 ---
 title: mac快捷键
 date: 2022-02-28 19:57:47
-tags: [编程,感悟]
-categories: 技术
+tags: [mac]
+categories: 工具
 ---
+
 # mac快捷键
 
 ## 图形按键
