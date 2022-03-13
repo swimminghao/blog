@@ -1,5 +1,5 @@
 ---
-title: Java 内存模型
+title: Java内存模型2
 tags:
   - java
 categories: 技术
@@ -7,7 +7,7 @@ abbrlink: 2a3a86ee
 date: 2022-02-28 19:57:47
 ---
 
-# Java 内存模型
+# Java内存模型2
 
 Spring、Netty、Mybatis 等框架的代码中大量运用了 Java 多线程编程技巧。并发编程处理的恰当与否，将直接影响架构的性能。本章通过对 这些框架源码 的分析，结合并发编程的常用技巧，来讲解多线程编程在这些主流框架中的应用。
 

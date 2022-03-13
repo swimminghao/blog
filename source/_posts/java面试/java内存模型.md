@@ -1,5 +1,5 @@
 ---
-title: java内存模型
+title: java内存模型1
 tags:
   - java
 categories: 技术
@@ -7,7 +7,7 @@ abbrlink: 86d8e3c1
 date: 2022-02-28 19:57:47
 ---
 
-# java内存模型
+# java内存模型1
 
 ## 一、为什么有java内存模型？
 
