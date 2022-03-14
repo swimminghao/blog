@@ -1,5 +1,5 @@
 ---
-title: Spring SchedulingConfigurer 实现动态定时任务
+x 23cx14wedqwareszdfxcv e3f4vcr25f6eerd ftgvbyhnujm,ik., 7754rfdc vbfgcx23dz 7534725w43a	qwetitle: Spring SchedulingConfigurer 实现动态定时任务
 tags:
   - java
 categories: 技术
@@ -132,14 +132,14 @@ import java.util.concurrent.Semaphore;
  * @author jitwxs
  * @date 2021年03月27日 16:29
  */
- @Slf4j
- public class DSContainer<T extends IDSTaskInfo> {
+  @Slf4j
+  public class DSContainer<T extends IDSTaskInfo> {
     /**
      * IDSTaskInfo和真实任务的关联关系
      *
      * <task_id, <Task, <Scheduled, Semaphore>>>
      */
-     private final Map<Long, Pair<T, Pair<ScheduledTask, Semaphore>>> scheduleMap = new ConcurrentHashMap<>();
+      private final Map<Long, Pair<T, Pair<ScheduledTask, Semaphore>>> scheduleMap = new ConcurrentHashMap<>();
 
     private final ScheduledTaskRegistrar taskRegistrar;
 
@@ -155,7 +155,7 @@ import java.util.concurrent.Semaphore;
      * @param taskInfo 任务信息
      * @param triggerTask 任务的触发规则
      */
-     public void checkTask(final T taskInfo, final TriggerTask triggerTask) {
+      public void checkTask(final T taskInfo, final TriggerTask triggerTask) {
         final long taskId = taskInfo.getId();
 
         if (scheduleMap.containsKey(taskId)) {
@@ -177,14 +177,14 @@ import java.util.concurrent.Semaphore;
                 registerTask(taskInfo, triggerTask);
             }
         }
-     }
+      }
 
     /**
      * 获取 Semaphore，确保任务不会被多个线程同时执行
      */
-     public Semaphore getSemaphore(final long taskId) {
+      public Semaphore getSemaphore(final long taskId) {
         return this.scheduleMap.get(taskId).getRight().getRight();
-     }
+      }
 
     private void registerTask(final T taskInfo, final TriggerTask triggerTask) {
         final ScheduledTask latestTask = taskRegistrar.scheduleTriggerTask(triggerTask);
@@ -197,9 +197,9 @@ import java.util.concurrent.Semaphore;
             pair.getRight().getLeft().cancel();
         }
     }
- }
- 2.4 AbstractDSHandler
- 下面定义实际的动态线程池处理方法，这里采用抽象类实现，将共用逻辑封装起来，方便扩展。
+  }
+  2.4 AbstractDSHandler
+  下面定义实际的动态线程池处理方法，这里采用抽象类实现，将共用逻辑封装起来，方便扩展。
 
 具有以下抽象方法：
 
@@ -228,8 +228,8 @@ import java.util.concurrent.TimeUnit;
  * @author jitwxs
  * @date 2021年03月27日 16:41
  */
- @Slf4j
- public abstract class AbstractDSHandler<T extends IDSTaskInfo> implements SchedulingConfigurer {
+  @Slf4j
+  public abstract class AbstractDSHandler<T extends IDSTaskInfo> implements SchedulingConfigurer {
 
     private DSContainer<T> dsContainer;
     
@@ -238,14 +238,14 @@ import java.util.concurrent.TimeUnit;
     /**
      * 获取所有的任务信息
      */
-     protected abstract List<T> listTaskInfo();
+      protected abstract List<T> listTaskInfo();
 
     /**
      * 做具体的任务逻辑
      *
      * <p/> 该方法执行时位于跟 SpringBoot @Scheduled 注解相同的线程池内。如果内部仍需要开子线程池执行，请务必同步等待子线程池执行完毕，否则可能会影响预期效果。
      */
-     protected abstract void doProcess(T taskInfo) throws Throwable;
+      protected abstract void doProcess(T taskInfo) throws Throwable;
 
     @Override
     public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
@@ -257,13 +257,13 @@ import java.util.concurrent.TimeUnit;
     /**
      * 调度任务，加载所有任务并注册
      */
-     private void scheduleTask() {
+      private void scheduleTask() {
         CollectionUtils.emptyIfNull(listTaskInfo()).forEach(taskInfo ->
                 dsContainer.checkTask(taskInfo, new TriggerTask(() ->
                         this.execute(taskInfo), triggerContext -> new CronTrigger(taskInfo.getCron()).nextExecutionTime(triggerContext)
                 ))
         );
-     }
+      }
 
     private void execute(final T taskInfo) {
         final long taskId = taskInfo.getId();
@@ -291,9 +291,9 @@ import java.util.concurrent.TimeUnit;
             log.error("{} execute error, taskId: {}", CLASS_NAME, taskId, e);
         }
     }
- }
- 三、快速测试
- 至此就完成了动态任务的框架搭建，下面让我们来快速测试下。为了尽量减少其他技术带来的复杂度，本次测试不涉及数据库和真实的定时任务，完全采用模拟实现。
+  }
+  三、快速测试
+  至此就完成了动态任务的框架搭建，下面让我们来快速测试下。为了尽量减少其他技术带来的复杂度，本次测试不涉及数据库和真实的定时任务，完全采用模拟实现。
 
 3.1 模拟定时任务
 为了模拟一个定时任务，我定义了一个 foo() 方法，其中只输出一句话。后续我将通过定时调用该方法，来模拟定时任务。
@@ -368,8 +368,8 @@ import java.util.concurrent.locks.LockSupport;
  * @author jitwxs
  * @date 2021年03月27日 21:54
  */
- @Component
- public class SchedulerTestDSHandler extends AbstractDSHandler<SchedulerTestTaskInfo> implements ApplicationListener {
+  @Component
+  public class SchedulerTestDSHandler extends AbstractDSHandler<SchedulerTestTaskInfo> implements ApplicationListener {
     public volatile List<SchedulerTestTaskInfo> taskInfoList = Collections.singletonList(
             SchedulerTestTaskInfo.builder()
                     .id(1)
@@ -415,9 +415,9 @@ import java.util.concurrent.locks.LockSupport;
                             .reference("com.github.jitwxs.sample.ds.test.SchedulerTest#foo")
                             .build()
             );
-     
+         
             LockSupport.parkNanos(TimeUnit.SECONDS.toNanos(10));
-     
+         
             // setting not valid
             taskInfoList = Collections.singletonList(
                     SchedulerTestTaskInfo.builder()
@@ -427,9 +427,9 @@ import java.util.concurrent.locks.LockSupport;
                             .reference("com.github.jitwxs.sample.ds.test.SchedulerTest#foo")
                             .build()
             );
-     
+         
             LockSupport.parkNanos(TimeUnit.SECONDS.toNanos(10));
-     
+         
             // setting valid
             taskInfoList = Collections.singletonList(
                     SchedulerTestTaskInfo.builder()
@@ -441,9 +441,9 @@ import java.util.concurrent.locks.LockSupport;
             );
         }, 12, 86400, TimeUnit.SECONDS);
     }
- }
- 3.4 运行程序
- 整个应用包结构如下：
+  }
+  3.4 运行程序
+  整个应用包结构如下：
 
 
 包结构
