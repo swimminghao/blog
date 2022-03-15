@@ -166,7 +166,7 @@ date: 2022-03-14 17:11:00
 
 ## 依赖结构图
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/155a44e024874585a472be781a6fa524~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp) 从图中我们可以看到 **spring-boot-starter-web** 引入了几个关键的依赖
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/SpringBootWeb.png) 从图中我们可以看到 **spring-boot-starter-web** 引入了几个关键的依赖
 
 - spring-boot-starter
 
@@ -200,7 +200,7 @@ Spring Boot 集成 mysql 需要 **JDBC 驱动** 和 **mysql 驱动**
 
 ## 引入依赖
 
-```
+```xml
 <!--JDBC-->
 <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -237,7 +237,7 @@ spring.datasource.password=123456
 
 ```
 
-如下图，**spring boot 2.1.9.RELEASE** 对应的 **mysql-connector-java** 版本为 8.0.17 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4aa3024083464a419edbece2869fd5d9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+如下图，**spring boot 2.1.9.RELEASE** 对应的 **mysql-connector-java** 版本为 8.0.17 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/UqEhk0.png)
 
 更多请参考[MySQL JDBC 连接](https://juejin.cn/post/6844903965713252360)
 
@@ -277,18 +277,18 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 **配置一个 dev 环境**
 
-创建 `application-dev.properties` 文件，并将 mysql 相关配置迁移过来 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/44b606788c4f4ee3bfd0815b8ffa3923~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+创建 `application-dev.properties` 文件，并将 mysql 相关配置迁移过来 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/TlaIN7.png)
 
 **使用 dev 环境**
 
 在 `application-dev.properties` 指定要使用的环境
 
-```
+```properties
 spring.profiles.active=dev
 
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/585cee84397548a59d26c2b983ae6276~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/PKG3wR.png)
 
 > 同理你也可以创建 test、prod 环境，但一般公共配置还是会放在 application.properties 中，只有非公共配置才会放在各自的环境中
 
@@ -307,7 +307,7 @@ spring boot 多环境配置有两个缺点
 
 这个问题就可以通过配置 profile 解决，在pom的根节点下添加
 
-```
+```xml
 <profiles>
     <profile>
         <id>dev</id>
@@ -341,7 +341,7 @@ spring boot 多环境配置有两个缺点
 
 如果你用的是idea编辑器，添加好后，maven控件窗口应该会多出一个 Profiles,其中默认值就是上面配置的dev
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3cf399a73f4145daafafc2283786df2c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/XvL7nF.png)
 
 最小化的 profiles 已经配置好了，通过勾选上图中的Profiles，就可以快速切换 maven的 profile 环境。
 
@@ -355,21 +355,19 @@ Spring Profile 还得通过 手动修改`spring.profiles.active`的值来切环�
 
 ```
 spring.profiles.active=dev
-
 ```
 
 改成
 
 ```
 spring.profiles.active=@env@
-
 ```
 
 就将maven profile 与 Spring Profile 环境关联起来了
 
 当maven profile 将 环境切换成 test 时，在pom中定义的id为test的profile环境将被激活，在该环境下env的值是test，maven插件会将 @env@ 替换为 test，这样Spring Profile的环境也随之发生了改变。从上面可以看出，自定义的"变量"env的值还不能乱写，要与Spring Profile的环境相对应。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/056436935c884ec1a42a1516ece63f82~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/q13RBD.png)
 
 **总结**
 
@@ -382,7 +380,7 @@ spring.profiles.active=@env@
 
 解决这个问题需要在pom根节点下中配置 build 信息
 
-```
+```xml
 <build>
     <resources>
         <resource>
@@ -559,25 +557,21 @@ spring.profiles.active=@env@
 
 我是按照功能拆分项目的，但由于该项目本身不大，所以我简单的拆分为 **user 模块和 common 模块**
 
-在boot下创建两个新的模块 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81c309461c8948ef9467215bbc28c09a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+在boot下创建两个新的模块 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/jIfN1z.png)
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/261c0ea999b04afc969250c5562520f2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/991ac8c47c6e4c5981e209ec7b1c29cc~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc3bc4593dbb42f88a18c552965fc3a8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+子模块的pom ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/26QxUd.png)
 
-子模块的pom ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8abea00bdaaa482488ed9d01afeddfac~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+此时，父模块的pom内容也发生了改变，添加了如下三行 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/D8QTvR.png)
 
-此时，父模块的pom内容也发生了改变，添加了如下三行 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/489ee5050e1540098de852758c874f8d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+再来创建 common 模块，创建过程同上，我就不演示了,创建好之后，pom如下 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/9w9MDz.png)
 
-再来创建 common 模块，创建过程同上，我就不演示了,创建好之后，pom如下 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f931469d35c246568ed67a1e2a581da7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+整个项目结构如下 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/u6PtzJ.png)
 
-整个项目结构如下 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e7724ad2b2184b81b4ec41ccb0ee1166~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+下一步进行迁移工作，将原先 src 目录下面的内容迁移到对于的子模块中 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/cwvRoe.png)
 
-下一步进行迁移工作，将原先 src 目录下面的内容迁移到对于的子模块中 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe98b1f292254633b99020927f8d2925~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
-
-这里我放到 user 模块中，迁移过程中注意路径和命名规范，过程就不展示了，迁移之后，结构如下。 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/765a2acb0c8e4e6abb7da46e93dbe8bd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+这里我放到 user 模块中，迁移过程中注意路径和命名规范，过程就不展示了，迁移之后，结构如下。 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/tbuJkH.png)
 
 ## 多模块配置
 
@@ -586,21 +580,21 @@ spring.profiles.active=@env@
 - 公共、通用配置一定要配置在父pom中
 - 版本号由父 pom 统一管理
 
-如下图，蓝色背景的元素都会被子项目全部继承 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46e760c955de457b95ff48e8734ebe0e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+如下图，蓝色背景的元素都会被子项目全部继承 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/jsOsQG.png)
 
-由于目前，只有 user 模块用到了如下依赖项，而 common 模块不需要用到这些依赖，所以，将依赖复制到 user 模块下，后删掉依赖 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd2963678d054d22b12394d02a70a1f1~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+由于目前，只有 user 模块用到了如下依赖项，而 common 模块不需要用到这些依赖，所以，将依赖复制到 user 模块下，后删掉依赖 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/P84pRC.png)
 
-**build**中的配置目前也是只有 user 模块用到，也复制到 user 模块下，后删掉 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5435e515d2b44aababbca49c1010be3c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+**build**中的配置目前也是只有 user 模块用到，也复制到 user 模块下，后删掉 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/9Tnf3i.png)
 
-父项目已经配置完成了，接下来配置 user 模块，如下 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2351fd240787473fa4acb0babcb4580f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+父项目已经配置完成了，接下来配置 user 模块，如下 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/jIFFov.png)
 
 common 模块用到的时候在配置
 
 ## 多模块管理
 
-**多模块环境管理** 我们在父 pom 中配置了 maven 多环境，子模块会继承这些配置。之后，我们只需要在 maven 插件中切换环境，所有的子模块的 maven 环境都会被切换 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f88b6a0eba44951ae48935de84c6207~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+**多模块环境管理** 我们在父 pom 中配置了 maven 多环境，子模块会继承这些配置。之后，我们只需要在 maven 插件中切换环境，所有的子模块的 maven 环境都会被切换 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/14/pAe8jr.png)
 
-**多模块构建管理** 在 maven 插件中，通过 boot 项目对所以子模块进行、编译、测试、打包、清理... ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d49e53ae4ae44c51869e28623b51b430~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+**多模块构建管理** 在 maven 插件中，通过 boot 项目对所以子模块进行、编译、测试、打包、清理... ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/94zsV0.png)
 
 # 1.5.0 集成 mybatis
 
@@ -626,18 +620,17 @@ maven dependencyManagement 可以非常方便的管理多模块的依赖
 
 这里我就不在解释，直接应用了
 
-1. 在 **properties** 定义 mybatis-spring-boot-starter 版本号的变量
+1. 在父 pom 的根节点下, **properties** 里，定义mybatis-spring-boot-starter 版本号的变量
 
-   ```
+   ```xml
    <mybatis-spring-boot-starter.version>2.1.0</mybatis-spring-boot-starter.version>
-   
    ```
-
-   ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5dc3f5d99f00434fa7155f5a33c9dd86~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
-
+   
+   ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/dz72JN.png)
+   
 2. 在父 pom 的根节点下，**申明** mybatis 依赖
 
-   ```
+   ```xml
    <dependencyManagement>
        <dependencies>
            <dependency>
@@ -647,24 +640,22 @@ maven dependencyManagement 可以非常方便的管理多模块的依赖
            </dependency>
        </dependencies>
    </dependencyManagement>
-   
    ```
-
-   ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12d6847585ce4792b47961bdaa8f6af6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
-
+   
+   ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/ZKQezo.png)
+   
 3. 在 user 模块的 pom 文件中引入 mybatis 依赖
 
-   ```
+   ```xml
    <dependency>
        <groupId>org.mybatis.spring.boot</groupId>
        <artifactId>mybatis-spring-boot-starter</artifactId>
    </dependency>
-   
    ```
-
+   
 4. 由于 **mybatis-spring-boot-starter** 包含 **spring-boot-starter-jdbc** ，所以删除**spring-boot-starter-jdbc**依赖，保证依赖的整洁
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ea13788aaac74331b119cdafe19e9352~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/Udl9pr.png)
 
 ## 依赖结构图
 
@@ -674,7 +665,7 @@ maven dependencyManagement 可以非常方便的管理多模块的依赖
 
 如图
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a3ef4b41f8e42ec80f713f0de0c3800~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/dYdApC.png)
 
 **com.wqlm.boot**
 
@@ -698,15 +689,14 @@ mybatis 需要知道有那些类是 **mapper**！有两种方式可以告诉 myb
 
 在启动类上配置 **@MapperScan**
 
-```
+```java
 # 指定你的 mapper接口所在的 package
 @MapperScan("com.wqlm.boot.user.dao")
-
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6d55502ea0764fe0be3f2350f72b45e9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/SNZ4na.png)
 
-**第二种** 在接口上加 `@Mapper` 注解，如下 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78d1476fea764113aedaec9a3c918768~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+**第二种** 在接口上加 `@Mapper` 注解，如下 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/hWTvLA.png)
 
 > 要我选我肯定选第一种配置方式，一劳永逸
 
@@ -716,10 +706,9 @@ mybatis 需要知道有那些类是 **mapper**！有两种方式可以告诉 myb
 # mybatis
 # mapper.xml文件的位置
 mybatis.mapper-locations=classpath*:mapper/*.xml
-
 ```
 
-由于这里的配置跟环境无关,所以应该配置在 **application.properties** 中 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5f328cde1eff4915b2cbac0baf0a968c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+由于这里的配置跟环境无关,所以应该配置在 **application.properties** 中 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/93Lrt4.png)
 
 # 1.5.1 配置 MyBatis Generator
 
@@ -739,7 +728,7 @@ MyBatis Generator 是 MyBatis 提供的一个代码生成工具。可以帮我�
 
 在user项目的pom文件的根节点下添加如下配置
 
-```
+```xml
 <build>
     <plugins>
         <plugin>
@@ -770,17 +759,16 @@ MyBatis Generator 是 MyBatis 提供的一个代码生成工具。可以帮我�
             </dependencies>
         </plugin>
     </plugins>
-<build>    
-
+<build>
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f72ad5f395ec4177b874d25c4d37df4a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/3kZllK.png)
 
 ## 配置 MyBatis Generator Config 文件
 
-在在user项目的 **resources** 目录下，创建**mybatis-generator-config.xml**，内容如下
+在user项目的 **resources** 目录下，创建**mybatis-generator-config.xml**，内容如下
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--mybatis的代码生成器相关配置-->
 <!DOCTYPE generatorConfiguration
@@ -871,10 +859,9 @@ MyBatis Generator 是 MyBatis 提供的一个代码生成工具。可以帮我�
         </table>
     </context>
 </generatorConfiguration>
-
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f3f82557db6e4a48a305dd09f93727b4~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/CvMq6e.png)
 
 ### application-dev.properties 的配置
 
@@ -889,11 +876,11 @@ spring.datasource.password=123456
 
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43c69d3120b44ef289dbc1efa228efdf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/1ytj1a.png)
 
 ## 使用 MyBatis Generator 插件
 
-配置好后，双击 maven 中的 MyBatis Generator 运行 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8c7a4e30710344cb8f939b071fedb5e4~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+配置好后，双击 maven 中的 MyBatis Generator 运行 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/chQ2RK.png)
 
 # 1.5.2 集成 tk.mybatis (通用mapper)
 
@@ -910,9 +897,9 @@ springboot 集成 tk.mybatis (通用mapper) 一般需要3步
 
 ## 引入依赖
 
-老规矩，还是在父 pom 中配置 tk.mybatis 的版本并申明 tk.mybatis 的依赖 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2aeb2b75dfe546448320fe1dfc7c46a6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+老规矩，还是在父 pom 中配置 tk.mybatis 的版本并申明 tk.mybatis 的依赖 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/hhg631.png)
 
-```
+```xml
 <properties>
     <tk.mybatis.mapper-spring-boot-starter.version>2.1.5</tk.mybatis.mapper-spring-boot-starter.version>
 </properties>
@@ -933,7 +920,7 @@ springboot 集成 tk.mybatis (通用mapper) 一般需要3步
 
 然后在 user 模块的 pom 中引入依赖
 
-```
+```xml
 <dependencies>
     <!--tk.mybatis 通用mapper-->
     <dependency>
@@ -941,10 +928,9 @@ springboot 集成 tk.mybatis (通用mapper) 一般需要3步
         <artifactId>mapper-spring-boot-starter</artifactId>
     </dependency>
 </dependencies>
-
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d27ea172ba747e29cdc7b9676eda880~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/NPi4ZQ.png)
 
 ## 配置 tk.mybatis 的 MyBatis Generator 插件
 
@@ -957,74 +943,70 @@ tk.mybatis 为 MyBatis Generator 开发了一个插件，用于改变 MyBatis Ge
 
 ### 引入插件依赖
 
-在原来的 MyBatis Generator 插件的 **dependencies** 里面添加如下依赖 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8fca2326005047f5b7e5e4d80132b258~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+在原来的 MyBatis Generator 插件的 **dependencies** 里面添加如下依赖 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/oQ6vk7.png)
 
-```
+```xml
 <!--4.15 是目前最新的版本-->
 <dependency>
     <groupId>tk.mybatis</groupId>
     <artifactId>mapper</artifactId>
     <version>4.1.5</version>
 </dependency>
-
 ```
 
 ### 修改 MyBatis Generator Config
 
 主要有一下几点改动
 
-首先是 **targetRuntime** 的值改为 **MyBatis3Simple**，**defaultModelType** 设置为 **flat** ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/831bd748f5bc46899b77bd906ca1866f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+首先是 **targetRuntime** 的值改为 **MyBatis3Simple**，**defaultModelType** 设置为 **flat** ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/qS4fk6.png)
 
-如果 `targetRuntime="MyBatis3"` 的话，生成出来的 mapper.xml 会多出一段无用代码，如下 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2468cb27156247119bfb4cdb09f65873~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+如果 `targetRuntime="MyBatis3"` 的话，生成出来的 mapper.xml 会多出一段无用代码，如下 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/nXQ6Zw.png)
 
 然后添加 tk.mybatis 插件
 
-```
+```xml
 <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
     <!--dao 要继承的接口-->
     <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
     <!--是否区分大小写，默认false-->
     <property name="caseSensitive" value="true"/>
 </plugin>
-
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a3c3f4e72aae4b288c63319ba1c7a7e7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/grytMg.png)
 
 其他地方都不需要改动，配置好之后，运行 MyBatis Generator 插件，生成出来的文件如下
 
-**po** ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91a8042b8225421c989fe1f000bfeb09~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp) 可以看到，相比与 MyBatis Generator 生成的注释，tk.mybatis 生成的注解跟简洁易懂。除此之外，它还多了几个注解
+**po** ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/cXVeGj.png) 可以看到，相比与 MyBatis Generator 生成的注释，tk.mybatis 生成的注解跟简洁易懂。除此之外，它还多了几个注解
 
 - **@Table(name = "user")**：意思是该po对应数据库的user表
 - **@Id**：表示该属性对应user表的主键
 - **@Column(name = "user_name")**：表示该属性对应user表的 **user_name** 字段
 
-**dao** ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4417e101249d48058e876e1d430821a6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp) 相比于 MyBatis Generator 生成的代码，少了很多接口，但多继承了一个类，这个类就是你在 tk.mybatis 插件里面配置的类 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18a291ad402b425a83c4cbdc3062056a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp) 你可能猜到了，少的那些接口，都在继承的这个`tk.mybatis.mapper.common.Mapper`类中有，如下图，userMapper 继承了这么多方法，而且这些方法都是可以直接使用的 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/23db588546ca4ce6897f7da04b19d745~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+**dao** ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/HICidL.png) 相比于 MyBatis Generator 生成的代码，少了很多接口，但多继承了一个类，这个类就是你在 tk.mybatis 插件里面配置的类 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/7uYHxp.png) 你可能猜到了，少的那些接口，都在继承的这个`tk.mybatis.mapper.common.Mapper`类中有，如下图，userMapper 继承了这么多方法，而且这些方法都是可以直接使用的 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/OEiYUJ.png)
 
-**mapper.xml** ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/668ebea3b426459688f92b7653b7b5cf~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp) 相比于 MyBatis Generator 少了很多代码
+**mapper.xml** ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/RECl9n.png) 相比于 MyBatis Generator 少了很多代码
 
 ## 启动类上配置要扫描的 dao 路径
 
-这一步我们在集成 mybatis 时已经配置过了 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e65f69f01ea7496687a069a309033173~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+这一步我们在集成 mybatis 时已经配置过了 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/mcGpvt.png)
 
-但是集成 tk.mybatis 后，需要使用 tk.mybatis 包下的 `@MapperScan` ,因此需要修改一下 `@MapperScan` 的包路径 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8fc718173d3452a90180c7c8fa119aa~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+但是集成 tk.mybatis 后，需要使用 tk.mybatis 包下的 `@MapperScan` ,因此需要修改一下 `@MapperScan` 的包路径 ![img](/Users/xh/Library/Application Support/typora-user-images/image-20220315161228552.png)
 
-```
+```java
 import tk.mybatis.spring.annotation.MapperScan;
-
 ```
 
 ## 配置通用 Mapper
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6492443f60a74ae3a74d6f5fd518693b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/7cpwzb.png)
 
-```
+```yml
 # 通用 mapper
 # 主键自增回写方法,默认值MYSQL
 mapper.identity=MYSQL
 # 设置 insert 和 update 中，字符串类型!=""才插入/更新,默认false
 #mapper.not-empty=true
-
 ```
 
 tk.mybatis 至此就全部集成完了
@@ -1044,9 +1026,9 @@ tk.mybatis 至此就全部集成完了
 
 ## 引入 pagehelper 依赖
 
-老规矩，父pom中定义依赖版本，并申明依赖 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d8e2b9027f64bf0aececb71a875dcb7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+老规矩，父pom中定义依赖版本，并申明依赖 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/9zftKM.png)
 
-```
+```xml
 <properties>
     <pagehelper-spring-boot-starter.version>1.2.12</pagehelper-spring-boot-starter.version>
 </properties>
@@ -1063,9 +1045,9 @@ tk.mybatis 至此就全部集成完了
 
 ```
 
-子模块中引入依赖 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d2cf920c43384863b9e3936f5dcbe623~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+子模块中引入依赖 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/xFSjFs.png)
 
-```
+```xml
 <dependencies>
     <dependency>
         <groupId>com.github.pagehelper</groupId>
@@ -1077,9 +1059,9 @@ tk.mybatis 至此就全部集成完了
 
 ## 配置 pagehelper
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca62bb2b7b0e44bc9fab70a3cd92b659~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/WTq9z3.png)
 
-```
+```yml
 # 使用的sql方言
 pagehelper.helperDialect=mysql
 # 是否启用合理化，默认false，启用合理化时，如果 pageNum<1会查询第一页，如果pageNum>pages会查询最后一页
@@ -1087,7 +1069,6 @@ pagehelper.reasonable=true
 # 是否支持通过Mapper接口参数来传递分页参数，默认false
 #pagehelper.supportMethodsArguments=true
 pagehelper.params=count=countSql
-
 ```
 
 更多配置请参考[官网](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fpagehelper%2FMybatis-PageHelper%2Fblob%2Fmaster%2Fwikis%2Fzh%2FHowToUse.md)
@@ -1105,26 +1086,21 @@ lombok 使用方法参考这篇文章 [lombok 插件](https://juejin.cn/post/684
 
 ## 引入 lombok 依赖
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa134f2abc73462b958f899ec9a52b7c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/ZPPJwY.png)
 
 由于 `spring-boot-starter-parent` 中已经申明了lombok 依赖，我们只需要在子模块中引入就好了
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fcb29fbe5f4a4d8da39a3202605f0351~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/1QmJ99.png)
 
-```
+```xml
 <!--lombok-->
 <dependency>
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok</artifactId>
 </dependency>
-
 ```
 
 ## 安装 ide 对应的 lombok 插件
-
-我用的是 idea ，所以以idea为例
-
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b935739e2914058afa74ec1c71be74a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
 
 # 1.7.0 集成 redis
 
@@ -1161,49 +1137,47 @@ Spring Cache 是 Spring 为缓存场景提供的一套解决方案。通过使�
 
 ## 用户表
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61a4e8f922b74455ba86448448f0af39~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp) 建表语句在 **配置 mysql** 那一章
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/IDz7HH.png) 建表语句在 **配置 mysql** 那一章
 
 ## 添加 controller 、service 、dto
 
-先创建 controller 、service 、dto 目录 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d47b591850574690baf26e4072ab09bd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+先创建 controller 、service 、dto 目录 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/TPVPlm.png)
 
 先从注册接口开始写
 
-注意校验参数一定要加 `@Valid` 注解 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7ccd503a23814d3db7b8d55cbca11383~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+注意校验参数一定要加 `@Valid` 注解 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/o8oi7N.png)
 
-其中 `@Data` 用到了 lombok 插件 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97f89badb1cd4594b1abf45f8c3296f7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+其中 `@Data` 用到了 lombok 插件 ![r](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/hNzazO.png)
 
-数据库存的是密码加盐后的hash，也就是说就连我们自己也看不到用户的密码 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/096e0f86347c43808da882a0821be054~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+数据库存的是密码加盐后的hash，也就是说就连我们自己也看不到用户的密码 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/YRibiI.png)
 
 # 1.8.1 自定义全局状态码和业务结果类
 
 虽然向上面这样直接返回 `注册成功`、`注册失败` 也没有什么问题，但却不太优雅，因为其他接口返回的可能不是简单的字符串。
 
-我们其实可以自定义一个业务结果类，所以的接口，都返回该业务结果对象，这个业务结果类，除了有业务结果外，还有业务执行状态、业务消息等。
+我们其实可以自定义一个业务结果类，所有的接口，都返回该业务结果对象，这个业务结果类，除了有业务结果外，还有业务执行状态、业务消息等。
 
 除了业务结果类，我还建议创建全局状态码类，就想蚂蚁金服的api接口一样，调用失败会返回一个状态码，方便错误排查
 
 ## 自定义全局状态码
 
-新建 enums 目录 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7fb8ce4af04f4bf0b458fec4b212eacc~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+新建 enums 目录 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/JgReQh.png)
 
-创建 ApplicationEnum 全局状态码类，我这里只写了几个，之后可以往里面加 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a444154ead1c4b74946dccea2e777560~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+创建 ApplicationEnum 全局状态码类，我这里只写了几个，之后可以往里面加 ![m](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/Nn0608.png)
 
 ## 创建业务结果类
 
-如下，在 vo 目录下下创建 result 目录，并在里面创建业务结果类 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7faf67f7466c4c948220c9b69f6e4588~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+如下，在 vo 目录下下创建 result 目录，并在里面创建业务结果类 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/3TxTv0.png)
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c46474f1eb9843f9876ee774fa721193~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/5v8woV.png)
 
-为了方便使用，再创建一个 SuccessResult 和一个 FailResult ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5de1b9231c1e4ea7839581ce56750b91~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
-
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c2f496b9a8b4751b7c759d6709890d6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+为了方便使用，再创建一个 SuccessResult 和一个 FailResult ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/03FPuP.png)
 
 ## 改造注册接口
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b491253f8a9e4d1ca6d2821d5577e4de~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/YTSNwJ.png)
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/32bdeeeb82df4d4b90c8dfd7b0dc8303~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/eDPqi0.png)
 
 # 1.8.2 统一异常处理
 
@@ -1217,27 +1191,27 @@ Spring Cache 是 Spring 为缓存场景提供的一套解决方案。通过使�
 
 ## 自定义异常类
 
-每一种异常都对于一种ApplicationEnum ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e70902848c174399ba3dbf8fd96b9e3b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+每一种异常都对于一种ApplicationEnum ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/VtXi3s.png)
 
 ## 自定义异常处理类
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2403a153b16f41a685a5cb6cfa705a43~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/CJU0iG.png)
 
 如果一个异常能匹配多个 @ExceptionHandler 时，选择匹配深度最小的Exception(即最匹配的Exception)
 
 ## 使用自定义异常
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac30c98615a84a12967336cd826c7857~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/CN6vw7.png)
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa490c58276c42ca94768eff409eab5d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/xuPmYc.png)
 
 # 1.8.3 参数校验及异常处理
 
 ## 参数校验
 
-首先在要校验的对象前加上 `@valid` 注解 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/56c3a4492b364e2e9efe503c3d629c03~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+首先在要校验的对象前加上 `@valid` 注解 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/CqdFZW.png)
 
-然后在要校验的对象中使用适当的注解 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19885a85b8be42c7b3e6bd00f17347b3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+然后在要校验的对象中使用适当的注解 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/jsepFp.png)
 
 详细内容请参考
 
@@ -1246,15 +1220,15 @@ Spring Cache 是 Spring 为缓存场景提供的一套解决方案。通过使�
 
 ## 异常处理
 
-如果参数绑定不成功或者校验不通过，就会抛出异常！但是默认抛出的异常包含很多敏感信息，如下： ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/684975ea0b154c07929f5bfd38f6029f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp) 因此我们应该对常见的异常进行捕获后再封装。
+如果参数绑定不成功或者校验不通过，就会抛出异常！但是默认抛出的异常包含很多敏感信息，如下： ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/bng0MW.png) 因此我们应该对常见的异常进行捕获后再封装。
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5bc05caa7634401c971a87a657b4e6d8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/lJAMTX.png)
 
 ```
 extends ResponseEntityExceptionHandler` 是为了重写几个常见异常的默认处理方式。当然，你也可以直接通过 `@ExceptionHandler()` 拦截，这样就不用`extends ResponseEntityExceptionHandler
 ```
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30980ec4c5f44c49931eae5ae8d7daf2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp) 一般只需要处理这三个异常就可以覆盖大部分需要手动处理参数异常的场景
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/RJAMIb.png) 一般只需要处理这三个异常就可以覆盖大部分需要手动处理参数异常的场景
 
 - org.springframework.validation.BindException
 - org.springframework.web.bind.MethodArgumentNotValidException
@@ -1266,7 +1240,7 @@ extends ResponseEntityExceptionHandler` 是为了重写几个常见异常的默�
 
 # 1.8.4 添加登陆、修改密码、获取用户信息的接口
 
-主要是些业务逻辑，没有什么指的说的，具体代码参考项目源码！唯一指的提一嘴的是 使用 `@Value("${}")` 注解获取配置文件中的属性 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68f70a0f8a944d89b55298a7756792a2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp) ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb6e1e8b7aad4f2481c65c0625fc85ee~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+主要是些业务逻辑，没有什么指的说的，具体代码参考项目源码！唯一指的提一嘴的是 使用 `@Value("${}")` 注解获取配置文件中的属性 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/e0WpMK.png)
 
 # 1.8.5 添加认证拦截器
 
@@ -1278,19 +1252,19 @@ extends ResponseEntityExceptionHandler` 是为了重写几个常见异常的默�
 - 自定义 `HandlerInterceptor` , 在访问接口前进行拦截处理
 - 自定义 `WebMvcConfigurer` ，定义哪些接口需要拦截
 
-1.确定免认证url ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5a7db56697fe4988abbe5326afcf9cb0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+1.确定免认证url ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/Lvbex2.png)
 
-2.自定义 `HandlerInterceptor` ，对拦截到的请求进行token有效性校验 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3fb6a645c8b14c9ead98c56f18badfe4~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+2.自定义 `HandlerInterceptor` ，对拦截到的请求进行token有效性校验 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/pKIykI.png)
 
-3.自定义 `WebMvcConfigurer` ，拦截除免认证url列表之外的所有请求 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/45b9aa8bb09e4ae38aa1af440afee777~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+3.自定义 `WebMvcConfigurer` ，拦截除免认证url列表之外的所有请求 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/zPTm1U.png)
 
 # 1.8.6 统一映射自定义配置
 
-之前我们都是哪里需要用到 `properties` 中的配置，就在那里使用 `@Value("${}")` 来获取。如下 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8793d77e92d14d5999b0f72033d22942~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+之前我们都是哪里需要用到 `properties` 中的配置，就在那里使用 `@Value("${}")` 来获取。如下 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/BgYKIV.png)
 
-我们也可以创建一个自定义配置类，将所有 `properties` 中的自定义属性全部映射到对应的属性上，如下 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65b9a532adc34d6ebe880f1d166d8a9f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+我们也可以创建一个自定义配置类，将所有 `properties` 中的自定义属性全部映射到对应的属性上，如下 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/ZxDYtO.png)
 
-然后使用时，直接访问该类 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/17e6f7fe628a4b25a3d01804fcc2464e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp) ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a48b4f8711054d129434ec5593d13a13~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+然后使用时，直接访问该类 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/HcRk8e.png) 
 
 # 1.9.0 配置日志
 
@@ -1307,24 +1281,22 @@ spring boot 已经对日志系统进行了默认的配置，但是如果你想�
 
 在 `application.properties` 中配置
 
-```
+```yml
 # dao(com.wqlm.boot.user.dao) 层设置成 debug 级别以显示sql
 logging.level.com.wqlm.boot.user.dao=debug
-
 ```
 
 ## 输出日志到文件
 
 在 `application.properties` 中配置
 
-```
+```yml
 # 当前活动的日志文件名
 logging.file.name=logs/user/user.log
 # 最多保留多少天的日志
 logging.file.max-history=30
 # 单个日志文件最大容量
 logging.file.max-size=10MB
-
 ```
 
 ## 精细化配置
@@ -1428,4 +1400,4 @@ spring boot 使用 `logback` 作为日志实现框架，spring boot 推荐使用
 
 ```
 
-相对路径的位置 ![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f3135ca16dfa4a5c9448485fc7da0adb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+相对路径的位置 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/15/3OpOlj.png)
