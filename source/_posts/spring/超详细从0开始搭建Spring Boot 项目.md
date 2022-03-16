@@ -12,7 +12,7 @@ date: 2022-03-14 17:11:00
 
 # 源码
 
-[Github](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fwqlm%2Fboot)
+[Github](https://github.com/wqlm/boot)
 
 # 1.0.0 创建项目
 
