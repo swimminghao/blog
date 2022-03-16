@@ -4,7 +4,7 @@ tags:
   - 键盘
 categories: 设备
 abbrlink: 30ffdeaa
-date: 2022-03-14 13:57:47![img.png](img.png)
+date: 2022-03-14 13:57:47
 ---
 # xkeysnail for ubuntu 键盘映射
 
