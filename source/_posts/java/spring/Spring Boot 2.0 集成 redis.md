@@ -16,7 +16,7 @@ date: 2022-03-16 10:05:00
 
 Jedis 在实现上是直接连接的 **redis server**，如果在多线程环境下是非线程安全的，这个时候只有使用连接池，为每个 Jedis 实例增加物理连接。
 
-Lettuce 的连接是基于 Netty 的，连接实例 (StatefulRedisConnection) 可以在多个线程间并发访问，应为 StatefulRedisConnection 是线程安全的，所以一个连接实例  (StatefulRedisConnection) 就可以满足多线程环境下的并发访问，当然这个也是可伸缩的设计，一个连接实例不够的情况也可以按需增加连接实例。 　　　　　　　
+Lettuce 的连接是基于 Netty 的，连接实例 (StatefulRedisConnection) 可以在多个线程间并发访问，因为 StatefulRedisConnection 是线程安全的，所以一个连接实例  (StatefulRedisConnection) 就可以满足多线程环境下的并发访问，当然这个也是可伸缩的设计，一个连接实例不够的情况也可以按需增加连接实例。 　　　　　　　
 
 ## Spring Boot 2.0 集成 redis
 
@@ -29,7 +29,7 @@ Lettuce 的连接是基于 Netty 的，连接实例 (StatefulRedisConnection) �
 
 ### 引入依赖
 
-```
+```xml
 <!--redis-->
 <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -43,9 +43,15 @@ Lettuce 的连接是基于 Netty 的，连接实例 (StatefulRedisConnection) �
 </dependency>
 
 <!--jackson-->
+<!--<dependency>-->
+<!--    <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--    <artifactId>jackson-databind</artifactId>-->
+<!--</dependency>-->
+
 <dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.67</version>
 </dependency>
 ```
 
@@ -109,7 +115,7 @@ RedisTemplate 是 spring 为我们提供的 redis 操作类，通过它我们可
 
 如下，创建一个 config 类，在里面配置 自定义的 **RedisTemplate**
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c4cb85b38dc8478789d2b4048ee5c60f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![image.png](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/16/AYJSRD.png)
 
 ```java
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -204,7 +210,7 @@ Spring Cache 会为我们配置默认的**缓存管理器**和**key生成器**�
 
 ### 配置 Spring Cache
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c863c0d4d8434183836756d1390021f4~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/16/2hX29r.png)
 
 ```
 ## spring cache 配置
@@ -219,7 +225,7 @@ cache.expireTime=60
 
 ### 配置缓存管理器和 key 生成器
 
-![img](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4617d1ccb76f47e08bf1883b6b61a7a3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/16/FiVfuP.png)
 
 ```
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
