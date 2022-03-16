@@ -1,13 +1,14 @@
 ---
-title: Spring SchedulingConfigurer 实现动态定时任务
+title: Spring SchedulingConfigurer实现动态定时任务(修改)
 tags:
   - java
 categories: 技术
-abbrlink: e4d53ddb
+abbrlink: 37dbe3a4
 date: 2022-02-28 19:57:47
 ---
 
 # Spring SchedulingConfigurer 实现动态定时任务
+
 
 一、前言
 大家在日常工作中，一定使用过 Spring 的 @Scheduled 注解吧，通过该注解可以非常方便的帮助我们实现任务的定时执行。
@@ -460,8 +461,3 @@ import java.util.concurrent.locks.LockSupport;
 基于数据库/配置文件/配置中心，实现对服务中定时任务的动态频率调整和任务的启停。
 开发一个数据表历史数据清理功能，能够动态配置要清理的表、清理的规则、清理的周期。
 开发一个数据表异常数据告警功能，能够动态配置要扫描的表、告警的规则、扫描的周期。
-
-作者: Jitwxs
-链接: https://jitwxs.cn/e4d53ddb
-来源: Jitwxs
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
