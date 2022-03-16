@@ -1,0 +1,694 @@
+---
+title: 常用工具.html
+tags:
+  - 编程
+  - 感悟
+categories: 技术
+abbrlink: 625ce9d3
+date: 2022-02-28 19:57:47
+---
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>tool</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+
+
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold'), url('file:///C://Users//Shanzhen//AppData//Roaming//Typora/themes/vue/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdu.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}@import '';
+
+:root {
+    --side-bar-bg-color: #fff;
+    --control-text-color: #777;
+    --font-sans-serif: 'Ubuntu', 'Source Sans Pro', sans-serif !important;
+    --font-monospace: 'Fira Code', 'Roboto Mono', monospace !important;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans-serif);
+    color: #34495e;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6rem;
+    letter-spacing: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+#write {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 20px 30px 100px;
+}
+
+#write p {
+    line-height: 1.6rem;
+    word-spacing: .05rem;
+}
+
+#write ol li {
+    padding-left: 0.5rem;
+}
+
+#write > ul:first-child,
+#write > ol:first-child {
+    margin-top: 30px;
+}
+
+body > *:first-child {
+    margin-top: 0 !important;
+}
+
+body > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+a {
+    color: #42b983;
+    font-weight: 600;
+    padding: 0 2px;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+
+h1 tt,
+h1 code {
+    font-size: inherit !important;
+}
+
+h2 tt,
+h2 code {
+    font-size: inherit !important;
+}
+
+h3 tt,
+h3 code {
+    font-size: inherit !important;
+}
+
+h4 tt,
+h4 code {
+    font-size: inherit !important;
+}
+
+h5 tt,
+h5 code {
+    font-size: inherit !important;
+}
+
+h6 tt,
+h6 code {
+    font-size: inherit !important;
+}
+
+h2 a,
+h3 a {
+    color: #34495e;
+}
+
+h1 {
+    padding-bottom: .4rem;
+    font-size: 2.2rem;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 1.75rem;
+    line-height: 1.225;
+    margin: 35px 0 15px;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #ddd;
+}
+
+h3 {
+    font-size: 1.4rem;
+    line-height: 1.43;
+    margin: 20px 0 7px;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: 1rem;
+    color: #777;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+
+li > ol,
+li > ul {
+    margin: 0 0;
+}
+
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+body > h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body > h1:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body > h3:first-child,
+body > h4:first-child,
+body > h5:first-child,
+body > h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+a:first-child h1,
+a:first-child h2,
+a:first-child h3,
+a:first-child h4,
+a:first-child h5,
+a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+h1 p,
+h2 p,
+h3 p,
+h4 p,
+h5 p,
+h6 p {
+    margin-top: 0;
+}
+
+li p.first {
+    display: inline-block;
+}
+
+ul,
+ol {
+    padding-left: 30px;
+}
+
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+
+blockquote {
+    border-left: 4px solid #42b983;
+    padding: 10px 15px;
+    color: #777;
+    background-color: rgba(66, 185, 131, .1);
+}
+
+table {
+    padding: 0;
+    word-break: initial;
+}
+
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+
+table tr:nth-child(2n),
+thead {
+    background-color: #fafafa;
+}
+
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table tr td {
+    border: 1px solid #dfe2e5;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+#write strong {
+    padding: 0 1px;
+}
+
+#write em {
+    padding: 0 5px 0 2px;
+}
+
+#write table thead th {
+    background-color: #f2f2f2;
+}
+
+#write .CodeMirror-gutters {
+    border-right: none;
+}
+
+#write .md-fences {
+    border: 1px solid #F4F4F4;
+    -webkit-font-smoothing: initial;
+    margin: 0.8rem 0 !important;
+    padding: 0.3rem 0 !important;
+    line-height: 1.43rem;
+    background-color: #F8F8F8 !important;
+    border-radius: 2px;
+    font-family: var(--font-monospace);
+    font-size: 0.85rem;
+    word-wrap: normal;
+}
+
+#write .CodeMirror-wrap .CodeMirror-code pre {
+    padding-left: 12px;
+}
+
+#write code, tt {
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-family: var(--font-monospace);
+    font-size: 0.92rem;
+    color: #e96900;
+    background-color: #f8f8f8;
+}
+
+tt {
+    margin: 0 2px;
+}
+
+#write .md-footnote {
+    background-color: #f8f8f8;
+    color: #e96900;
+}
+
+/* heighlight. */
+#write mark {
+    background-color: #EBFFEB;
+    border-radius: 2px;
+    padding: 2px 4px;
+    margin: 0 2px;
+    color: #222;
+    font-weight: 500;
+}
+
+#write del {
+    padding: 1px 2px;
+}
+
+.cm-s-inner .cm-link,
+.cm-s-inner.cm-link {
+    color: #22a2c9;
+}
+
+.cm-s-inner .cm-string {
+    color: #22a2c9;
+}
+
+.md-task-list-item > input {
+    margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+    background-color: #f8f8f8;
+}
+
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block > .code-tooltip {
+    bottom: .375rem;
+}
+
+#write > h3.md-focus:before {
+    left: -1.5625rem;
+    top: .375rem;
+}
+
+#write > h4.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write > h5.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write > h6.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+.md-image > .md-meta {
+    border-radius: 3px;
+    font-family: var(--font-monospace);
+    padding: 2px 0 0 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: inherit;
+}
+
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#md-notification:before {
+    top: 10px;
+}
+
+/** focus mode */
+
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header,
+.context-menu,
+.megamenu-content,
+footer {
+    font-family: var(--font-sans-serif);
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+
+
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><h2><a name="软件推荐" class="md-header-anchor"></a><span>软件推荐</span></h2><blockquote><h3><a name="文本编辑软件" class="md-header-anchor"></a><span>文本编辑软件</span></h3></blockquote><ul><li><h4><a name="vscode" class="md-header-anchor"></a><span>vscode</span></h4><ul><li><span>性能较好，资源占用较低，功能强大，社区活跃，性能稳定，插件丰富</span></li></ul></li><li><h4><a name="notepad" class="md-header-anchor"></a><span>notepad++</span></h4><ul><li><span>推荐插件JSTool</span></li><li><span>性能较差，文本行数多时，操作可能会崩溃</span></li></ul></li><li><p><strong><span>Emedit</span></strong></p><ul><li><span>速度快，多文件查找， 正则处理， 各种字符编码转换。</span></li><li><span>大文件处理性能好</span></li></ul></li></ul><blockquote><h3><a name="utools-效率提升工具" class="md-header-anchor"></a><span>utools-效率提升工具</span></h3></blockquote><ul><li><p><span>-- 书签</span></p><ul><li><span>快捷书签打开，支持拼音、url、书签名搜索</span></li><li><span>书签很多的时候很好用</span></li></ul></li><li><p><span>-- jetbrains</span></p><ul><li><span>快捷打开jetbrain的项目</span></li></ul></li><li><p><span>-- find</span></p><ul><li><span>内嵌everything</span></li><li><span>搜索速度很快</span></li></ul></li><li><p><span>-- 网页快开</span></p><ul><li><span>快捷打开某些常用的搜索软件，拼接了查询query，如果百度、google、stackoverflow等</span></li></ul></li><li><p><span>-- 剪切板</span></p><ul><li><span>历史的剪切板内容</span></li></ul></li></ul><blockquote><h3><a name="drawiohttpsappdiagramsnet--流程图绘制" class="md-header-anchor"></a><a href='https://app.diagrams.net/'><span>draw.io</span></a><span>--流程图绘制</span></h3></blockquote><p><span>开源、功能强大、社区活跃。</span></p><p><span>丰富的客户端支持，在线、win、mac</span></p><p><span>支持多种存储方式：云存储、本地、浏览器…</span></p><p><span>备选：processon、visio</span></p><blockquote><h3><a name="blogdocumentnote" class="md-header-anchor"></a><span>blog&amp;document&amp;note</span></h3></blockquote><ul><li><p><span>笔记工具</span></p><ul><li><span>Typora（markdown）</span></li><li><span>onenote</span></li></ul></li><li><p><span>博客系统</span></p><ul><li><a href='https://www.gitbook.com/' target='_blank' class='url'>https://www.gitbook.com/</a></li><li><span>csdn</span></li></ul></li><li><p><span>自建博客</span></p><ul><li><span>halo</span></li><li><em><span>WordPress</span></em></li></ul></li></ul><blockquote><h3><a name="科学上网" class="md-header-anchor"></a><span>科学上网</span></h3></blockquote><h5><a name="sockboomhttpssockboomart" class="md-header-anchor"></a><a href='https://sockboom.art/'><span>sockboom</span></a></h5><p><a href='https://sakura.cat/auth/login'><span>樱猫</span></a></p><blockquote><h3><a name="ftp" class="md-header-anchor"></a><span>ftp</span></h3></blockquote><ul><li><p><span>FileZillaClient</span></p></li><li><p><span>FileZillaServer</span></p><ul><li><span>搭建个人ftp使用，局域网内共享大文件使用</span></li></ul></li></ul><blockquote><h3><a name="redis" class="md-header-anchor"></a><span>redis</span></h3></blockquote><ul><li><p><span>Redis DeskTop</span></p><ul><li><span>redis管理终端，使用简单</span></li></ul></li></ul><blockquote><h3><a name="sql" class="md-header-anchor"></a><span>sql</span></h3></blockquote><ul><li><p><span>navicat/dataGrip/sqlyog</span></p><ul><li><span>常用的sql客户端，常用navicat，支持多种数据库如mongo</span></li></ul></li><li><p><span>PDMan</span></p><ul><li><span>可以建立表之间的逻辑关联关系</span></li><li><span>支持导出建表语句</span></li></ul></li></ul><blockquote><h3><a name="terminal" class="md-header-anchor"></a><span>terminal</span></h3></blockquote><ul><li><p><span>mobaxterm</span></p><ul><li><span>免费</span></li><li><span>直接建立Sftp，方便文件管理</span></li><li><span>性能稍差</span></li></ul></li><li><p><span>xhsell</span></p><ul><li><span>收费，免费版限制较多，限制终端开启数量</span></li></ul></li><li><p><span>Cmder/GitBash</span></p><ul><li><span>windows端的终端</span></li><li><span>直接一些bash指令，模拟linux操作win，比如tail、less等等，比win cmd及powershell稍微好用些</span></li></ul></li></ul><blockquote><h3><a name="onedrive--office" class="md-header-anchor"></a><span>onedrive + office</span></h3></blockquote><ul><li><span>家庭版共享性价比很高，1T云存储</span></li></ul><p>&nbsp;</p><h2><a name="开发办公" class="md-header-anchor"></a><span>开发办公</span></h2><blockquote><h3><a name="idea" class="md-header-anchor"></a><span>idea</span></h3></blockquote><ul><li><h5><a name="破解和注册" class="md-header-anchor"></a><span>破解和注册</span></h5><ul><li><h5><a name="教育邮箱免费注册专业版本jetbrain全家桶）" class="md-header-anchor"></a><span>教育邮箱，免费注册专业版本（jetbrain全家桶）</span></h5></li><li><h5><a name="读书成诗公众号破解补丁" class="md-header-anchor"></a><span>读书成诗公众号，破解补丁</span></h5></li></ul></li><li><h5><a name="插件推荐" class="md-header-anchor"></a><span>插件推荐</span></h5><ul><li><h5><a name="1easycode" class="md-header-anchor"></a><code>1、easycode</code></h5><ul><li><h5><a name="sqlmap模板代码生成插件模板自定义语法较为简单上手容易" class="md-header-anchor"></a><span>sqlmap模板代码生成插件，模板自定义，语法较为简单，上手容易</span></h5></li></ul></li><li><p><code>2、easyyapi</code></p><ul><li><span>接口文档生成插件</span></li><li><span>支持http、dubbo接口</span></li><li><span>可导出至yapi、postman、本地markdown</span></li></ul></li><li><p><code>3、 camelcase</code></p><ul><li><span>大小写转换工具，驼峰、下划线等多种类型切换</span></li><li><span>常用于从数据库中复制的字段转换成驼峰</span></li></ul></li><li><p><code>4、alibaba cloud toolkit</code></p><ul><li><span>远程部署</span></li><li><span>一般本地测试直接部署到本地tomcat，开发环境联调需要部署，可以使用该功能</span></li></ul></li><li><p><code>5、codeglance</code><span> </span></p><ul><li><span>代码概览，类似vscode的右边导览，在文件较长时（看源码）时浏览方便</span></li></ul></li></ul></li><li><h5><a name="常用快捷操作和命令" class="md-header-anchor"></a><span>常用快捷操作和命令</span></h5><ul><li><p><code>1、文本操作</code><span> （常用于数据清洗，批量操作数据或是批量修改代码）</span></p><ul><li><span>扩大/减小选取，ctrl alt up/down</span></li><li><span>多光标，alt shift leftmouse</span></li><li><span>选区转光标，alt shift insert</span></li><li><span>正则替换</span></li></ul></li><li><p><code>2、重构操作</code></p><ul><li><span>change singature 修改方法签名：alt shift c</span></li><li><span>重命名变量/方法：alt shift r</span></li></ul></li></ul></li><li><h5><a name="debug" class="md-header-anchor"></a><span>debug </span></h5><ul><li><p><span>evaluate</span></p></li><li><p><span>watch</span></p></li><li><p><span>remote debug</span></p><ul><li><span>远程连接服务器debug，可以用于开发环境debug使用</span></li></ul></li></ul></li></ul><blockquote><h3><a name="飞书" class="md-header-anchor"></a><span>飞书</span></h3></blockquote><ul><li><p><span>infobot</span></p><ul><li><span>消息推送，webhook直接推送，使用简单</span></li></ul></li><li><p><span>捷径</span></p><ul><li><span>配合infobot可以实现一些个人的快捷功能</span></li></ul></li></ul><blockquote><h3><a name="远程桌面" class="md-header-anchor"></a><span>远程桌面</span></h3></blockquote><ul><li><p><span>teamview</span></p><ul><li><span>免费，一旦检测到商业使用，会限制连接时长，基本无法继续使用</span></li><li><span>稳定，基于P2P或teamview服务器连接</span></li></ul></li><li><p><span>向日葵</span></p><ul><li><span>免费、不会商业检测限制</span></li></ul></li><li><p><span>remotedesktop</span></p><ul><li><span>支持多平台客户端</span></li><li><span>配合vpn或是nat使用效果很好，连接质量比teamview高，基本可以达到与使用本机相同的体验</span></li><li><span>使用nat时，一定要做好安全控制</span></li></ul></li></ul><p>&nbsp;</p><h2><a name="常用站点" class="md-header-anchor"></a><span>常用站点</span></h2><blockquote><h4><a name="内部" class="md-header-anchor"></a><span>内部</span></h4></blockquote><ul><li><p><a href='http://47.97.67.85:3000/group/87'><span>yapi</span></a></p><ul><li><span>接口文档共享</span></li></ul></li><li><p><a href='http://118.178.190.205/zabbix/zabbix.php?action=dashboard.view'><span>zabbix</span></a></p><ul><li><span>生产服务器运行监控，服务器的cpu、内存、tomcat gc等查看</span></li><li><span>可以查看消息队列的消息长度，用于判断生产消息队列的消费者消费能力</span></li></ul></li><li><p><a href='http://114.55.248.113/login?next=%2F#?_g=()'><span>kibana</span></a></p><ul><li><span>日志检索平台</span></li><li><span>多台服务器部署的应用，日志查询</span></li></ul></li><li><p><a href='http://118.178.137.55:8081/nexus/content/repositories/releases/'><span>nexus</span></a></p><ul><li><span>maven仓库管理</span></li><li><span>可以查询公司目前已有的jar包，常用于内部jar包版本问题排查</span></li></ul></li><li><p><a href='http://118.178.190.205:3000/group/deploy'><span>rocketchat</span></a></p></li><li><p><a href='http://114.55.248.113:8202/main'><span>pinpoint</span></a></p><ul><li><span>APM监控工具</span></li><li><span>慢sql排查，服务性能问题排查，服务调用监控</span></li></ul></li><li><p><a href='http://118.31.104.127:8070/'><span>apollo配置中心</span></a></p><ul><li><span>分布式配置中心</span></li><li><span>一般用于配置信息查询</span></li></ul></li><li><p><a href='http://106.15.251.60:8071/#/service?filter=%2a&amp;pattern=service'><span>dubbo admin</span></a></p><ul><li><span>查看dubbo服务的注册与订阅信息</span></li><li><span>查询对应zk上已经注册的服务</span></li><li><span>服务治理、统计查询、服务mock</span></li></ul></li><li><p><a href='http://47.100.94.134:15672/'><span>rabbitMQ</span></a></p><ul><li><span>rabbitmq管理页面</span></li><li><span>可以操作队列、查询队列消息长度，消息内容，手动发送消息等</span></li></ul></li><li><p><a href='http://47.100.94.134:9000/'><span>jenkins</span></a></p><ul><li><span>部署记录、日志查看；部署操作（dev、fat）</span></li></ul></li><li><p><a href='http://nbs.wayyue.com/mysql-backup-delay.html'><span>备库延迟检测</span></a></p><ul><li><span>生产备库延迟检测</span></li><li><span>有时候更新了生产数据，但发现没有变化，此时可以看一下备库延迟</span></li></ul></li><li><p><a href='https://dataquery.shanzhen.me/login'><span>dataquery</span></a></p><ul><li><span>数据查询平台，需要找俊博注册开通，查询生产备库数据</span></li></ul></li></ul><blockquote><h4><a name="其他站点" class="md-header-anchor"></a><span>其他站点</span></h4></blockquote><ul><li><p><span>正则</span></p><ul><li><p><a href='https://regex101.com/'><span>在线测试</span></a></p><ul><li><span>语法解释，匹配展示，其他语法推荐等等</span></li></ul></li></ul></li><li><p><a href='https://www.regular-expressions.info/'><span>语法介绍</span></a></p><ul><li><span>正则教程，特殊语法、不同语言版本的正则实现</span></li></ul></li><li><p><a href='https://mvnrepository.com/'><span>maven</span></a></p><ul><li><span>maven中央仓库，java开发必备</span></li></ul></li><li><p><a href='https://www.codota.com/code'><span>codota</span></a></p><ul><li><span>相似代码搜索</span></li></ul></li><li><p><span>数据结构演示</span></p><ul><li><a href='http://ds.fmdca380.com/' target='_blank' class='url'>http://ds.fmdca380.com/</a></li><li><a href='https://www.cs.usfca.edu/~galles/visualization/Algorithms.html' target='_blank' class='url'>https://www.cs.usfca.edu/~galles/visualization/Algorithms.html</a></li></ul></li><li><p><span>算法题目</span></p><ul><li><p><a href='https://leetcode-cn.com/problemset/all/'><span>leetcode</span></a></p><ul><li><span>中文社区，题目多</span></li><li><a href='https://leetcode-cn.com/contest/'><span>每周末周赛</span></a><span>，每日一题</span></li></ul></li><li><p><a href='https://app.codility.com/programmers/lessons/1-iterations/'><span>codility</span></a></p><ul><li><span>复杂度分析</span></li><li><span>题目较少</span></li></ul></li></ul></li></ul></div>
+</body>
+</html>

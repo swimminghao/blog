@@ -5,6 +5,7 @@ tags:
   - 感悟
 categories: 技术
 abbrlink: 2df4ba17
+top: 1
 date: 2022-02-28 19:57:47
 ---
 # 一个函数秒杀 2Sum 3Sum 4Sum 问题

@@ -50,6 +50,13 @@
         </{% if is_index %}h2{% else %}h1{% endif %}>
 
         <div class="post-meta-container">
+
+          {% if post.top %}
+              <i class="fa fa-thumb-tack"></i>
+              <font color=7D26CD>置顶</font>
+              <span class="post-meta-divider">|</span>
+          {% endif %}
+
           {{ partial('_partials/post/post-meta.njk') }}
 
           {%- if post.description and (not theme.excerpt_description or not is_index) %}
@@ -162,7 +169,7 @@
       {%- endif %}
     </footer>
   </article>
-</div>
+</div>l
 {######################}
 {### END POST BLOCK ###}
 {######################}
