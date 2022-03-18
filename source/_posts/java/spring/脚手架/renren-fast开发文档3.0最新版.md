@@ -1,9 +1,10 @@
 ---
 title: renren-fast开发文档3.0最新版
 tags:
-   - SpringBoot
-   - 脚手架
+  - SpringBoot
+  - 脚手架
 categories: 技术
+abbrlink: e76dbe41
 date: 2022-03-18 17:23:00
 ---
 
