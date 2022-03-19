@@ -916,8 +916,7 @@ public class UserController {
 }
 ```
 
-以上代码没有指定请求必须是GET方法还是PUT/POST或其他方法，@RequestMapping注解默认会映射所有 的HTTP请求方法。如果仅想接收某种请求方法，请在注解中指定之@RequestMapping(path = "/user"
-, method = RequestMethod.GET)以缩小范围。
+以上代码没有指定请求必须是GET方法还是PUT/POST或其他方法，@RequestMapping注解默认会映射所有 的HTTP请求方法。如果仅想接收某种请求方法，请在注解中指定之@RequestMapping(path = "/user", method = RequestMethod.GET)以缩小范围。
 
 ### 4.1.3 @PathVariable 注解
 
@@ -936,13 +935,11 @@ URI模板"/user/{userId}"指定了一个变量名为userId。当控制器处理�
 
 ### 4.1.4 @GetMapping 注解
 
-@GetMapping是一个组合注解，是@RequestMapping(method = RequestMethod.GET)的缩写。该注解将HTTP GET映射到特定的处理方法上。可以使用@GetMapping("/user")
-来代替@RequestMapping(path="/user",method= RequestMethod.GET)。还有@PostMapping、@PutMapping、 @DeleteMapping等同理。
+@GetMapping是一个组合注解，是@RequestMapping(method = RequestMethod.GET)的缩写。该注解将HTTP GET映射到特定的处理方法上。可以使用@GetMapping("/user")来代替@RequestMapping(path="/user",method=RequestMethod.GET)。还有@PostMapping、@PutMapping、 @DeleteMapping等同理。
 
 ### 4.1.5 @RequestBody 注解
 
-该注解用于读取Request请求的body部分数据，使用系统默认配置的HttpMessageConverter进行解析，然后把相应的数据绑定到要返回的对象上，再把HttpMessageConverter返回的对象数据绑定到Controller中方法的参
-数上。
+该注解用于读取Request请求的body部分数据，使用系统默认配置的HttpMessageConverter进行解析，然后把相应的数据绑定到要返回的对象上，再把HttpMessageConverter返回的对象数据绑定到Controller中方法的参数上。
 
 ```java
 
@@ -958,8 +955,7 @@ public class UserController {
 
 ### 4.1.6 @ResponseBody 注解
 
-该注解用于将Controller的方法返回的对象，通过适当的HttpMessageConverter转换为指定格式后，写入到Response对象的body数据区。比如获取JSON数据，加上@ResponseBody后，会直接返回JSON数据，而不会
-被解析为视图。
+该注解用于将Controller的方法返回的对象，通过适当的HttpMessageConverter转换为指定格式后，写入到Response对象的body数据区。比如获取JSON数据，加上@ResponseBody后，会直接返回JSON数据，而不会被解析为视图。
 
 ```java
 
@@ -1091,7 +1087,6 @@ public class UserController {
         List list = userService.list();
         return list;
     }
-
 }
 ```
 
@@ -1100,11 +1095,10 @@ public class UserController {
 - @ApiImplicitParam注解用在@ApiImplicitParams注解中，指定一个请求参数的信息，如下所示：
 
 ```java
-      @GetMapping("page")
+@GetMapping("page")
 @ApiOperation("分页")
 @ApiImplicitParams({
-        @ApiImplicitParam(name = "page", value = "当前页码，从 1 开始", paramType = "query", requ ired=true,
-                dataType = "int"),
+        @ApiImplicitParam(name = "page", value = "当前页码，从 1 开始", paramType = "query", requ ired=true, dataType = "int"),
         @ApiImplicitParam(name = "limit", value = "每页显示记录数", paramType = "query", requir ed=true, dataType = "int"),
         @ApiImplicitParam(name = "order_field", value = "排序字段", paramType = "query", dataT ype="String"),
         @ApiImplicitParam(name = "order", value = "排序方式，可选值(asc、desc)", paramType = "q uery", dataType = "String"),
