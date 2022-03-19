@@ -1,11 +1,9 @@
 ---
-title: renren-fast开发文档3.0最新版
-tags:
-  - SpringBoot
-  - 脚手架
-categories: 技术
-abbrlink: e76dbe41
-date: 2022-03-18 17:23:00
+title: renren-fast开发文档3.0最新版 tags:
+
+- SpringBoot
+- 脚手架 categories: 技术 abbrlink: e76dbe41 date: 2022-03-18 17:23:00
+
 ---
 
 # 版权说明
@@ -40,11 +38,14 @@ renren-fast是一套轻量级的权限系统，主要包括用户管理、角色
 
 ## 1.2 项目特点
 
-- [renren-fast](https://gitee.com/renrenio/renren-fast)采用SpringBoot 2.1、MyBatis、Shiro框架，开发的一套权限系统，极低门槛，拿来即用。设 计之初，就非常注重安全性，为企业系统保驾护航，让一切都变得如此简单。
+- [renren-fast](https://gitee.com/renrenio/renren-fast)采用SpringBoot 2.1、MyBatis、Shiro框架，开发的一套权限系统，极低门槛，拿来即用。设
+  计之初，就非常注重安全性，为企业系统保驾护航，让一切都变得如此简单。
 - 灵活的权限控制，可控制到页面或按钮，满足绝大部分的权限需求
 - 完善的 XSS 防范及脚本过滤，彻底杜绝 XSS 攻击
 - 支持MySQL、Oracle、SQL Server、PostgreSQL等主流数据库
-- 推荐使用阿里云服务器部署项目，免费领取阿里云优惠券，请点击[【免费领取】](https://www.aliyun.com/minisite/goods?userCode=y93lfwbg&productCode=dmspre&utm_source=y93lfwbg)
+-
+
+推荐使用阿里云服务器部署项目，免费领取阿里云优惠券，请点击[【免费领取】](https://www.aliyun.com/minisite/goods?userCode=y93lfwbg&productCode=dmspre&utm_source=y93lfwbg)
 
 ## 1.3 数据交互
 
@@ -69,7 +70,6 @@ renren-fast是一套轻量级的权限系统，主要包括用户管理、角色
 
 - 通过 git ，下载renren-fast源码，如下：
 
-
 ```bash
 git clone https://gitee.com/renrenio/renren-fast.git
 ```
@@ -78,13 +78,11 @@ git clone https://gitee.com/renrenio/renren-fast.git
 
 - IDEA打开项目， File -> Open 如下图：
 
-
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/EVCSoB.png)
 
 ### 1.4.4 Eclipse 开发工具
 
 - Eclipse导入项目，如下图：
-
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/C4IoHO.png)
 
@@ -93,7 +91,8 @@ git clone https://gitee.com/renrenio/renren-fast.git
 - 创建数据库 renren_fast ，数据库编码为`UTF-8`
 
 ```sql
-CREATE DATABASE renren_fast CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE
+DATABASE renren_fast CHARACTER SET utf8 COLLATE utf8_general_ci;
 ```
 
 - 执行 db/mysql.sql 文件，初始化数据（默认支持MySQL）
@@ -111,7 +110,6 @@ CREATE DATABASE renren_fast CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 - 开发环境，需要安装node8.x最新版
 
-
 ```bash
 # 克隆项目
 git clone https://gitee.com/renrenio/renren-fast-vue.git
@@ -122,7 +120,6 @@ npm run dev
 ```
 
 - 生产环境，打包并把dist目录文件，部署到Nginx里
-
 
 ```bash
 #构建生产环境(默认)
@@ -147,7 +144,6 @@ http://localhost
 ```
 
 - 登录的账号密码：admin/admin
-
 
 ## 1.5 获取帮助
 
@@ -174,12 +170,12 @@ http://localhost
 
 ```yml
 spring:
-	datasource:
-		druid:
-			driver-class-name: com.mysql.jdbc.Driver
-			url: jdbc:mysql://localhost:3306/renren_fast?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-			username: root
-			password: 123456
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/renren_fast?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      username: root
+      password: 123456
 ```
 
 2. 执行db/mysql.sql，创建表及初始化数据，再启动项目即可
@@ -190,12 +186,12 @@ spring:
 
 ```yml
 spring:
-		datasource:
-			druid:
-			driver-class-name: oracle.jdbc.OracleDriver
-			url: jdbc:oracle:thin:@192.168.10.10:1521:renren
-			username: renren_fast
-			password: 123456
+  datasource:
+    druid:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@192.168.10.10:1521:renren
+    username: renren_fast
+    password: 123456
 ```
 
 2) 执行db/oracle.sql，创建表及初始化数据，再启动项目即可
@@ -206,12 +202,12 @@ spring:
 
 ```yml
 spring:
-			datasource:
-				druid:
-				driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-				url: jdbc:sqlserver://192.168.10.10:1433;DatabaseName=renren_fast
-				username: sa
-				password: 123456
+  datasource:
+    druid:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://192.168.10.10:1433;DatabaseName=renren_fast
+    username: sa
+    password: 123456
 ```
 
 2) 执行db/sqlserver.sql，创建表及初始化数据，再启动项目即可
@@ -222,12 +218,12 @@ spring:
 
 ```yml
 spring:
-			datasource:
-				druid:
-				driver-class-name: org.postgresql.Driver
-				url: jdbc:postgresql://192.168.10.10:5432/renren_fast
-				username: renren
-				password: 123456
+  datasource:
+    druid:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://192.168.10.10:5432/renren_fast
+    username: renren
+    password: 123456
 ```
 
 2) 修改quartz配置信息，quartz配置文件 ScheduleConfig.java ，打开注释，如下所示：
@@ -260,22 +256,21 @@ select * from db.table;
 
 - 配置多数据源，如果是开发环境，则修改 application-dev.xml ，如下所示
 
-
 ## 多数据源的配置
 
 ```yml
 dynamic:
-			datasource:
-				slave1:
-          driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-          url: jdbc:sqlserver://192.168.10.10:1433;DatabaseName=renren_fast
-          username: sa
-          password: 123456
-	      slave2:
-          driver-class-name: org.postgresql.Driver
-          url: jdbc:postgresql://192.168.10.10:5432/renren_fast
-          username: postgres
-          password: 123456
+  datasource:
+    slave1:
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      url: jdbc:sqlserver://192.168.10.10:1433;DatabaseName=renren_fast
+      username: sa
+      password: 123456
+      slave2:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://192.168.10.10:5432/renren_fast
+        username: postgres
+        password: 123456
 ```
 
 ## 3.2 多数据源使用
@@ -283,53 +278,58 @@ dynamic:
 > 多数据源的使用，只需在Service类、方法上添加@DataSource("")注解即可，比如在类上添加了 @DataSource("userDB")注解，则表示该Service方法里的所有CURD，都会在 userDB 数据源里执行。
 
 1) 多数据源注解使用规则
-   - 支持在Service类或方法上，添加多数据源的注解@DataSource 
-   - 在Service类上添加了@DataSource注解，则该类下的所有方法，都会使用@DataSource标注的数据源
-   - 在Service类、方法上都添加了@DataSource注解，则方法上的注解会覆盖Service类上的注解
+    - 支持在Service类或方法上，添加多数据源的注解@DataSource
+    - 在Service类上添加了@DataSource注解，则该类下的所有方法，都会使用@DataSource标注的数据源
+    - 在Service类、方法上都添加了@DataSource注解，则方法上的注解会覆盖Service类上的注解
 2) 编写DynamicDataSourceTestService.java，测试多数据源及事物
 
 ```java
 package io.renren.service;
+
 import io.renren.commons.dynamic.datasource.annotation.DataSource;
 import io.renren.dao.SysUserDao;
 import io.renren.entity.SysUserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 /**
-* 测试多数据源
-*
-* @author Mark sunlightcs@gmail.com
-*/
+ * 测试多数据源
+ *
+ * @author Mark sunlightcs@gmail.com
+ */
 @Service
 //@DataSource("slave1") 多数据源全局配置
 public class DynamicDataSourceTestService {
     @Autowired
     private SysUserDao sysUserDao;
+
     @Transactional
-    public void updateUser(Long id){
+    public void updateUser(Long id) {
         SysUserEntity user = new SysUserEntity();
         user.setUserId(id);
         user.setMobile("13500000000");
         sysUserDao.updateById(user);
-		}
+    }
+
     @Transactional
     @DataSource("slave1")
-    public void updateUserBySlave1(Long id){
+    public void updateUserBySlave1(Long id) {
         SysUserEntity user = new SysUserEntity();
         user.setUserId(id);
         user.setMobile("13500000001");
         sysUserDao.updateById(user);
     }
+
     @DataSource("slave2")
     @Transactional
-    public void updateUserBySlave2(Long id){
+    public void updateUserBySlave2(Long id) {
         SysUserEntity user = new SysUserEntity();
         user.setUserId(id);
         user.setMobile("13500000002");
         sysUserDao.updateById(user);
         //测试事物
-        int i = 1 / 0 ;
+        int i = 1 / 0;
     }
 }
 ```
@@ -338,24 +338,26 @@ public class DynamicDataSourceTestService {
 
 ```java
 package io.renren.service;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
 /**
  * 多数据源测试
  *
  * @author Mark sunlightcs@gmail.com
-*/
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DynamicDataSourceTest {
     @Autowired
     private DynamicDataSourceTestService dynamicDataSourceTestService;
-    
+
     @Test
-    public void test(){
+    public void test() {
         Long id = 1L;
         dynamicDataSourceTestService.updateUser(id);
         dynamicDataSourceTestService.updateUserBySlave1(id);
@@ -368,12 +370,12 @@ public class DynamicDataSourceTest {
 
 ```yml
 dynamic:
-	datasource:
+  datasource:
     slave1:
       driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
       url: jdbc:sqlserver://localhost:1433;DatabaseName=renren_security
       username: sa
-      password: 123456 
+      password: 123456
     slave2:
       driver-class-name: org.postgresql.Driver
       url: jdbc:postgresql://localhost:5432/renren_security
@@ -381,25 +383,24 @@ dynamic:
       password: 123456
 ```
 
-
-
 ## 3.3 源码讲解
 
 1) 定义多数据源注解类@DataSource，使用多数据源时，只需在Service方法上添加@DataSource注解即可
 
 ```java
 import java.lang.annotation.*;
+
 /**
-* 多数据源注解
-*
-* @author Mark sunlightcs@gmail.com
-*/
+ * 多数据源注解
+ *
+ * @author Mark sunlightcs@gmail.com
+ */
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
 public @interface DataSource {
-		String value() default "";
+    String value() default "";
 }
 ```
 
@@ -607,6 +608,7 @@ public class DataSourceProperties {
 
 ```java
 import org.springframework.boot.context.properties.ConfigurationProperties;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -629,20 +631,21 @@ public class DynamicDataSourceProperties {
 }
 ```
 
-3) 扩展Spring的AbstractRoutingDataSource抽象类， AbstractRoutingDataSource中的抽象方法determineCurrentLookupKey是实现多数据源的核心，并对该方法进行Override，如下所示：
+3) 扩展Spring的AbstractRoutingDataSource抽象类，
+   AbstractRoutingDataSource中的抽象方法determineCurrentLookupKey是实现多数据源的核心，并对该方法进行Override，如下所示：
 
 ```java
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 /**
-  * 多数据源
-  *
-  * @author Mark sunlightcs@gmail.com
-*/
+ * 多数据源
+ *
+ * @author Mark sunlightcs@gmail.com
+ */
 public class DynamicDataSource extends AbstractRoutingDataSource {
     @Override
     protected Object determineCurrentLookupKey() {
-    return DynamicContextHolder.peek();
+        return DynamicContextHolder.peek();
     }
 }
 ```
@@ -651,43 +654,45 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
 
 ```java
 /**
-  * 多数据源上下文
-	*
-	* @author Mark sunlightcs@gmail.com
-*/
+ * 多数据源上下文
+ *
+ * @author Mark sunlightcs@gmail.com
+ */
 public class DynamicContextHolder {
     @SuppressWarnings("unchecked")
     private static final ThreadLocal<Deque<String>> CONTEXT_HOLDER = new ThreadLocal() {
         @Override
         protected Object initialValue() {
-        return new ArrayDeque();
-    }
-};
+            return new ArrayDeque();
+        }
+    };
+
     /**
-      * 获得当前线程数据源
-      *
-      * @return 数据源名称
-    */
+     * 获得当前线程数据源
+     *
+     * @return 数据源名称
+     */
     public static String peek() {
-		    return CONTEXT_HOLDER.get().peek();
+        return CONTEXT_HOLDER.get().peek();
     }
+
     /**
-    * 设置当前线程数据源
-    *
-    * @param dataSource 数据源名称
-    */
+     * 设置当前线程数据源
+     *
+     * @param dataSource 数据源名称
+     */
     public static void push(String dataSource) {
-    		CONTEXT_HOLDER.get().push(dataSource);
+        CONTEXT_HOLDER.get().push(dataSource);
     }
-  
+
     /**
-    * 清空当前线程数据源
-    */
+     * 清空当前线程数据源
+     */
     public static void poll() {
         Deque<String> deque = CONTEXT_HOLDER.get();
         deque.poll();
         if (deque.isEmpty()) {
-		        CONTEXT_HOLDER.remove();
+            CONTEXT_HOLDER.remove();
         }
     }
 }
@@ -741,7 +746,7 @@ public class DynamicDataSourceConfig {
     public DynamicDataSource dynamicDataSource(DataSourceProperties dataSourceProperties) {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
         dynamicDataSource.setTargetDataSources(getDynamicDataSource());
-				//默认数据源
+        //默认数据源
         DruidDataSource defaultDataSource = DynamicDataSourceFactory.buildDruidDataSource(dat
                 aSourceProperties);
         dynamicDataSource.setDefaultTargetDataSource(defaultDataSource);
@@ -868,8 +873,6 @@ public class DataSourceAspect {
 }
 ```
 
-
-
 # 第 4 章 基础知识讲解
 
 ## 4.1 Spring MVC 使用
@@ -887,6 +890,7 @@ public class DataSourceAspect {
 @Controller注解表明了一个类是作为控制器的角色而存在的。Spring不要求你去继承任何控制器基类，也不要求你去实现Servlet的那套API。当然，如果你需要的话也可以去使用任何与Servlet相关的特性。
 
 ```java
+
 @Controller
 public class UserController {
 // ...
@@ -895,45 +899,51 @@ public class UserController {
 
 ### 4.1.2 @RequestMapping 注解
 
-你可以使用@RequestMapping注解来将请求URL，如/user等，映射到整个类上或某个特定的处理器方法上。 一般来说，类级别的注解负责将一个特定（或符合某种模式）的请求路径映射到一个控制器上，同时通过方法级别的注解来细化映射，即根据特定的HTTP请求方法（GET、POST方法等）、HTTP请求中是否携带特 定参数等条件，将请求映射到匹配的方法上。
+你可以使用@RequestMapping注解来将请求URL，如/user等，映射到整个类上或某个特定的处理器方法上。
+一般来说，类级别的注解负责将一个特定（或符合某种模式）的请求路径映射到一个控制器上，同时通过方法级别的注解来细化映射，即根据特定的HTTP请求方法（GET、POST方法等）、HTTP请求中是否携带特 定参数等条件，将请求映射到匹配的方法上。
 
 ```java
+
 @Controller
 public class UserController {
-  
+
     @RequestMapping("/user")
     public String user() {
-		    return "user";
+        return "user";
     }
 }
 ```
 
-以上代码没有指定请求必须是GET方法还是PUT/POST或其他方法，@RequestMapping注解默认会映射所有 的HTTP请求方法。如果仅想接收某种请求方法，请在注解中指定之@RequestMapping(path = "/user", method = RequestMethod.GET)以缩小范围。
+以上代码没有指定请求必须是GET方法还是PUT/POST或其他方法，@RequestMapping注解默认会映射所有 的HTTP请求方法。如果仅想接收某种请求方法，请在注解中指定之@RequestMapping(path = "/user"
+, method = RequestMethod.GET)以缩小范围。
 
 ### 4.1.3 @PathVariable 注解
 
 在Spring MVC中你可以在方法参数上使用@PathVariable注解，将其与URI模板中的参数绑定起来，如下所 示：
 
 ```java
-@RequestMapping(path="/user/{userId}", method=RequestMethod.GET)
-public String userCenter(@PathVariable("userId") String userId, Model model) {
-    UserDTO user = userService.get(userId);
-    model.addAttribute("user", user);
-    return "userCenter";
-}
+@RequestMapping(path = "/user/{userId}", method = RequestMethod.GET)
+public String userCenter(@PathVariable("userId") String userId,Model model){
+        UserDTO user=userService.get(userId);
+        model.addAttribute("user",user);
+        return"userCenter";
+        }
 ```
 
 URI模板"/user/{userId}"指定了一个变量名为userId。当控制器处理这个请求的时候，userId的值就会被URI模 板中对应部分的值所填充。比如说，如果请求的URI是/userId/1，此时变量userId的值就是 1 。
 
 ### 4.1.4 @GetMapping 注解
 
-@GetMapping是一个组合注解，是@RequestMapping(method = RequestMethod.GET)的缩写。该注解将HTTP GET映射到特定的处理方法上。可以使用@GetMapping("/user")来代替@RequestMapping(path="/user",method= RequestMethod.GET)。还有@PostMapping、@PutMapping、 @DeleteMapping等同理。
+@GetMapping是一个组合注解，是@RequestMapping(method = RequestMethod.GET)的缩写。该注解将HTTP GET映射到特定的处理方法上。可以使用@GetMapping("/user")
+来代替@RequestMapping(path="/user",method= RequestMethod.GET)。还有@PostMapping、@PutMapping、 @DeleteMapping等同理。
 
 ### 4.1.5 @RequestBody 注解
 
-该注解用于读取Request请求的body部分数据，使用系统默认配置的HttpMessageConverter进行解析，然后把相应的数据绑定到要返回的对象上，再把HttpMessageConverter返回的对象数据绑定到Controller中方法的参 数上。
+该注解用于读取Request请求的body部分数据，使用系统默认配置的HttpMessageConverter进行解析，然后把相应的数据绑定到要返回的对象上，再把HttpMessageConverter返回的对象数据绑定到Controller中方法的参
+数上。
 
 ```java
+
 @Controller
 public class UserController {
     @GetMapping("/user")
@@ -946,9 +956,11 @@ public class UserController {
 
 ### 4.1.6 @ResponseBody 注解
 
-该注解用于将Controller的方法返回的对象，通过适当的HttpMessageConverter转换为指定格式后，写入到Response对象的body数据区。比如获取JSON数据，加上@ResponseBody后，会直接返回JSON数据，而不会 被解析为视图。
+该注解用于将Controller的方法返回的对象，通过适当的HttpMessageConverter转换为指定格式后，写入到Response对象的body数据区。比如获取JSON数据，加上@ResponseBody后，会直接返回JSON数据，而不会
+被解析为视图。
 
 ```java
+
 @Controller
 public class UserController {
     @ResponseBody
@@ -972,22 +984,21 @@ public class UserController {
 
 - 在pom.xml文件中添加swagger相关依赖，如下所示：
 
-
 ```xml
+
 <dependency>
     <groupId>io.springfox</groupId>
     <artifactId>springfox-swagger2</artifactId>
     <version>${springfox-version}</version>
 </dependency>
 <dependency>
-    <groupId>io.springfox</groupId>
-    <artifactId>springfox-swagger-ui</artifactId>
-    <version>${springfox-version}</version>
+<groupId>io.springfox</groupId>
+<artifactId>springfox-swagger-ui</artifactId>
+<version>${springfox-version}</version>
 </dependency>
 ```
 
 - 编写Swagger的Configuration配置文件，如下所示：
-
 
 ```java
 import io.swagger.annotations.ApiOperation;
@@ -1040,9 +1051,9 @@ public class SwaggerConfig implements WebMvcConfigurer {
 
 - @Api注解用在类上，说明该类的作用。可以标记一个Controller类做为swagger文档资源，如下所示：
 
-
 ```java
-@Api(tags="用户管理")
+
+@Api(tags = "用户管理")
 @RestController
 public class UserController {
 
@@ -1051,14 +1062,14 @@ public class UserController {
 
 - @ApiOperation注解用在方法上，说明该方法的作用，如下所示：
 
-
 ```java
-@Api(tags="用户管理")
+
+@Api(tags = "用户管理")
 @RestController
 public class UserController {
     @GetMapping("/user/list")
     @ApiOperation("列表")
-    public List<UserDTO> list(){
+    public List<UserDTO> list() {
         List<UserDTO> list = userService.list();
         return list;
     }
@@ -1067,49 +1078,50 @@ public class UserController {
 
 - @ApiParam注解用在方法参数上，如下所示：
 
-
 ```java
-@Api(tags="用户管理")
+
+@Api(tags = "用户管理")
 @RestController
 public class UserController {
     @GetMapping("/user/list")
     @ApiOperation("列表")
-    public List list(@ApiParam(value= "用户名", required = true) String username){ 
-    		List list = userService.list(); return list;
+    public List list(@ApiParam(value = "用户名", required = true) String username) {
+        List list = userService.list();
+        return list;
     }
 
 }
 ```
 
-- @ApiImplicitParams注解用在方法上，主要用于一组参数说明 
+- @ApiImplicitParams注解用在方法上，主要用于一组参数说明
 
 - @ApiImplicitParam注解用在@ApiImplicitParams注解中，指定一个请求参数的信息，如下所示：
 
 ```java
       @GetMapping("page")
-      @ApiOperation("分页")
-      @ApiImplicitParams({ 
-        	@ApiImplicitParam(name = "page", value = "当前页码，从 1 开始", paramType = "query", requ ired = true,
-dataType="int") , 
-        @ApiImplicitParam(name = "limit", value = "每页显示记录数", paramType = "query",requir ed = true, dataType="int") ,
-        @ApiImplicitParam(name = "order_field", value = "排序字段", paramType = "query", dataT ype="String") ,
-        @ApiImplicitParam(name = "order", value = "排序方式，可选值(asc、desc)", paramType = "q uery", dataType="String") ,
-       	@ApiImplicitParam(name = "username", value = "用户名", paramType = "query", dataType="String")
-			})
-			public Result<PageData> page(@ApiIgnore @RequestParam Map<String, Object> par ams){ 
-        	PageData page = sysUserService.page(params);
-        return new Result<PageData>().ok(page); 
-      }
+@ApiOperation("分页")
+@ApiImplicitParams({
+        @ApiImplicitParam(name = "page", value = "当前页码，从 1 开始", paramType = "query", requ ired=true,
+                dataType = "int"),
+        @ApiImplicitParam(name = "limit", value = "每页显示记录数", paramType = "query", requir ed=true, dataType = "int"),
+        @ApiImplicitParam(name = "order_field", value = "排序字段", paramType = "query", dataT ype="String"),
+        @ApiImplicitParam(name = "order", value = "排序方式，可选值(asc、desc)", paramType = "q uery", dataType = "String"),
+        @ApiImplicitParam(name = "username", value = "用户名", paramType = "query", dataType = "String")
+})
+public Result<PageData> page(@ApiIgnore @RequestParam Map<String, Object> par ams){
+        PageData page=sysUserService.page(params);
+        return new Result<PageData>().ok(page);
+        }
 ```
 
 - @ApiIgnore注解，可用于类、方法或参数上，表示生成Swagger接口文档时，忽略类、方法或参数。
-
 
 ## 4.3 Mybatis-plus 使用
 
 在项目的pom.xml里引入依赖，如下所示：
 
 ```xml
+
 <dependency>
     <groupId>com.baomidou</groupId>
     <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -1155,15 +1167,16 @@ mybatis-plus:
 
 > 我们来完成一个商品的列表、添加、修改、删除功能，熟悉如何快速开发自己的业务功能模块。
 
--  我们先建一个商品表tb_goods，表结构如下所示：
+- 我们先建一个商品表tb_goods，表结构如下所示：
 
 ```sql
-CREATE TABLE `tb_goods` (
+CREATE TABLE `tb_goods`
+(
     `goods_id` bigint NOT NULL AUTO_INCREMENT COMMENT '商品ID',
-    `name` varchar(50) COMMENT '商品名',
-    `intro` varchar(500) COMMENT '介绍',
-    `price` decimal(10,2) COMMENT '价格',
-    `num` int COMMENT '数量',
+    `name`     varchar(50) COMMENT '商品名',
+    `intro`    varchar(500) COMMENT '介绍',
+    `price`    decimal(10, 2) COMMENT '价格',
+    `num`      int COMMENT '数量',
     PRIMARY KEY (`goods_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品管理';
 ```
@@ -1172,10 +1185,8 @@ CREATE TABLE `tb_goods` (
 
 - 使用代码生成器前，我们先来看下代码生成器的配置，看看那些是可配置的，打开renren-generator模块 的配置文件generator.properties，如下所示：
 
-
 ```properties
 #代码生成器，配置信息
-
 mainPath=io.renren
 #包名
 package=io.renren.modules
@@ -1186,8 +1197,6 @@ author=Mark
 email=sunlightcs@gmail.com
 #表前缀(类名不会包含表前缀)
 tablePrefix=tb_
-
-
 #类型转换，配置信息
 tinyint=Integer
 smallint=Integer
@@ -1235,16 +1244,16 @@ int2=Integer
 numeric=BigDecimal
 ```
 
-上面的配置文件，可以配置包名、作者信息、表前缀、模块名称、类型转换等信息。其中，类型转换是指， MySQL中的类型与JavaBean中的类型，是怎么一个对应关系。如果有缺少的类型，可自行在generator.properties文件中补充。 
+上面的配置文件，可以配置包名、作者信息、表前缀、模块名称、类型转换等信息。其中，类型转换是指， MySQL中的类型与JavaBean中的类型，是怎么一个对应关系。如果有缺少的类型，可自行在generator.properties文件中补充。
 
 - 再看看renren-generator模块的application.yml配置文件，我们只要修改数据库名、账号、密码，就可以 了。其中，数据库名是指待生成的表，所在的数据库。
 
 ```yml
 server:
-	port: 80
+  port: 80
 # mysql
 spring:
-	datasource:
+  datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     #MySQL配置
     driverClassName: com.mysql.jdbc.Driver
@@ -1265,23 +1274,23 @@ spring:
     #PostgreSQL配置
     # driverClassName: org.postgresql.Driver
     # url: jdbc:postgresql://192.168.10.10:5432/renren_fast
-		# username: postgres
-		# password: 123456
-		jackson:
-			time-zone: GMT+8 date-format: yyyy-MM-dd HH:mm:ss resources:
-			static-locations: classpath:/static/,classpath:/views/
+    # username: postgres
+    # password: 123456
+    jackson:
+      time-zone: GMT+8 date-format: yyyy-MM-dd HH:mm:ss resources:
+      static-locations: classpath:/static/,classpath:/views/
 
 mybatis:
-	mapperLocations: classpath:mapper/**/*.xml
+  mapperLocations: classpath:mapper/**/*.xml
 
 pagehelper:
-	reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
+  reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
 
 #指定数据库，可选值有【mysql、oracle、sqlserver、postgresql】 
 renren:
-	database: mysql
+  database: mysql
 ```
 
 - 在数据库renren_fast中，执行建表语句，创建tb_goods表，再启动renren-generator项目(运行 RenrenApplication.java的main方法即可)，如下所示：
@@ -1290,13 +1299,13 @@ renren:
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/HWqMVn.png)
 
--  我们只需勾选tb_goods，点击【生成代码】按钮，则可生成相应代码，如下所示：
+- 我们只需勾选tb_goods，点击【生成代码】按钮，则可生成相应代码，如下所示：
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/Pli3sp.png)
 
--  我们来看下生成的代码结构，如下所示：
+- 我们来看下生成的代码结构，如下所示：
 
-  ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/BhpLFE.png)
+![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/BhpLFE.png)
 
 - 生成好代码后，我们只需在数据库renren_fast中，执行goods_menu.sql语句，这个SQL是生成菜单的， SQL语句如下所示：
 
@@ -1311,17 +1320,25 @@ VALUES ('1', '商品管理', 'generator/goods', NULL, '1', 'config', '6');
 set @parentId = @@identity;
 
 -- 菜单对应按钮SQL INSERT INTO `sys_menu` (`parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`)
-SELECT @parentId, '查看', null, 'generator:goods:list,generator:goods:info', '2', null, '6
-'; INSERT INTO `sys_menu` (`parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`)
+SELECT @parentId,
+       '查看',
+       null,
+       'generator:goods:list,generator:goods:info',
+       '2',
+       null,
+       '6
+      ';
+INSERT INTO `sys_menu` (`parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`)
 SELECT @parentId, '新增', null, 'generator:goods:save', '2', null, '6';
 
 INSERT INTO `sys_menu` (`parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`)
-SELECT @parentId, '修改', null, 'generator:goods:update', '2', null, '6'; INSERT INTO `sys_menu` (`parent_id`, `name`
-, `url`, `perms`, `type`, `icon`, `order_num`)
+SELECT @parentId, '修改', null, 'generator:goods:update', '2', null, '6';
+INSERT INTO `sys_menu` ( `parent_id`, `name`
+                       , `url`, `perms`, `type`, `icon`, `order_num`)
 SELECT @parentId, '删除', null, 'generator:goods:delete', '2', null, '6';
 ```
 
-- 接下来，再把刚生成的后端代码，添加到项目renren-fast里，前端vue代码，添加到前端项目renren-fast- vue里，在启动renren-fast项目，如下所示： 
+- 接下来，再把刚生成的后端代码，添加到项目renren-fast里，前端vue代码，添加到前端项目renren-fast- vue里，在启动renren-fast项目，如下所示：
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/hHJj2Z.png)
 
@@ -1371,77 +1388,76 @@ SELECT @parentId, '删除', null, 'generator:goods:delete', '2', null, '6';
 
 ```java
 /**
-  * 验证码
-	*/
+ * 验证码
+ */
 @GetMapping("captcha.jpg")
-public void captcha(HttpServletResponse response, String uuid)throws ServletException, IOException {
-    response.setHeader("Cache-Control", "no-store, no-cache");
-    response.setContentType("image/jpeg");
-    //获取图片验证码
-    BufferedImage image = sysCaptchaService.getCaptcha(uuid);
-    ServletOutputStream out = response.getOutputStream();
-    ImageIO.write(image, "jpg", out);
-    IOUtils.closeQuietly(out);
-}
+public void captcha(HttpServletResponse response,String uuid)throws ServletException,IOException{
+        response.setHeader("Cache-Control","no-store, no-cache");
+        response.setContentType("image/jpeg");
+        //获取图片验证码
+        BufferedImage image=sysCaptchaService.getCaptcha(uuid);
+        ServletOutputStream out=response.getOutputStream();
+        ImageIO.write(image,"jpg",out);
+        IOUtils.closeQuietly(out);
+        }
 
 
 /**
-   * 登录
-   */
+ * 登录
+ */
 @PostMapping("/sys/login")
-public Map<String, Object> login(@RequestBody SysLoginForm form)throws IOException {
-    boolean captcha = sysCaptchaService.validate(form.getUuid(), form.getCaptcha());
-    if(!captcha){
-      return R.error("验证码不正确");
-    }
-  
-    //用户信息
-    SysUserEntity user = sysUserService.queryByUserName(form.getUsername());
-  
-  	//账号不存在、密码错误
-    if(user == null || !user.getPassword().equals(new Sha256Hash(form.getPassword(), user.get
-                                                                 Salt()).toHex())) {
-      return R.error("账号或密码不正确");
-    }
-    //账号锁定
-    if(user.getStatus() == 0 ){
-      return R.error("账号已被锁定,请联系管理员");
-    }
-    //生成token，并保存到数据库
-    R r = sysUserTokenService.createToken(user.getUserId());
-    return r;
-}
+public Map<String, Object> login(@RequestBody SysLoginForm form)throws IOException{
+        boolean captcha=sysCaptchaService.validate(form.getUuid(),form.getCaptcha());
+        if(!captcha){
+        return R.error("验证码不正确");
+        }
 
+        //用户信息
+        SysUserEntity user=sysUserService.queryByUserName(form.getUsername());
+
+        //账号不存在、密码错误
+        if(user==null||!user.getPassword().equals(new Sha256Hash(form.getPassword(),user.get
+        Salt()).toHex())){
+        return R.error("账号或密码不正确");
+        }
+        //账号锁定
+        if(user.getStatus()==0){
+        return R.error("账号已被锁定,请联系管理员");
+        }
+        //生成token，并保存到数据库
+        R r=sysUserTokenService.createToken(user.getUserId());
+        return r;
+        }
 
 
 //生产token
-public R createToken(long userId) {
-  	//生成一个token，可以是uuid
-    String token = TokenGenerator.generateValue();
-    //当前时间
-    Date now = new Date();
-    //过期时间
-    Date expireTime = new Date(now.getTime() + EXPIRE * 1000 );
-    //判断是否生成过token
-    SysUserTokenEntity tokenEntity = queryByUserId(userId);
-    if(tokenEntity == null){
-        tokenEntity = new SysUserTokenEntity();
+public R createToken(long userId){
+        //生成一个token，可以是uuid
+        String token=TokenGenerator.generateValue();
+        //当前时间
+        Date now=new Date();
+        //过期时间
+        Date expireTime=new Date(now.getTime()+EXPIRE*1000);
+        //判断是否生成过token
+        SysUserTokenEntity tokenEntity=queryByUserId(userId);
+        if(tokenEntity==null){
+        tokenEntity=new SysUserTokenEntity();
         tokenEntity.setUserId(userId);
         tokenEntity.setToken(token);
         tokenEntity.setUpdateTime(now);
         tokenEntity.setExpireTime(expireTime);
         //保存token
         save(tokenEntity);
-    }else{
+        }else{
         tokenEntity.setToken(token);
         tokenEntity.setUpdateTime(now);
         tokenEntity.setExpireTime(expireTime);
         //更新token
         update(tokenEntity);
-    }
-    R r = R.ok().put("token", token).put("expire", EXPIRE);
-    return r;
-}
+        }
+        R r=R.ok().put("token",token).put("expire",EXPIRE);
+        return r;
+        }
 ```
 
 其中，下面的这行代码，是加盐操作；可能有人不理解为何要加盐，其目的是防止被拖库后，黑客轻易的 （通过密码库对比），就能拿到你的密码
@@ -1450,45 +1466,45 @@ public R createToken(long userId) {
 new Sha256Hash(password, user.getSalt()).toHex())
 ```
 
-- 调用接口时，接受传过来的token后，如何保证token有效及用户权限呢？其实，shiro提供了 AuthenticatingFilter抽象类，继承AuthenticatingFilter抽象类即可。 
+- 调用接口时，接受传过来的token后，如何保证token有效及用户权限呢？其实，shiro提供了 AuthenticatingFilter抽象类，继承AuthenticatingFilter抽象类即可。
 
 步骤 1 ，所有请求全部拒绝访问
 
 ```java
 @Override
-protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
-return false;
-}
+protected boolean isAccessAllowed(ServletRequest request,ServletResponse response,Object mappedValue){
+        return false;
+        }
 ```
 
 步骤 2 ，拒绝访问的请求，会调用onAccessDenied方法，onAccessDenied方法先获取token，再调用 executeLogin方法
 
 ```java
 @Override
-protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
-    //获取请求token，如果token不存在，直接返回 401
-    String token = getRequestToken((HttpServletRequest) request);
-    if(StringUtils.isBlank(token)){
-        HttpServletResponse httpResponse = (HttpServletResponse) response;
-        String json = new Gson().toJson(R.error(HttpStatus.SC_UNAUTHORIZED, "invalid token"));
+protected boolean onAccessDenied(ServletRequest request,ServletResponse response)throws Exception{
+        //获取请求token，如果token不存在，直接返回 401
+        String token=getRequestToken((HttpServletRequest)request);
+        if(StringUtils.isBlank(token)){
+        HttpServletResponse httpResponse=(HttpServletResponse)response;
+        String json=new Gson().toJson(R.error(HttpStatus.SC_UNAUTHORIZED,"invalid token"));
         httpResponse.getWriter().print(json);
         return false;
-    }
-    return executeLogin(request, response);
-}
+        }
+        return executeLogin(request,response);
+        }
 
 /**
-* 获取请求的token
-*/
+ * 获取请求的token
+ */
 private String getRequestToken(HttpServletRequest httpRequest){
-    //从header中获取token
-    String token = httpRequest.getHeader("token");
-    //如果header中不存在token，则从参数中获取token
-    if(StringUtils.isBlank(token)){
-    		token = httpRequest.getParameter("token");
-    }
-    return token;
-}
+        //从header中获取token
+        String token=httpRequest.getHeader("token");
+        //如果header中不存在token，则从参数中获取token
+        if(StringUtils.isBlank(token)){
+        token=httpRequest.getParameter("token");
+        }
+        return token;
+        }
 ```
 
 步骤 3 ，阅读AuthenticatingFilter抽象类中executeLogin方法，我们发现调用了 subject.login(token) ，这是
@@ -1496,42 +1512,46 @@ shiro的登录方法，且需要token参数，我们自定义OAuth2Token类，�
 
 ```java
 //AuthenticatingFilter类中的方法
-protected boolean executeLogin(ServletRequest request, ServletResponse response) throws Exception {
-    AuthenticationToken token = createToken(request, response);
-    if (token == null) {
-        String msg = "createToken method implementation returned null. A valid non-null A
-        uthenticationToken " +
+protected boolean executeLogin(ServletRequest request,ServletResponse response)throws Exception{
+        AuthenticationToken token=createToken(request,response);
+        if(token==null){
+        String msg="createToken method implementation returned null. A valid non-null A
+        uthenticationToken" +
         "must be created in order to execute a login attempt.";
         throw new IllegalStateException(msg);
-    }
-    try {
-        Subject subject = getSubject(request, response);
+        }
+        try{
+        Subject subject=getSubject(request,response);
         subject.login(token);
-        return onLoginSuccess(token, subject, request, response);
-    } catch (AuthenticationException e) {
-        return onLoginFailure(token, e, request, response);
-    }
-}
+        return onLoginSuccess(token,subject,request,response);
+        }catch(AuthenticationException e){
+        return onLoginFailure(token,e,request,response);
+        }
+        }
 //OAuth2Filter类中的方法，继承了AuthenticatingFilter类
 @Override
-protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) throws Exception{
+protected AuthenticationToken createToken(ServletRequest request,ServletResponse response)throws Exception{
 //获取请求token
-    String token = getRequestToken((HttpServletRequest) request);
-    if (StringUtils.isBlank(token)) {
+        String token=getRequestToken((HttpServletRequest)request);
+        if(StringUtils.isBlank(token)){
         return null;
-    }
-    return new OAuth2Token(token);
-}
+        }
+        return new OAuth2Token(token);
+        }
+
 //subject.login(token)中的token对象，需要实现AuthenticationToken接口
 public class OAuth2Token implements AuthenticationToken {
     private String token;
+
     public OAuth2Token(String token) {
         this.token = token;
     }
+
     @Override
     public String getPrincipal() {
         return token;
     }
+
     @Override
     public Object getCredentials() {
         return token;
@@ -1543,61 +1563,61 @@ public class OAuth2Token implements AuthenticationToken {
 
 ```java
 @Override
-protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-    String accessToken = (String) token.getPrincipal();
+protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token)throws AuthenticationException{
+        String accessToken=(String)token.getPrincipal();
 //根据accessToken，查询用户信息
-    SysUserTokenEntity tokenEntity = shiroService.queryByToken(accessToken);
+        SysUserTokenEntity tokenEntity=shiroService.queryByToken(accessToken);
 //token失效
-    if (tokenEntity == null || tokenEntity.getExpireTime().getTime() < System.currentTimeMilli
-    s()){
+        if(tokenEntity==null||tokenEntity.getExpireTime().getTime()<System.currentTimeMilli
+        s()){
         throw new IncorrectCredentialsException("token失效，请重新登录");
-    }
+        }
 //查询用户信息
-    SysUserEntity user = shiroService.queryUser(tokenEntity.getUserId());
+        SysUserEntity user=shiroService.queryUser(tokenEntity.getUserId());
 //账号锁定
-    if (user.getStatus() == 0) {
+        if(user.getStatus()==0){
         throw new LockedAccountException("账号已被锁定,请联系管理员");
-    }
-    SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, accessToken, getName()
-    );
-    return info;
-}
+        }
+        SimpleAuthenticationInfo info=new SimpleAuthenticationInfo(user,accessToken,getName()
+        );
+        return info;
+        }
 ```
 
 步骤 5 ，登录失败后，则调用onLoginFailure，进行失败处理，整个流程结束
 
 ```java
 @Override
-protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e, ServletRequest request, ServletResponse response) {
-    HttpServletResponse httpResponse = (HttpServletResponse) response;
-    httpResponse.setContentType("application/json;charset=utf-8");
-    try {
+protected boolean onLoginFailure(AuthenticationToken token,AuthenticationException e,ServletRequest request,ServletResponse response){
+        HttpServletResponse httpResponse=(HttpServletResponse)response;
+        httpResponse.setContentType("application/json;charset=utf-8");
+        try{
 //处理登录失败的异常
-        Throwable throwable = e.getCause() == null ? e : e.getCause();
-        R r = R.error(HttpStatus.SC_UNAUTHORIZED, throwable.getMessage());
-        String json = new Gson().toJson(r);
+        Throwable throwable=e.getCause()==null?e:e.getCause();
+        R r=R.error(HttpStatus.SC_UNAUTHORIZED,throwable.getMessage());
+        String json=new Gson().toJson(r);
         httpResponse.getWriter().print(json);
-    } catch (IOException e1) {
-    }
-    return false;
-}
+        }catch(IOException e1){
+        }
+        return false;
+        }
 ```
 
 步骤 6 ，登录成功后，则调用doGetAuthorizationInfo方法，查询用户的权限，再调用具体的接口，整个流程 结束
 
 ```java
 @Override
-protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-    SysUserEntity user = (SysUserEntity) principals.getPrimaryPrincipal();
-    Long userId = user.getUserId();
+protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals){
+        SysUserEntity user=(SysUserEntity)principals.getPrimaryPrincipal();
+        Long userId=user.getUserId();
 
-		//用户权限列表 
-  	Set permsSet = shiroService.getUserPermissions(userId);
+        //用户权限列表 
+        Set permsSet=shiroService.getUserPermissions(userId);
 
-    SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-    info.setStringPermissions(permsSet);
-    return info;
-}
+        SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
+        info.setStringPermissions(permsSet);
+        return info;
+        }
 ```
 
 ## 6.2 权限设计思路
@@ -1606,7 +1626,8 @@ protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principal
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/np520W.png)
 
-1. sys_user[用户]表，保存用户相关数据，通过sys_user_role[用户与角色关联]表，与sys_role[角色]表关联；sys_menu[菜单]表通过sys_role_menu[菜单与角色关联]表，与sys_role[角色]表关联
+1. sys_user[用户]表，保存用户相关数据，通过sys_user_role[用户与角色关联]表，与sys_role[角色]表关联；sys_menu[菜单]表通过sys_role_menu[菜单与角色关联]
+   表，与sys_role[角色]表关联
 2. sys_menu表，保存菜单相关数据，并在perms字段里，保存了shiro的权限标识，也就是说，拥有此菜 单，就拥有perms字段里的所有权限，比如，某用户拥有的菜单权限标识 sys:user:info ，就可以访问下面的方法
 
 ```java
@@ -1614,12 +1635,14 @@ protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principal
 @RequiresPermissions("sys:user:info")
 public R info(@PathVariable("userId") Long userId){
 
-}
+        }
 ```
 
-3. 在shiro配置代码里，配置为 anon 的，表示不经过shiro处理，配置为 oauth2 的，表示经 过 OAuth2Filter 处理，前后端分离的接口，都会交给 OAuth2Filter 处理，这样就保证，没有权限的请求，拒绝访问
+3. 在shiro配置代码里，配置为 anon 的，表示不经过shiro处理，配置为 oauth2 的，表示经 过 OAuth2Filter 处理，前后端分离的接口，都会交给 OAuth2Filter
+   处理，这样就保证，没有权限的请求，拒绝访问
 
 ```java
+
 @Configuration
 public class ShiroConfig {
     @Bean("sessionManager")
@@ -1668,7 +1691,7 @@ ager) {
     }
 
     @Bean
-    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityMa                                                                                nager securityManager) {
+    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityMa nager securityManager) {
         AuthorizationAttributeSourceAdvisor advisor = new AuthorizationAttributeSourceAdvisor();
         advisor.setSecurityManager(securityManager);
         return advisor;
@@ -1714,7 +1737,6 @@ public class FilterConfig {
 ```
 
 - 自定义XssFilter过滤器，用来过滤所有请求，具体过滤还是在XssHttpServletRequestWrapper里实现的， 如下所示：
-
 
 ```java
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
@@ -1836,12 +1858,12 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 
 ```java
 public R data(HttpServletRequest request){
-    HttpServletRequest orgRequest = XssHttpServletRequestWrapper.getOrgRequest(request);
-    String content = orgRequest.getParameter("content");
-    //富文本数据
-    System.out.println(content);
-    return R.ok();
-}
+        HttpServletRequest orgRequest=XssHttpServletRequestWrapper.getOrgRequest(request);
+        String content=orgRequest.getParameter("content");
+        //富文本数据
+        System.out.println(content);
+        return R.ok();
+        }
 ```
 
 ## 6.4 SQL 注入
@@ -1851,12 +1873,12 @@ public R data(HttpServletRequest request){
 ```java
 public class SQLFilter {
     /**
-    * SQL注入过滤
-    * @param str 待验证的字符串
-    */
-    public static String sqlInject(String str){
-        if(StringUtils.isBlank(str)){
-		        return null;
+     * SQL注入过滤
+     * @param str 待验证的字符串
+     */
+    public static String sqlInject(String str) {
+        if (StringUtils.isBlank(str)) {
+            return null;
         }
         //去掉'|"|;|\字符
         str = StringUtils.replace(str, "'", "");
@@ -1868,9 +1890,9 @@ public class SQLFilter {
         //非法字符
         String[] keywords = {"master", "truncate", "insert", "select", "delete", "update", "declare", "alter", "drop"};
         //判断是否包含非法字符
-        for(String keyword : keywords){
-            if(str.indexOf(keyword) != -1){
-            		throw new RRException("包含非法字符");
+        for (String keyword : keywords) {
+            if (str.indexOf(keyword) != -1) {
+                throw new RRException("包含非法字符");
             }
         }
         return str;
@@ -1883,44 +1905,45 @@ public class SQLFilter {
 ```java
 public class Query<T> {
     public IPage<T> getPage(Map<String, Object> params) {
-    return this.getPage(params, null, false);
+        return this.getPage(params, null, false);
     }
-		public IPage<T> getPage(Map<String, Object> params, String defaultOrderField, boolean isAsc) { 
-				//分页参数
+
+    public IPage<T> getPage(Map<String, Object> params, String defaultOrderField, boolean isAsc) {
+        //分页参数
         long curPage = 1;
         long limit = 10;
-        if(params.get(Constant.PAGE) != null){
-        		curPage = Long.parseLong((String)params.get(Constant.PAGE));
+        if (params.get(Constant.PAGE) != null) {
+            curPage = Long.parseLong((String) params.get(Constant.PAGE));
         }
-        if(params.get(Constant.LIMIT) != null){
-        		limit = Long.parseLong((String)params.get(Constant.LIMIT));
+        if (params.get(Constant.LIMIT) != null) {
+            limit = Long.parseLong((String) params.get(Constant.LIMIT));
         }
-        
+
         //分页对象
         Page<T> page = new Page<>(curPage, limit);
         //分页参数 
         params.put(Constant.PAGE, page);
-        
+
         //排序字段 
         //防止SQL注入（因为sidx、order是通过拼接SQL实现排序的，会有SQL注入风险）
-        String orderField = SQLFilter.sqlInject((String)params.get(Constant.ORDER_FIELD)); 
-        String order = (String)params.get(Constant.ORDER);
-        
+        String orderField = SQLFilter.sqlInject((String) params.get(Constant.ORDER_FIELD));
+        String order = (String) params.get(Constant.ORDER);
+
         //前端字段排序
-      	if(StringUtils.isNotEmpty(orderField) && StringUtils.isNotEmpty(order)){
-          	if(Constant.ASC.equalsIgnoreCase(order)) {
-              		return page.setAsc(orderField); 
-            }else {
-              return page.setDesc(orderField); 
-            } 
+        if (StringUtils.isNotEmpty(orderField) && StringUtils.isNotEmpty(order)) {
+            if (Constant.ASC.equalsIgnoreCase(order)) {
+                return page.setAsc(orderField);
+            } else {
+                return page.setDesc(orderField);
+            }
         }
-      	//默认排序
-      	if(isAsc) {
-          page.setAsc(defaultOrderField); 
-        }else {
-          page.setDesc(defaultOrderField);
+        //默认排序
+        if (isAsc) {
+            page.setAsc(defaultOrderField);
+        } else {
+            page.setDesc(defaultOrderField);
         }
-      return page;
+        return page;
     }
 }
 ```
@@ -1939,7 +1962,7 @@ public class Query<T> {
 
 5. 合理运用Redis数据结构，也许有质的飞跃
 
-6. 对于访问量不大的项目，使用缓存只会增加项目的复杂度 
+6. 对于访问量不大的项目，使用缓存只会增加项目的复杂度
 
 本系统采用Redis作为缓存，并可配置是否开启redis缓存，主要还是通过Spring AOP实现的，配置如下所示：
 
@@ -2004,10 +2027,12 @@ public class SysConfigServiceImpl implements SysConfigService {
 ```
 
 ```java
+
 @Component
 public class SysConfigRedis {
     @Autowired
     private RedisUtils redisUtils;
+
     public void saveOrUpdate(SysConfigEntity config) {
         if (config == null) {
             return;
@@ -2015,10 +2040,12 @@ public class SysConfigRedis {
         String key = RedisKeys.getSysConfigKey(config.getKey());
         redisUtils.set(key, config);
     }
+
     public void delete(String configKey) {
         String key = RedisKeys.getSysConfigKey(configKey);
         redisUtils.delete(key);
     }
+
     public SysConfigEntity get(String configKey) {
         String key = RedisKeys.getSysConfigKey(configKey);
         return redisUtils.get(key, SysConfigEntity.class);
@@ -2027,6 +2054,7 @@ public class SysConfigRedis {
 ```
 
 ```java
+
 @Component
 public class RedisUtils {
     @Autowired
@@ -2114,27 +2142,29 @@ public class RedisUtils {
 大家可能会有疑问，认为这个项目必须要配置Redis缓存，不然会报错，因为有操作Redis的代码，其实不 然，通过Spring AOP，我们可以控制，是否真的使用Redis，代码如下：
 
 ```java
+
 @Aspect
 @Component
 public class RedisAspect {
     private Logger logger = LoggerFactory.getLogger(getClass());
     /**
-    * 是否开启redis缓存 true开启 false关闭
-    */
+     * 是否开启redis缓存 true开启 false关闭
+     */
     @Value("${renren.redis.open: false}")
     private boolean open;
-  
+
     @Around("execution(* io.renren.common.utils.RedisUtils.*(..))")
     public Object around(ProceedingJoinPoint point) throws Throwable {
-    Object result = null;
-        if(open){
-          try{
-            result = point.proceed();
-          }catch (Exception e){
-            logger.error("redis error", e); throw new RRException("Redis服务异常");
-          }
+        Object result = null;
+        if (open) {
+            try {
+                result = point.proceed();
+            } catch (Exception e) {
+                logger.error("redis error", e);
+                throw new RRException("Redis服务异常");
+            }
         }
-        return result; 
+        return result;
     }
 }
 ```
@@ -2191,36 +2221,41 @@ public class RRException extends RuntimeException {
 }
 ```
 
-> 如何处理抛出的异常呢，我们定义了RRExceptionHandler类，并加上注解@RestControllerAdvice，就可以处理所有抛出的异常，并返回JSON数据。@RestControllerAdvice是由@ControllerAdvice、@ResponseBody注解组合而来的，可以查找@ControllerAdvice相关的资料，理解@ControllerAdvice注解 的使用。 
+> 如何处理抛出的异常呢，我们定义了RRExceptionHandler类，并加上注解@RestControllerAdvice，就可以处理所有抛出的异常，并返回JSON数据。@RestControllerAdvice是由@ControllerAdvice、@ResponseBody注解组合而来的，可以查找@ControllerAdvice相关的资料，理解@ControllerAdvice注解 的使用。
 
 RRExceptionHandler代码如下所示：
 
 ```java
+
 @RestControllerAdvice
 public class RRExceptionHandler {
     private Logger logger = LoggerFactory.getLogger(getClass());
+
     /**
-    * 处理自定义异常
-    */
+     * 处理自定义异常
+     */
     @ExceptionHandler(RRException.class)
-    public R handleRRException(RRException e){
+    public R handleRRException(RRException e) {
         R r = new R();
         r.put("code", e.getCode());
         r.put("msg", e.getMessage());
         return r;
     }
+
     @ExceptionHandler(DuplicateKeyException.class)
-    public R handleDuplicateKeyException(DuplicateKeyException e){
+    public R handleDuplicateKeyException(DuplicateKeyException e) {
         logger.error(e.getMessage(), e);
         return R.error("数据库中已存在该记录");
     }
+
     @ExceptionHandler(AuthorizationException.class)
-    public R handleAuthorizationException(AuthorizationException e){
+    public R handleAuthorizationException(AuthorizationException e) {
         logger.error(e.getMessage(), e);
         return R.error("没有权限，请联系管理员授权");
     }
+
     @ExceptionHandler(Exception.class)
-    public R handleException(Exception e){
+    public R handleException(Exception e) {
         logger.error(e.getMessage(), e);
         return R.error();
     }
@@ -2229,7 +2264,7 @@ public class RRExceptionHandler {
 
 ## 6.7 后端效验机制
 
-> 本项目，后端效验使用的是Hibernate Validator校验框架，且自定义ValidatorUtils工具类，用来效验数 据。 
+> 本项目，后端效验使用的是Hibernate Validator校验框架，且自定义ValidatorUtils工具类，用来效验数 据。
 
 Hibernate Validator官方文档： http://docs.jboss.org/hibernate/validator/5.4/reference/en-US/html_single/
 ValidatorUtils代码如下所示：
@@ -2237,20 +2272,22 @@ ValidatorUtils代码如下所示：
 ```java
 public class ValidatorUtils {
     private static Validator validator;
-  
+
     static {
-		    validator = Validation.buildDefaultValidatorFactory().getValidator();
+        validator = Validation.buildDefaultValidatorFactory().getValidator();
     }
+
     /**
-    * 校验对象
-    * @param object 待校验对象
-    * @param groups 待校验的组
-    * @throws RRException 校验不通过，则报RRException异常
-    */
+     * 校验对象
+     * @param object 待校验对象
+     * @param groups 待校验的组
+     * @throws RRException 校验不通过，则报RRException异常
+     */
     public static void validateEntity(Object object, Class<?>... groups) throws RRException {
         Set<ConstraintViolation<Object>> constraintViolations = validator.validate(object, groups);
         if (!constraintViolations.isEmpty()) {
-            ConstraintViolation<Object> constraint = (ConstraintViolation<Object>)constraintV         iolations.iterator().next();
+            ConstraintViolation<Object> constraint = (ConstraintViolation<Object>) constraintV
+            iolations.iterator().next();
             throw new RRException(constraint.getMessage());
         }
     }
@@ -2260,6 +2297,7 @@ public class ValidatorUtils {
 使用案例：
 
 ```java
+
 @RestController
 @RequestMapping("/sys/user")
 public class SysUserController extends AbstractController {
@@ -2302,23 +2340,23 @@ public class SysUserEntity implements Serializable {
     /**
      * 用户名
      */
-    @NotBlank(message="用户名不能为空", groups = {AddGroup.class, UpdateGroup.class})
+    @NotBlank(message = "用户名不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private String username;
     /**
      * 密码
      */
-    @NotBlank(message="密码不能为空", groups = AddGroup.class)
+    @NotBlank(message = "密码不能为空", groups = AddGroup.class)
     private String password;
     /**
      * 盐
      */
     private String salt;
-/**
- * 邮箱
-*/
-@NotBlank(message="邮箱不能为空", groups = {AddGroup.class, UpdateGroup.class})
-@Email(message="邮箱格式不正确", groups = {AddGroup.class, UpdateGroup.class})
-private String email;
+    /**
+     * 邮箱
+     */
+    @NotBlank(message = "邮箱不能为空", groups = {AddGroup.class, UpdateGroup.class})
+    @Email(message = "邮箱格式不正确", groups = {AddGroup.class, UpdateGroup.class})
+    private String email;
     /**
      * 手机号
      */
@@ -2344,31 +2382,35 @@ private String email;
 }
 ```
 
-通过分析上面的代码，我们来理解Hibernate Validator校验框架的使用。 其中，username属性，表示保存或 修改用户时，都会效验username属性；而password属性，表示只有保存用户时，才会效验password属性，也 就是说，修改用户时，password可以不填写，允许为空。 如果不指定属性的groups，则默认属于javax.validation.groups.Default.class分组，可以通过ValidatorUtils.validateEntity(user)进行效验。
+通过分析上面的代码，我们来理解Hibernate Validator校验框架的使用。 其中，username属性，表示保存或
+修改用户时，都会效验username属性；而password属性，表示只有保存用户时，才会效验password属性，也 就是说，修改用户时，password可以不填写，允许为空。
+如果不指定属性的groups，则默认属于javax.validation.groups.Default.class分组，可以通过ValidatorUtils.validateEntity(user)进行效验。
 
 ## 6.8 系统日志
 
 系统日志是通过Spring AOP实现的，我们自定义了注解 @SysLog ，且只能在方法上使用，如下所示：
 
 ```java
+
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface SysLog {
-		String value() default "";
+    String value() default "";
 }
 ```
 
 下面是自定义注解 @SysLog 的使用方式，如下所示：
 
 ```java
+
 @RestController
 @RequestMapping("/sys/user")
 public class SysUserController extends AbstractController {
     @SysLog("保存用户")
     @RequestMapping("/save")
     @RequiresPermissions("sys:user:save")
-    public R save(@RequestBody SysUserEntity user){
+    public R save(@RequestBody SysUserEntity user) {
         ValidatorUtils.validateEntity(user, AddGroup.class);
         user.setCreateUserId(getUserId());
         sysUserService.save(user);
@@ -2452,6 +2494,7 @@ SysLogAspect 类定义了一个切入点，请求 @SysLog 注解的方法时，�
 上图是拿现有的菜单进行讲解。其中，授权标识与shiro中的注解@RequiresPermissions，定义的授权标识是 一一对应的，如下所示：
 
 ```java
+
 @RestController
 @RequestMapping("/sys/config")
 public class SysConfigController extends AbstractController {
@@ -2487,7 +2530,7 @@ public class SysConfigController extends AbstractController {
 
 ## 6.10 添加角色
 
-> 管理员权限是通过角色进行管理的，给管理员分配权限时，要先创建好角色。 
+> 管理员权限是通过角色进行管理的，给管理员分配权限时，要先创建好角色。
 
 下面创建了一个【开发角色】，如下图所示：
 
@@ -2495,7 +2538,7 @@ public class SysConfigController extends AbstractController {
 
 ## 6.11 添加管理员
 
-> 本系统默认就创建了admin账号，无需分配任何角色，就拥有最高权限。 一个管理员是可以拥有多个角 色的。 
+> 本系统默认就创建了admin账号，无需分配任何角色，就拥有最高权限。 一个管理员是可以拥有多个角 色的。
 
 下面创建一个【zhangsan】的管理员账号，并属于【开发角色】，如下所示：
 
@@ -2510,12 +2553,14 @@ public class SysConfigController extends AbstractController {
 新增一个定时任务，其实很简单，只要定义一个普通的Spring Bean即可，如下所示：
 
 ```java
+
 @Component("testTask")
 public class TestTask implements ITask {
     private Logger logger = LoggerFactory.getLogger(getClass());
+
     @Override
-    public void run(String params){
-    		logger.debug("TestTask定时任务正在执行，参数为：{}", params);
+    public void run(String params) {
+        logger.debug("TestTask定时任务正在执行，参数为：{}", params);
     }
 }
 ```
@@ -2535,21 +2580,24 @@ Quartz提供了相关的API，我们可以调用API，对Quartz进行增加、�
 ```java
 public class ScheduleUtils {
     private final static String JOB_NAME = "TASK_";
+
     /**
-    * 获取触发器key
-    */
+     * 获取触发器key
+     */
     private static TriggerKey getTriggerKey(Long jobId) {
         return TriggerKey.triggerKey(JOB_NAME + jobId);
     }
+
     /**
-    * 获取jobKey
-    */
+     * 获取jobKey
+     */
     private static JobKey getJobKey(Long jobId) {
         return JobKey.jobKey(JOB_NAME + jobId);
     }
+
     /**
-    * 获取表达式触发器
-    */
+     * 获取表达式触发器
+     */
     public static CronTrigger getCronTrigger(Scheduler scheduler, Long jobId) {
         try {
             return (CronTrigger) scheduler.getTrigger(getTriggerKey(jobId));
@@ -2557,9 +2605,10 @@ public class ScheduleUtils {
             throw new RRException("getCronTrigger异常，请检查qrtz开头的表，是否有脏数据", e);
         }
     }
+
     /**
-    * 创建定时任务
-    */
+     * 创建定时任务
+     */
     public static void createScheduleJob(Scheduler scheduler, ScheduleJobEntity scheduleJob) {
         try {
 //构建job信息
@@ -2585,9 +2634,10 @@ public class ScheduleUtils {
             throw new RRException("创建定时任务失败", e);
         }
     }
+
     /**
-    * 更新定时任务
-    */
+     * 更新定时任务
+     */
     public static void updateScheduleJob(Scheduler scheduler, ScheduleJobEntity scheduleJob) {
         try {
             TriggerKey triggerKey = getTriggerKey(scheduleJob.getJobId());
@@ -2597,7 +2647,7 @@ public class ScheduleUtils {
                     .withMisfireHandlingInstructionDoNothing();
             CronTrigger trigger = getCronTrigger(scheduler, scheduleJob.getJobId());
 //按新的cronExpression表达式重新构建trigger
-           trigger = trigger.getTriggerBuilder().withIdentity(triggerKey).withSchedule(sched
+            trigger = trigger.getTriggerBuilder().withIdentity(triggerKey).withSchedule(sched
                     uleBuilder).build();
 //参数
             trigger.getJobDataMap().put(ScheduleJobEntity.JOB_PARAM_KEY, new Gson().toJson(sc
@@ -2611,9 +2661,10 @@ public class ScheduleUtils {
             throw new RRException("更新定时任务失败", e);
         }
     }
+
     /**
-    * 立即执行任务
-    */
+     * 立即执行任务
+     */
     public static void run(Scheduler scheduler, ScheduleJobEntity scheduleJob) {
         try {
 //参数
@@ -2624,9 +2675,10 @@ public class ScheduleUtils {
             throw new RRException("立即执行定时任务失败", e);
         }
     }
+
     /**
-    * 暂停任务
-    */
+     * 暂停任务
+     */
     public static void pauseJob(Scheduler scheduler, Long jobId) {
         try {
             scheduler.pauseJob(getJobKey(jobId));
@@ -2634,19 +2686,21 @@ public class ScheduleUtils {
             throw new RRException("暂停定时任务失败", e);
         }
     }
+
     /**
-    * 恢复任务
-    */
+     * 恢复任务
+     */
     public static void resumeJob(Scheduler scheduler, Long jobId) {
         try {
             scheduler.resumeJob(getJobKey(jobId));
         } catch (SchedulerException e) {
-           throw new RRException("暂停定时任务失败", e);
+            throw new RRException("暂停定时任务失败", e);
         }
     }
+
     /**
-    * 删除定时任务
-    */
+     * 删除定时任务
+     */
     public static void deleteScheduleJob(Scheduler scheduler, Long jobId) {
         try {
             scheduler.deleteJob(getJobKey(jobId));
@@ -2657,11 +2711,11 @@ public class ScheduleUtils {
 }
 ```
 
-以下是几个核心的方法： 
+以下是几个核心的方法：
 
 - createScheduleJob【创建定时任务】：在管理后台新增任务时，会调用该方法，把任务添加到Quartz 中，再根据cron表达式，定时执行任务。
 
-- updateScheduleJob【更新定时任务】：修改任务时，调用该方法，修改Quartz中的任务信息。 
+- updateScheduleJob【更新定时任务】：修改任务时，调用该方法，修改Quartz中的任务信息。
 
 - run【立即执行定时任务】：马上执行一次该任务，只执行一次。
 
@@ -2669,26 +2723,27 @@ public class ScheduleUtils {
 
 - resumeJob【恢复定时任务】：这个是针对pauseJob来的，如果任务暂停了，以后都不会再执行，要想再执行，则需要调用resumeJob，使定时任务恢复执行。
 
--  deleteScheduleJob【删除定时任务】：删除定时任务
+- deleteScheduleJob【删除定时任务】：删除定时任务
 
 其中， `createScheduleJob` 、 `updateScheduleJob` 在启动项目的时候，也会调用，把数据库里，新增或修 改的任务，更新到Quartz中，如下所示：
 
 ```java
+
 @Service("scheduleJobService")
 public class ScheduleJobServiceImpl implements ScheduleJobService {
     /**
-    * 项目启动时，初始化定时器
-    */
+     * 项目启动时，初始化定时器
+     */
     @PostConstruct
-    public void init(){
+    public void init() {
         List<ScheduleJobEntity> scheduleJobList = schedulerJobDao.queryList(new HashMap<>());
-        for(ScheduleJobEntity scheduleJob : scheduleJobList){
+        for (ScheduleJobEntity scheduleJob : scheduleJobList) {
             CronTrigger cronTrigger = ScheduleUtils.getCronTrigger(scheduler, scheduleJob.getJobId());
             //如果不存在，则创建
-            if(cronTrigger == null) {
-           		 ScheduleUtils.createScheduleJob(scheduler, scheduleJob);
-            }else {
-            		ScheduleUtils.updateScheduleJob(scheduler, scheduleJob);
+            if (cronTrigger == null) {
+                ScheduleUtils.createScheduleJob(scheduler, scheduleJob);
+            } else {
+                ScheduleUtils.updateScheduleJob(scheduler, scheduleJob);
             }
         }
     }
@@ -2700,15 +2755,15 @@ public class ScheduleJobServiceImpl implements ScheduleJobService {
 ```java
 //构建一个新的定时任务，JobBuilder.newJob()只能接受Job类型的参数
 //把ScheduleJob.class作为参数传进去，ScheduleJob继承QuartzJobBean，而QuartzJobBean实现了Job接口
-JobDetail jobDetail = JobBuilder.newJob(ScheduleJob.class).withIdentity(getJobKey(scheduleJob.getJobId())).build();
+JobDetail jobDetail=JobBuilder.newJob(ScheduleJob.class).withIdentity(getJobKey(scheduleJob.getJobId())).build();
 //构建cron，定时任务的周期
-CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(scheduleJob.getCronExpression()).withMisfireHandlingInstructionDoNothing();
+        CronScheduleBuilder scheduleBuilder=CronScheduleBuilder.cronSchedule(scheduleJob.getCronExpression()).withMisfireHandlingInstructionDoNothing();
 //根据cron，构建一个CronTrigger
-CronTrigger trigger = TriggerBuilder.newTrigger().withIdentity(getTriggerKey(scheduleJob.getJobId())).withSchedule(scheduleBuilder).build();
+        CronTrigger trigger=TriggerBuilder.newTrigger().withIdentity(getTriggerKey(scheduleJob.getJobId())).withSchedule(scheduleBuilder).build();
 //放入参数，运行时的方法可以获取
-jobDetail.getJobDataMap().put(ScheduleJobEntity.JOB_PARAM_KEY, new Gson().toJson(scheduleJob));
+        jobDetail.getJobDataMap().put(ScheduleJobEntity.JOB_PARAM_KEY,new Gson().toJson(scheduleJob));
 //把任务添加到Quartz中
-scheduler.scheduleJob(jobDetail, trigger);
+        scheduler.scheduleJob(jobDetail,trigger);
 ```
 
 把任务添加到 Quartz 后，等cron定义的时间周期到了，就会执行 ScheduleJob 类的 executeInternal 方 法， ScheduleJob 代码如下所示：
@@ -2721,8 +2776,9 @@ public class ScheduleJob extends QuartzJobBean {
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
         ScheduleJobEntity scheduleJob = (ScheduleJobEntity) context.getMergedJobDataMap()
                 .get(ScheduleJobEntity.JOB_PARAM_KEY);
-				//获取spring bean
-        ScheduleJobLogService scheduleJobLogService = (ScheduleJobLogService) SpringContextUt        ils.getBean("scheduleJobLogService");
+        //获取spring bean
+        ScheduleJobLogService scheduleJobLogService = (ScheduleJobLogService) SpringContextUt
+        ils.getBean("scheduleJobLogService");
         //数据库保存执行记录
         ScheduleJobLogEntity log = new ScheduleJobLogEntity();
         log.setJobId(scheduleJob.getJobId());
@@ -2731,10 +2787,10 @@ public class ScheduleJob extends QuartzJobBean {
         log.setCreateTime(new Date());
         //任务开始时间
         long startTime = System.currentTimeMillis();
-        try { 
-        		//执行任务 
-        		logger.info("任务准备执行，任务ID：" + scheduleJob.getJobId());
-        		
+        try {
+            //执行任务 
+            logger.info("任务准备执行，任务ID：" + scheduleJob.getJobId());
+
             Object target = SpringContextUtils.getBean(scheduleJob.getBeanName());
             Method method = target.getClass().getDeclaredMethod("run", String.class);
             method.invoke(target, scheduleJob.getParams());
@@ -2742,7 +2798,7 @@ public class ScheduleJob extends QuartzJobBean {
             long times = System.currentTimeMillis() - startTime;
             log.setTimes((int) times);
             //任务状态 0 ：成功 1 ：失败
-            
+
             log.setStatus(0);
             logger.info("任务执行完毕，任务ID：" + scheduleJob.getJobId() + " 总共耗时：" + tim es + "毫秒");
         } catch (Exception e) {
@@ -2751,8 +2807,9 @@ public class ScheduleJob extends QuartzJobBean {
             long times = System.currentTimeMillis() - startTime;
             log.setTimes((int) times);
             //任务状态 0 ：成功 1 ：失败 
-            log.setStatus(1); log.setError(StringUtils.substring(e.toString(), 0, 2000)); 
-        }finally {
+            log.setStatus(1);
+            log.setError(StringUtils.substring(e.toString(), 0, 2000));
+        } finally {
             scheduleJobLogService.save(log);
         }
     }
@@ -2771,7 +2828,7 @@ public class ScheduleJob extends QuartzJobBean {
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/86h4oq.png)
 
-2. 进入管理后端，填写七牛配置信息，如下图： 
+2. 进入管理后端，填写七牛配置信息，如下图：
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/tkisAZ.png)
 
@@ -2785,11 +2842,11 @@ public class ScheduleJob extends QuartzJobBean {
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/bHjijJ.png)
 
--  进去阿里云管理后台，并创建Bucket，如下图：
+- 进去阿里云管理后台，并创建Bucket，如下图：
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/zEeaHL.png)
 
--  通过下面的界面，可以找到域名、BucketName、EndPoint
+- 通过下面的界面，可以找到域名、BucketName、EndPoint
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/tB5WLW.png)
 
@@ -2807,7 +2864,7 @@ public class ScheduleJob extends QuartzJobBean {
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/UGXMhL.png)
 
--  通过下面的界面，可以找到域名、BucketName、Bucket所属地区 
+- 通过下面的界面，可以找到域名、BucketName、Bucket所属地区
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/rLnoLL.png)
 
@@ -2820,26 +2877,27 @@ public class ScheduleJob extends QuartzJobBean {
 本项目的文件上传，使用的是七牛、阿里云、腾讯云，则需要引入他们的SDK，如下：
 
 ```xml
+
 <dependency>
     <groupId>com.qiniu</groupId>
     <artifactId>qiniu-java-sdk</artifactId>
     <version>${qiniu.version}</version>
 </dependency>
 <dependency>
-    <groupId>com.aliyun.oss</groupId>
-    <artifactId>aliyun-sdk-oss</artifactId>
-    <version>${aliyun.oss.version}</version>
+<groupId>com.aliyun.oss</groupId>
+<artifactId>aliyun-sdk-oss</artifactId>
+<version>${aliyun.oss.version}</version>
 </dependency>
 <dependency>
-    <groupId>com.qcloud</groupId>
-    <artifactId>cos_api</artifactId>
-    <version>${qcloud.cos.version}</version>
-    <exclusions>
-        <exclusion>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-        </exclusion>
-    </exclusions>
+<groupId>com.qcloud</groupId>
+<artifactId>cos_api</artifactId>
+<version>${qcloud.cos.version}</version>
+<exclusions>
+    <exclusion>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+    </exclusion>
+</exclusions>
 </dependency>
 ```
 
@@ -2860,9 +2918,9 @@ public abstract class CloudStorageService {
      * @return 返回上传路径
      */
     public String getPath(String prefix, String suffix) {
-				//生成uuid
+        //生成uuid
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
-				//文件路径
+        //文件路径
         String path = DateUtils.format(new Date(), "yyyyMMdd") + "/" + uuid;
         if (StringUtils.isNotBlank(prefix)) {
             path = prefix + "/" + path;
@@ -2908,7 +2966,7 @@ public abstract class CloudStorageService {
 }
 ```
 
-- 七牛上传的实现，只需继承 CloudStorageService ，并实现相应的上传接口，如下所示： 
+- 七牛上传的实现，只需继承 CloudStorageService ，并实现相应的上传接口，如下所示：
 
 ```java
 import com.qiniu.common.Zone;
@@ -3110,7 +3168,8 @@ public class QcloudCloudStorageService extends CloudStorageService {
     }
 }
 ```
-- 对外提供了OSSFactory工厂，可方便业务的调用，如下所示： 
+
+- 对外提供了OSSFactory工厂，可方便业务的调用，如下所示：
 
 ```java
 public final class OSSFactory {
@@ -3145,10 +3204,10 @@ public R upload(@RequestParam("file") MultipartFile file)throws Exception{
         if(file.isEmpty()){
         throw new RRException("上传文件不能为空");
         }
-				//上传文件，并返回文件的http地址
+        //上传文件，并返回文件的http地址
         String url=OSSFactory.build().upload(file.getBytes());
         }
-}
+        }
 ```
 
 ## 6.14 APP 模块
@@ -3204,8 +3263,8 @@ public class ApiTestController {
 
 - 我们先来看看，APP用户登录的时候，都干了那些事情，如下所示：
 
-
 ```JAVA
+
 @RestController
 @RequestMapping("/app")
 @Api("APP登录接口")
@@ -3322,28 +3381,33 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
     @Autowired
     private AuthorizationInterceptor authorizationInterceptor;
     @Autowired
     private LoginUserHandlerMethodArgumentResolver loginUserHandlerMethodArgumentResolver;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-   		 	registry.addInterceptor(authorizationInterceptor).addPathPatterns("/app/**");
+        registry.addInterceptor(authorizationInterceptor).addPathPatterns("/app/**");
     }
+
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-   			argumentResolvers.add(loginUserHandlerMethodArgumentResolver);
+        argumentResolvers.add(loginUserHandlerMethodArgumentResolver);
     }
 }
 ```
 
-我们可以看到，配置了个Interceptor，用来拦截 /app 开头的所有请求，拦截后，会到 AuthorizationInterceptor类preHandle方法处理。只有以 /app 开头的请求，API模块认证才会起作用，如果要以/api 开头，则需要修改此处。还配置了argumentResolver，别忽略了啊，下面会讲解。 
+我们可以看到，配置了个Interceptor，用来拦截 /app 开头的所有请求，拦截后，会到 AuthorizationInterceptor类preHandle方法处理。只有以 /app
+开头的请求，API模块认证才会起作用，如果要以/api 开头，则需要修改此处。还配置了argumentResolver，别忽略了啊，下面会讲解。
 
 温馨提示，别忘了配置shiro，不然会被shiro拦截掉的，如下所示：
 
 ```JAVA
+
 @Configuration
 public class ShiroConfig {
     @Bean("shiroFilter")
@@ -3359,7 +3423,7 @@ public class ShiroConfig {
 }
 ```
 
-- 分析AuthorizationInterceptor类，我们可以发现，拦截 /app 开头的请求后，都干了些什么，如下所示： 
+- 分析AuthorizationInterceptor类，我们可以发现，拦截 /app 开头的请求后，都干了些什么，如下所示：
 
 ```JAVA
 import io.jsonwebtoken.Claims;
@@ -3419,21 +3483,23 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
 }
 ```
 
-我们可以发现，进入 /app 请求的接口之前，会判断请求的接口，是否加了@Login注解(需要token认证)， 如果没有@Login注解，则不验证token，可以直接访问接口。如果有@Login注解，则需要验证token的正确性，并把userId放到request的USER_KEY里，后续会用到。
+我们可以发现，进入 /app 请求的接口之前，会判断请求的接口，是否加了@Login注解(需要token认证)，
+如果没有@Login注解，则不验证token，可以直接访问接口。如果有@Login注解，则需要验证token的正确性，并把userId放到request的USER_KEY里，后续会用到。
 
--  此时，@Login注解的作用，相信大家都明白了。再看看下面的代码，加了@LoginUser注解后，user对象里，就变成当前登录用户的信息，这是什么时候设置进去的呢？
+- 此时，@Login注解的作用，相信大家都明白了。再看看下面的代码，加了@LoginUser注解后，user对象里，就变成当前登录用户的信息，这是什么时候设置进去的呢？
 
 ```JAVA
 /**
-  * 获取用户信息
-	*/
+ * 获取用户信息
+ */
 @GetMapping("userInfo")
 public R userInfo(@LoginUser UserEntity user){
-		return R.ok().put("user", user);
-}
+        return R.ok().put("user",user);
+        }
 ```
 
-- 设置user对象进去，其实是在LoginUserHandlerMethodArgumentResolver里干的, LoginUserHandlerMethodArgumentResolver是我们自定义的参数转换器，只要实现HandlerMethodArgumentResolver接口即可，代码如下所示： 
+- 设置user对象进去，其实是在LoginUserHandlerMethodArgumentResolver里干的,
+  LoginUserHandlerMethodArgumentResolver是我们自定义的参数转换器，只要实现HandlerMethodArgumentResolver接口即可，代码如下所示：
 
 ```JAVA
 import io.renren.modules.api.annotation.LoginUser;
@@ -3448,10 +3514,12 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
+
 @Component
-public class LoginUserHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver{
+public class LoginUserHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
     @Autowired
     private UserService userService;
+
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
 //如果方法的参数是UserEntity，且参数前面有@LoginUser注解，则进入resolveArgument方法，进行
@@ -3459,21 +3527,25 @@ public class LoginUserHandlerMethodArgumentResolver implements HandlerMethodArgu
         return parameter.getParameterType().isAssignableFrom(UserEntity.class) && parameter.h
         asParameterAnnotation(LoginUser.class);
     }
+
     @Override
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer container,
                                   NativeWebRequest request, WebDataBinderFactory factory) thr
-    ows Exception {
+
+    ows Exception
+
+    {
 //获取用户ID，之前设置进去的，还有印象吧
-    Object object = request.getAttribute(AuthorizationInterceptor.USER_KEY, RequestAttrib
-            utes.SCOPE_REQUEST);
-    if(object == null){
-        return null;
-    }
+        Object object = request.getAttribute(AuthorizationInterceptor.USER_KEY, RequestAttrib
+                utes.SCOPE_REQUEST);
+        if (object == null) {
+            return null;
+        }
 //通过userId，获取用户信息
-    UserEntity user = userService.queryObject((Long)object);
+        UserEntity user = userService.queryObject((Long) object);
 //把当前用户信息，设置到UserEntity参数的user对象里
-    return user;
-		}
+        return user;
+    }
 }
 ```
 
@@ -3515,13 +3587,11 @@ server:
 
 - 当然，还可以指定jvm的内存大小，如下所示：
 
-
 ```BASH
 java -Xms4g -Xmx4g -Xmn1g -server -jar renren-fast.jar
 ```
 
 - 在windows下部署，只需打开cmd窗口，输入如下命令：
-
 
 ```BASH
 java -jar renren-fast.jar --spring.profiles.active=prod
@@ -3529,13 +3599,11 @@ java -jar renren-fast.jar --spring.profiles.active=prod
 
 - 在Linux下部署，只需输入如下命令，即可在Linux后台运行：
 
-
 ```BASH
 nohup java -jar renren-fast.jar --spring.profiles.active=prod > renren.log &
 ```
 
 - 在Linux环境下，我们一般可以创建shell脚本，用于重启项目，如下所示：
-
 
 ```BASH
 #创建启动的shell脚本
@@ -3633,7 +3701,6 @@ java 					8 			d23bdf5b1b1b 		 7 months ago 		643MB
 
 - 安装docker-compose，用来管理容器
 
-
 ```BASH
 #下载地址：https://github.com/docker/compose/releases
 #下载docker-compose
@@ -3649,7 +3716,7 @@ OpenSSL version: OpenSSL 1.0.1t 3 May 2016
 ```
 
 如果下载不了，可以用迅雷将https://github.com/docker/compose/releases/download/1.16.1/docker-compose-
-Linux-x86_64下载到本地，再上传到服务器 
+Linux-x86_64下载到本地，再上传到服务器
 
 - 通过docker-compose，启动项目，如下所示：
 
@@ -3677,10 +3744,9 @@ Removing network renrenfast_default
 
 ## 7.3 集群部署
 
-> 本系统支持集群部署，集群部署，只需启动多个节点，并配置Nginx即可。 
+> 本系统支持集群部署，集群部署，只需启动多个节点，并配置Nginx即可。
 
 - 配置Nginx
-
 
 ```conf
 http {
