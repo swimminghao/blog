@@ -91,6 +91,11 @@ git clone https://gitee.com/renrenio/renren-fast.git
 ### 1.4.5 创建数据库
 
 - 创建数据库 renren_fast ，数据库编码为`UTF-8`
+
+```sql
+CREATE DATABASE renren_fast CHARACTER SET utf8 COLLATE utf8_general_ci;
+```
+
 - 执行 db/mysql.sql 文件，初始化数据（默认支持MySQL）
 
 ### 1.4.6 修改配置文件
