@@ -114,7 +114,7 @@ CREATE DATABASE renren_fast CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 ```bash
 # 克隆项目
-git clone https://github.com/renrenio/renren-fast-vue.git
+git clone https://gitee.com/renrenio/renren-fast-vue.git
 # 安装依赖
 npm install --registry=https://registry.npm.taobao.org
 # 启动服务
