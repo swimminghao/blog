@@ -1380,80 +1380,81 @@ SELECT @parentId, '删除', null, 'generator:goods:delete', '2', null, '6';
 > 	1. 如何确认访问者的权限？
 > 	3. 前后端分离
 
-- 一般都是通过token实现，本项目也是一样；用户登录时，生成token及token过期时间，token与用户是一一对应关系，调用接口的时候，把token放到header或请求参数中，服务端就知道是谁 在调用接口，登录如下所示：
+- 一般都是通过token实现，本项目也是一样；用户登录时，生成token及token过期时间，token与用户是一一对应关系，调用接口的时候，把token放到header或请求参数中，服务端就知道是谁在调用接口，登录如下所示：
 
 ```java
+
 /**
  * 验证码
  */
 @GetMapping("captcha.jpg")
-public void captcha(HttpServletResponse response,String uuid)throws ServletException,IOException{
-        response.setHeader("Cache-Control","no-store, no-cache");
-        response.setContentType("image/jpeg");
-        //获取图片验证码
-        BufferedImage image=sysCaptchaService.getCaptcha(uuid);
-        ServletOutputStream out=response.getOutputStream();
-        ImageIO.write(image,"jpg",out);
-        IOUtils.closeQuietly(out);
-        }
+public void captcha(HttpServletResponse response, String uuid) throws ServletException, IOException {
+    response.setHeader("Cache-Control", "no-store, no-cache");
+    response.setContentType("image/jpeg");
+    //获取图片验证码
+    BufferedImage image = sysCaptchaService.getCaptcha(uuid);
+    ServletOutputStream out = response.getOutputStream();
+    ImageIO.write(image, "jpg", out);
+    IOUtils.closeQuietly(out);
+}
 
 
 /**
  * 登录
  */
 @PostMapping("/sys/login")
-public Map<String, Object> login(@RequestBody SysLoginForm form)throws IOException{
-        boolean captcha=sysCaptchaService.validate(form.getUuid(),form.getCaptcha());
-        if(!captcha){
+public Map<String, Object> login(@RequestBody SysLoginForm form) throws IOException {
+    boolean captcha = sysCaptchaService.validate(form.getUuid(), form.getCaptcha());
+    if (!captcha) {
         return R.error("验证码不正确");
-        }
+    }
 
-        //用户信息
-        SysUserEntity user=sysUserService.queryByUserName(form.getUsername());
+    //用户信息
+    SysUserEntity user = sysUserService.queryByUserName(form.getUsername());
 
-        //账号不存在、密码错误
-        if(user==null||!user.getPassword().equals(new Sha256Hash(form.getPassword(),user.get
-        Salt()).toHex())){
+    //账号不存在、密码错误
+    if (user == null || !user.getPassword().equals(new Sha256Hash(form.getPassword(), user.get
+            Salt()).toHex())) {
         return R.error("账号或密码不正确");
-        }
-        //账号锁定
-        if(user.getStatus()==0){
+    }
+    //账号锁定
+    if (user.getStatus() == 0) {
         return R.error("账号已被锁定,请联系管理员");
-        }
-        //生成token，并保存到数据库
-        R r=sysUserTokenService.createToken(user.getUserId());
-        return r;
-        }
+    }
+    //生成token，并保存到数据库
+    R r = sysUserTokenService.createToken(user.getUserId());
+    return r;
+}
 
 
 //生产token
-public R createToken(long userId){
-        //生成一个token，可以是uuid
-        String token=TokenGenerator.generateValue();
-        //当前时间
-        Date now=new Date();
-        //过期时间
-        Date expireTime=new Date(now.getTime()+EXPIRE*1000);
-        //判断是否生成过token
-        SysUserTokenEntity tokenEntity=queryByUserId(userId);
-        if(tokenEntity==null){
-        tokenEntity=new SysUserTokenEntity();
+public R createToken(long userId) {
+    //生成一个token，可以是uuid
+    String token = TokenGenerator.generateValue();
+    //当前时间
+    Date now = new Date();
+    //过期时间
+    Date expireTime = new Date(now.getTime() + EXPIRE * 1000);
+    //判断是否生成过token
+    SysUserTokenEntity tokenEntity = queryByUserId(userId);
+    if (tokenEntity == null) {
+        tokenEntity = new SysUserTokenEntity();
         tokenEntity.setUserId(userId);
         tokenEntity.setToken(token);
         tokenEntity.setUpdateTime(now);
         tokenEntity.setExpireTime(expireTime);
         //保存token
         save(tokenEntity);
-        }else{
+    } else {
         tokenEntity.setToken(token);
         tokenEntity.setUpdateTime(now);
         tokenEntity.setExpireTime(expireTime);
         //更新token
         update(tokenEntity);
-        }
-        R r=R.ok().put("token",token).put("expire",EXPIRE);
-        return r;
-        }
+    }
+    R r = R.ok().put("token", token).put("expire", EXPIRE);
+    return r;
+}
 ```
 
 其中，下面的这行代码，是加盐操作；可能有人不理解为何要加盐，其目的是防止被拖库后，黑客轻易的 （通过密码库对比），就能拿到你的密码
@@ -1468,72 +1469,71 @@ new Sha256Hash(password, user.getSalt()).toHex())
 
 ```java
 @Override
-protected boolean isAccessAllowed(ServletRequest request,ServletResponse response,Object mappedValue){
-        return false;
-        }
+protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
+    return false;
+}
 ```
 
 步骤 2 ，拒绝访问的请求，会调用onAccessDenied方法，onAccessDenied方法先获取token，再调用 executeLogin方法
 
 ```java
 @Override
-protected boolean onAccessDenied(ServletRequest request,ServletResponse response)throws Exception{
-        //获取请求token，如果token不存在，直接返回 401
-        String token=getRequestToken((HttpServletRequest)request);
-        if(StringUtils.isBlank(token)){
-        HttpServletResponse httpResponse=(HttpServletResponse)response;
-        String json=new Gson().toJson(R.error(HttpStatus.SC_UNAUTHORIZED,"invalid token"));
+protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
+    //获取请求token，如果token不存在，直接返回 401
+    String token = getRequestToken((HttpServletRequest) request);
+    if (StringUtils.isBlank(token)) {
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+        String json = new Gson().toJson(R.error(HttpStatus.SC_UNAUTHORIZED, "invalid token"));
         httpResponse.getWriter().print(json);
         return false;
-        }
-        return executeLogin(request,response);
-        }
+    }
+    return executeLogin(request, response);
+}
 
 /**
  * 获取请求的token
  */
-private String getRequestToken(HttpServletRequest httpRequest){
-        //从header中获取token
-        String token=httpRequest.getHeader("token");
-        //如果header中不存在token，则从参数中获取token
-        if(StringUtils.isBlank(token)){
-        token=httpRequest.getParameter("token");
-        }
-        return token;
-        }
+private String getRequestToken(HttpServletRequest httpRequest) {
+    //从header中获取token
+    String token = httpRequest.getHeader("token");
+    //如果header中不存在token，则从参数中获取token
+    if (StringUtils.isBlank(token)) {
+        token = httpRequest.getParameter("token");
+    }
+    return token;
+}
 ```
 
-步骤 3 ，阅读AuthenticatingFilter抽象类中executeLogin方法，我们发现调用了 subject.login(token) ，这是
-shiro的登录方法，且需要token参数，我们自定义OAuth2Token类，只要实现AuthenticationToken接口，就可 以了
+步骤 3 ，阅读AuthenticatingFilter抽象类中executeLogin方法，我们发现调用了 subject.login(token) ，这是shiro的登录方法，且需要token参数，我们自定义OAuth2Token类，只要实现AuthenticationToken接口，就可以了
 
 ```java
 //AuthenticatingFilter类中的方法
-protected boolean executeLogin(ServletRequest request,ServletResponse response)throws Exception{
-        AuthenticationToken token=createToken(request,response);
-        if(token==null){
+protected boolean executeLogin(ServletRequest request,ServletResponse response) throws Exception{
+    AuthenticationToken token=createToken(request,response);
+    if(token==null){
         String msg="createToken method implementation returned null. A valid non-null A
         uthenticationToken" +
         "must be created in order to execute a login attempt.";
         throw new IllegalStateException(msg);
-        }
-        try{
+    }
+    try{
         Subject subject=getSubject(request,response);
         subject.login(token);
         return onLoginSuccess(token,subject,request,response);
-        }catch(AuthenticationException e){
+    }catch(AuthenticationException e){
         return onLoginFailure(token,e,request,response);
-        }
-        }
+    }
+}
 //OAuth2Filter类中的方法，继承了AuthenticatingFilter类
 @Override
 protected AuthenticationToken createToken(ServletRequest request,ServletResponse response)throws Exception{
-//获取请求token
-        String token=getRequestToken((HttpServletRequest)request);
-        if(StringUtils.isBlank(token)){
+    //获取请求token
+    String token=getRequestToken((HttpServletRequest)request);
+    if(StringUtils.isBlank(token)){
         return null;
-        }
-        return new OAuth2Token(token);
-        }
+    }
+    return new OAuth2Token(token);
+}
 
 //subject.login(token)中的token对象，需要实现AuthenticationToken接口
 public class OAuth2Token implements AuthenticationToken {
@@ -1559,61 +1559,60 @@ public class OAuth2Token implements AuthenticationToken {
 
 ```java
 @Override
-protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token)throws AuthenticationException{
-        String accessToken=(String)token.getPrincipal();
-//根据accessToken，查询用户信息
-        SysUserTokenEntity tokenEntity=shiroService.queryByToken(accessToken);
-//token失效
-        if(tokenEntity==null||tokenEntity.getExpireTime().getTime()<System.currentTimeMilli
-        s()){
+protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+    String accessToken = (String) token.getPrincipal();
+    //根据accessToken，查询用户信息
+    SysUserTokenEntity tokenEntity = shiroService.queryByToken(accessToken);
+    //token失效
+    if (tokenEntity == null || tokenEntity.getExpireTime().getTime() < System.currentTimeMilli
+    s()){
         throw new IncorrectCredentialsException("token失效，请重新登录");
-        }
-//查询用户信息
-        SysUserEntity user=shiroService.queryUser(tokenEntity.getUserId());
-//账号锁定
-        if(user.getStatus()==0){
+    }
+    //查询用户信息
+    SysUserEntity user = shiroService.queryUser(tokenEntity.getUserId());
+    //账号锁定
+    if (user.getStatus() == 0) {
         throw new LockedAccountException("账号已被锁定,请联系管理员");
-        }
-        SimpleAuthenticationInfo info=new SimpleAuthenticationInfo(user,accessToken,getName()
-        );
-        return info;
-        }
+    }
+    SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, accessToken, getName());
+    return info;
+}
 ```
 
 步骤 5 ，登录失败后，则调用onLoginFailure，进行失败处理，整个流程结束
 
 ```java
 @Override
-protected boolean onLoginFailure(AuthenticationToken token,AuthenticationException e,ServletRequest request,ServletResponse response){
-        HttpServletResponse httpResponse=(HttpServletResponse)response;
-        httpResponse.setContentType("application/json;charset=utf-8");
-        try{
-//处理登录失败的异常
-        Throwable throwable=e.getCause()==null?e:e.getCause();
-        R r=R.error(HttpStatus.SC_UNAUTHORIZED,throwable.getMessage());
-        String json=new Gson().toJson(r);
+protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e, ServletRequest request, ServletResponse response) {
+    HttpServletResponse httpResponse = (HttpServletResponse) response;
+    httpResponse.setContentType("application/json;charset=utf-8");
+    try {
+        //处理登录失败的异常
+        Throwable throwable = e.getCause() == null ? e : e.getCause();
+        R r = R.error(HttpStatus.SC_UNAUTHORIZED, throwable.getMessage());
+        String json = new Gson().toJson(r);
         httpResponse.getWriter().print(json);
-        }catch(IOException e1){
-        }
-        return false;
-        }
+    } catch (IOException e1) {
+    }
+    return false;
+}
 ```
 
 步骤 6 ，登录成功后，则调用doGetAuthorizationInfo方法，查询用户的权限，再调用具体的接口，整个流程 结束
 
 ```java
 @Override
-protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals){
-        SysUserEntity user=(SysUserEntity)principals.getPrimaryPrincipal();
-        Long userId=user.getUserId();
+protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+    SysUserEntity user = (SysUserEntity) principals.getPrimaryPrincipal();
+    Long userId = user.getUserId();
 
-        //用户权限列表 
-        Set permsSet=shiroService.getUserPermissions(userId);
+    //用户权限列表 
+    Set permsSet = shiroService.getUserPermissions(userId);
 
-        SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
-        info.setStringPermissions(permsSet);
-        return info;
-        }
+    SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+    info.setStringPermissions(permsSet);
+    return info;
+}
 ```
 
 ## 6.2 权限设计思路
@@ -1622,23 +1621,19 @@ protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principal
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/03/18/np520W.png)
 
-1. sys_user[用户]表，保存用户相关数据，通过sys_user_role[用户与角色关联]表，与sys_role[角色]表关联；sys_menu[菜单]表通过sys_role_menu[菜单与角色关联]
-   表，与sys_role[角色]表关联
-2. sys_menu表，保存菜单相关数据，并在perms字段里，保存了shiro的权限标识，也就是说，拥有此菜 单，就拥有perms字段里的所有权限，比如，某用户拥有的菜单权限标识 sys:user:info ，就可以访问下面的方法
+1. sys_user[用户]表，保存用户相关数据，通过sys_user_role[用户与角色关联]表，与sys_role[角色]表关联；sys_menu[菜单]表通过sys_role_menu[菜单与角色关联]表，与sys_role[角色]表关联
+2. sys_menu表，保存菜单相关数据，并在perms字段里，保存了shiro的权限标识，也就是说，拥有此菜单，就拥有perms字段里的所有权限，比如，某用户拥有的菜单权限标识 sys:user:info ，就可以访问下面的方法
 
 ```java
 @RequestMapping("/info/{userId}")
 @RequiresPermissions("sys:user:info")
 public R info(@PathVariable("userId") Long userId){
-
-        }
+}
 ```
 
-3. 在shiro配置代码里，配置为 anon 的，表示不经过shiro处理，配置为 oauth2 的，表示经 过 OAuth2Filter 处理，前后端分离的接口，都会交给 OAuth2Filter
-   处理，这样就保证，没有权限的请求，拒绝访问
+3. 在shiro配置代码里，配置为 anon 的，表示不经过shiro处理，配置为 oauth2 的，表示经过 OAuth2Filter 处理，前后端分离的接口，都会交给 OAuth2Filter处理，这样就保证，没有权限的请求，拒绝访问
 
 ```java
-
 @Configuration
 public class ShiroConfig {
     @Bean("sessionManager")
@@ -1650,6 +1645,8 @@ public class ShiroConfig {
     }
 
     @Bean("securityManager")
+    a
+
     public SecurityManager securityManager(OAuth2Realm oAuth2Realm, SessionManager sessionMan
 ager) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
@@ -1697,7 +1694,7 @@ ager) {
 
 ## 6.3 XSS 脚本过滤
 
-> XSS跨站脚本攻击的基本原理和SQL注入攻击类似，都是利用系统执行了未经过滤的危险代码，不同点 在于XSS是一种基于网页脚本的注入方式，也就是将脚本攻击载荷写入网页执行以达到对网页客户端访 问用户攻击的目的，属于客户端攻击。程序员往往不太关心安全这块，这就给有心之人，提供了机 会，本系统针对XSS攻击，提供了过滤功能，可以有效防止XSS攻击，代码如下：
+> XSS跨站脚本攻击的基本原理和SQL注入攻击类似，都是利用系统执行了未经过滤的危险代码，不同点 在于XSS是一种基于网页脚本的注入方式，也就是将脚本攻击载荷写入网页执行以达到对网页客户端访问用户攻击的目的，属于客户端攻击。程序员往往不太关心安全这块，这就给有心之人，提供了机会，本系统针对XSS攻击，提供了过滤功能，可以有效防止XSS攻击，代码如下：
 
 ```java
 public class XssFilter implements Filter {
