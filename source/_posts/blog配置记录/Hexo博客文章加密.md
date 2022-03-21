@@ -39,7 +39,7 @@ npm install --save hexo-blog-encrypt
 
 ```
 ---
-title: Hello World
+title: hello world
 date: 2021-04-13 21:18:02
 password: hello
 ---
