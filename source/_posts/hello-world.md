@@ -1,6 +1,5 @@
 ---
 title: Hello World
-abbrlink: hello-world
 top: 10
 ---
 
