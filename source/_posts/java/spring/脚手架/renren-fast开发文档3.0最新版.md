@@ -1383,7 +1383,6 @@ SELECT @parentId, '删除', null, 'generator:goods:delete', '2', null, '6';
 - 一般都是通过token实现，本项目也是一样；用户登录时，生成token及token过期时间，token与用户是一一对应关系，调用接口的时候，把token放到header或请求参数中，服务端就知道是谁在调用接口，登录如下所示：
 
 ```java
-
 /**
  * 验证码
  */
@@ -1397,7 +1396,6 @@ public void captcha(HttpServletResponse response, String uuid) throws ServletExc
     ImageIO.write(image, "jpg", out);
     IOUtils.closeQuietly(out);
 }
-
 
 /**
  * 登录
@@ -1524,16 +1522,7 @@ protected boolean executeLogin(ServletRequest request,ServletResponse response) 
         return onLoginFailure(token,e,request,response);
     }
 }
-//OAuth2Filter类中的方法，继承了AuthenticatingFilter类
-@Override
-protected AuthenticationToken createToken(ServletRequest request,ServletResponse response)throws Exception{
-    //获取请求token
-    String token=getRequestToken((HttpServletRequest)request);
-    if(StringUtils.isBlank(token)){
-        return null;
-    }
-    return new OAuth2Token(token);
-}
+ 
 
 //subject.login(token)中的token对象，需要实现AuthenticationToken接口
 public class OAuth2Token implements AuthenticationToken {
@@ -1555,25 +1544,32 @@ public class OAuth2Token implements AuthenticationToken {
 }
 ```
 
-步骤 4 ，定义OAuth2Realm类，并继承AuthorizingRealm抽象类，调用 subject.login(token) 时，则会调用 doGetAuthenticationInfo方法，进行登录
+步骤 4 ，定义OAuth2Realm类，并继承AuthorizingRealm抽象类，调用 subject.login(token) 时，则会调用doGetAuthenticationInfo方法，进行登录
 
 ```java
+/**
+ * authentication身份认证(登录时调用)
+ */
+// 9. 前面被authc拦截后，需要认证，SecurityBean会调用这里进行认证
 @Override
 protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
     String accessToken = (String) token.getPrincipal();
+
     //根据accessToken，查询用户信息
     SysUserTokenEntity tokenEntity = shiroService.queryByToken(accessToken);
     //token失效
-    if (tokenEntity == null || tokenEntity.getExpireTime().getTime() < System.currentTimeMilli
-    s()){
+
+    if(tokenEntity == null || tokenEntity.getExpireTime().getTime() < System.currentTimeMillis()){
         throw new IncorrectCredentialsException("token失效，请重新登录");
     }
+    // 9.1. token生效才能登录
     //查询用户信息
     SysUserEntity user = shiroService.queryUser(tokenEntity.getUserId());
     //账号锁定
-    if (user.getStatus() == 0) {
+    if(user.getStatus() == 0){
         throw new LockedAccountException("账号已被锁定,请联系管理员");
     }
+
     SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, accessToken, getName());
     return info;
 }
@@ -1601,13 +1597,17 @@ protected boolean onLoginFailure(AuthenticationToken token, AuthenticationExcept
 步骤 6 ，登录成功后，则调用doGetAuthorizationInfo方法，查询用户的权限，再调用具体的接口，整个流程 结束
 
 ```java
+/**
+ * authorization授权(验证权限时调用)
+ */
+// 10. 前面被roles拦截后，需要授权才能登录，SecurityManager需要调用这里进行权限查询
 @Override
 protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-    SysUserEntity user = (SysUserEntity) principals.getPrimaryPrincipal();
+    SysUserEntity user = (SysUserEntity)principals.getPrimaryPrincipal();
     Long userId = user.getUserId();
 
-    //用户权限列表 
-    Set permsSet = shiroService.getUserPermissions(userId);
+    //用户权限列表
+    Set<String> permsSet = shiroService.getUserPermissions(userId);
 
     SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
     info.setStringPermissions(permsSet);
@@ -1634,36 +1634,37 @@ public R info(@PathVariable("userId") Long userId){
 3. 在shiro配置代码里，配置为 anon 的，表示不经过shiro处理，配置为 oauth2 的，表示经过 OAuth2Filter 处理，前后端分离的接口，都会交给 OAuth2Filter处理，这样就保证，没有权限的请求，拒绝访问
 
 ```java
+/**
+ * Shiro配置
+ *
+ * @author Mark sunlightcs@gmail.com
+ */
 @Configuration
 public class ShiroConfig {
-    @Bean("sessionManager")
-    public SessionManager sessionManager() {
-        DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
-        sessionManager.setSessionValidationSchedulerEnabled(true);
-        sessionManager.setSessionIdCookieEnabled(false);
-        return sessionManager;
-    }
 
-    @Bean("securityManager")
-    a
-
-    public SecurityManager securityManager(OAuth2Realm oAuth2Realm, SessionManager sessionMan
-ager) {
-        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        securityManager.setRealm(oAuth2Realm);
-        securityManager.setSessionManager(sessionManager);
-        return securityManager;
-    }
-
+    /**
+     *  Shiro自带的过滤器，可以在这里配置拦截页面
+     */
     @Bean("shiroFilter")
-    public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
+    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
+
+        // 1. 初始化一个ShiroFilter工程类
         ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
+        // 2. 我们知道Shiro是通过SecurityManager来管理整个认证和授权流程的，这个SecurityManager可以在下面初始化
         shiroFilter.setSecurityManager(securityManager);
-//oauth过滤
+
+        //自定义Oauth2Filter过滤器
         Map<String, Filter> filters = new HashMap<>();
         filters.put("oauth2", new OAuth2Filter());
         shiroFilter.setFilters(filters);
+
+        // 3. 上面我们讲过，有的页面不需登录任何人可以直接访问，有的需要登录才能访问，有的不仅要登录还需要相关权限才能访问
         Map<String, String> filterMap = new LinkedHashMap<>();
+
+        // 4. Shiro过滤器常用的有如下几种
+        // 4.1. anon 任何人都能访问，如登录页面
+        // 4.2. authc 需要登录才能访问，如系统内的全体通知页面
+        // 4.3. roles 需要相应的角色才能访问
         filterMap.put("/webjars/**", "anon");
         filterMap.put("/druid/**", "anon");
         filterMap.put("/app/**", "anon");
@@ -1673,10 +1674,27 @@ ager) {
         filterMap.put("/swagger-ui.html", "anon");
         filterMap.put("/swagger-resources/**", "anon");
         filterMap.put("/captcha.jpg", "anon");
+        filterMap.put("/aaa.txt", "anon");
         filterMap.put("/**", "oauth2");
+        // 5. 让ShiroFilter按这个规则拦截
         shiroFilter.setFilterChainDefinitionMap(filterMap);
+
+        // 6. 用户没登录被拦截后，当然需要调转到登录页了，这里配置登录页
+        //shiroFilterFactoryBean.setLoginUrl("/api/user/login");
         return shiroFilter;
     }
+
+
+    @Bean("securityManager")
+    public SecurityManager securityManager(OAuth2Realm oAuth2Realm) {
+        // 7. 新建一个SecurityManager供ShiroFilterFactoryBean使用
+        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
+        // 8. SecurityManager既然管理认证等信息，那他就需要一个类来帮他查数据库吧。这就是Realm类
+        securityManager.setRealm(oAuth2Realm);
+        securityManager.setRememberMeManager(null);
+        return securityManager;
+    }
+
 
     @Bean("lifecycleBeanPostProcessor")
     public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
@@ -1684,7 +1702,7 @@ ager) {
     }
 
     @Bean
-    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityMa nager securityManager) {
+    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
         AuthorizationAttributeSourceAdvisor advisor = new AuthorizationAttributeSourceAdvisor();
         advisor.setSecurityManager(securityManager);
         return advisor;
@@ -2375,8 +2393,8 @@ public class SysUserEntity implements Serializable {
 }
 ```
 
-通过分析上面的代码，我们来理解Hibernate Validator校验框架的使用。 其中，username属性，表示保存或
-修改用户时，都会效验username属性；而password属性，表示只有保存用户时，才会效验password属性，也 就是说，修改用户时，password可以不填写，允许为空。
+通过分析上面的代码，我们来理解Hibernate Validator校验框架的使用。 其中，username属性，表示保存或修改用户时，都会效验username属性；而password属性，表示只有保存用户时，才会效验password属性，也就是说，修改用户时，password可以不填写，允许为空。
+
 如果不指定属性的groups，则默认属于javax.validation.groups.Default.class分组，可以通过ValidatorUtils.validateEntity(user)进行效验。
 
 ## 6.8 系统日志
@@ -2476,7 +2494,7 @@ public class SysLogAspect {
 }
 ```
 
-SysLogAspect 类定义了一个切入点，请求 @SysLog 注解的方法时，会进入 around 方法，把系统日志保存 到数据库中。
+SysLogAspect 类定义了一个切入点，请求 @SysLog 注解的方法时，会进入 around方法，把系统日志保存到数据库中。
 
 ## 6.9 添加菜单
 
@@ -2539,14 +2557,13 @@ public class SysConfigController extends AbstractController {
 
 ## 6.12 定时任务模块
 
-> 本系统使用开源框架Quartz，实现的定时任务，已实现分布式定时任务，可部署多台服务器，不重复执 行，以及动态增加、修改、删除、暂停、恢复、立即执行定时任务。 Quartz自带了各数据库的SQL脚本，如果想更改成其他数据库，可参考Quartz相应的SQL脚本。
+> 本系统使用开源框架Quartz，实现的定时任务，已实现分布式定时任务，可部署多台服务器，不重复执行，以及动态增加、修改、删除、暂停、恢复、立即执行定时任务。 Quartz自带了各数据库的SQL脚本，如果想更改成其他数据库，可参考Quartz相应的SQL脚本。
 
 ### 6.12.1 新增定时任务
 
 新增一个定时任务，其实很简单，只要定义一个普通的Spring Bean即可，如下所示：
 
 ```java
-
 @Component("testTask")
 public class TestTask implements ITask {
     private Logger logger = LoggerFactory.getLogger(getClass());
