@@ -3226,9 +3226,9 @@ public R upload(@RequestParam("file") MultipartFile file)throws Exception{
 
 ### 6.14.1 APP 的使用
 
-> APP的设计思路：用户通过APP，输入手机号、密码登录后，系统会生成与登录用户一一对应的 token，用户调用需要登录的接口时，只需把token传过来，服务端就知道是谁在访问接口，token如果过 期，则拒绝访问，从而保证系统的安全性。
+> APP的设计思路：用户通过APP，输入手机号、密码登录后，系统会生成与登录用户一一对应的 token，用户调用需要登录的接口时，只需把token传过来，服务端就知道是谁在访问接口，token如果过期，则拒绝访问，从而保证系统的安全性。
 
-使用很简单，看看下面的例子，就会使用了。仔细观察，我们会发现，有 2 个自定义的注解。其中， @LoginUser注解是获取当前登录用户的信息，有哪些信息，下面会分析的。@Login注解则是需要用户认 证，没有登录的用户，不能访问该接口。
+使用很简单，看看下面的例子，就会使用了。仔细观察，我们会发现，有 2 个自定义的注解。其中， @LoginUser注解是获取当前登录用户的信息，有哪些信息，下面会分析的。@Login注解则是需要用户认证，没有登录的用户，不能访问该接口。
 
 ```java
 import io.renren.modules.app.annotation.Login;
@@ -3290,11 +3290,11 @@ public class ApiLoginController {
     @PostMapping("login")
     @ApiOperation("登录")
     public R login(@RequestBody LoginForm form) {
-//表单校验
+				//表单校验
         ValidatorUtils.validateEntity(form);
-//用户登录
+				//用户登录
         long userId = userService.login(form);
-//生成token
+				//生成token
         String token = jwtUtils.generateToken(userId);
         Map<String, Object> map = new HashMap<>();
         map.put("token", token);
@@ -3321,7 +3321,7 @@ public class JwtUtils {
      */
     public String generateToken(long userId) {
         Date nowDate = new Date();
-//过期时间
+				//过期时间
         Date expireDate = new Date(nowDate.getTime() + expire * 1000);
         return Jwts.builder()
                 .setHeaderParam("typ", "JWT")
@@ -3411,8 +3411,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 }
 ```
 
-我们可以看到，配置了个Interceptor，用来拦截 /app 开头的所有请求，拦截后，会到 AuthorizationInterceptor类preHandle方法处理。只有以 /app
-开头的请求，API模块认证才会起作用，如果要以/api 开头，则需要修改此处。还配置了argumentResolver，别忽略了啊，下面会讲解。
+我们可以看到，配置了个Interceptor，用来拦截 /app 开头的所有请求，拦截后，会到 AuthorizationInterceptor类preHandle方法处理。只有以 /app开头的请求，API模块认证才会起作用，如果要以/api 开头，则需要修改此处。还配置了argumentResolver，别忽略了啊，下面会讲解。
 
 温馨提示，别忘了配置shiro，不然会被shiro拦截掉的，如下所示：
 
@@ -3471,12 +3470,12 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         if (annotation == null) {
             return true;
         }
-//获取用户凭证
+				//获取用户凭证
         String token = request.getHeader(jwtUtils.getHeader());
         if (StringUtils.isBlank(token)) {
             token = request.getParameter(jwtUtils.getHeader());
         }
-//凭证为空
+				//凭证为空
         if (StringUtils.isBlank(token)) {
             throw new RRException(jwtUtils.getHeader() + "不能为空", HttpStatus.UNAUTHORIZED.v
                     alue());
@@ -3486,15 +3485,14 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
             throw new RRException(jwtUtils.getHeader() + "失效，请重新登录", HttpStatus.UNAUTHO
                     RIZED.value());
         }
-//设置userId到request里，后续根据userId，获取用户信息
+				//设置userId到request里，后续根据userId，获取用户信息
         request.setAttribute(USER_KEY, Long.parseLong(claims.getSubject()));
         return true;
     }
 }
 ```
 
-我们可以发现，进入 /app 请求的接口之前，会判断请求的接口，是否加了@Login注解(需要token认证)，
-如果没有@Login注解，则不验证token，可以直接访问接口。如果有@Login注解，则需要验证token的正确性，并把userId放到request的USER_KEY里，后续会用到。
+我们可以发现，进入 /app 请求的接口之前，会判断请求的接口，是否加了@Login注解(需要token认证)，如果没有@Login注解，则不验证token，可以直接访问接口。如果有@Login注解，则需要验证token的正确性，并把userId放到request的USER_KEY里，后续会用到。
 
 - 此时，@Login注解的作用，相信大家都明白了。再看看下面的代码，加了@LoginUser注解后，user对象里，就变成当前登录用户的信息，这是什么时候设置进去的呢？
 
@@ -3504,12 +3502,11 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
  */
 @GetMapping("userInfo")
 public R userInfo(@LoginUser UserEntity user){
-        return R.ok().put("user",user);
-        }
+  	return R.ok().put("user",user);
+}
 ```
 
-- 设置user对象进去，其实是在LoginUserHandlerMethodArgumentResolver里干的,
-  LoginUserHandlerMethodArgumentResolver是我们自定义的参数转换器，只要实现HandlerMethodArgumentResolver接口即可，代码如下所示：
+- 设置user对象进去，其实是在LoginUserHandlerMethodArgumentResolver里干的,LoginUserHandlerMethodArgumentResolver是我们自定义的参数转换器，只要实现HandlerMethodArgumentResolver接口即可，代码如下所示：
 
 ```JAVA
 import io.renren.modules.api.annotation.LoginUser;
