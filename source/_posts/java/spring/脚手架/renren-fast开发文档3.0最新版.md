@@ -1,8 +1,10 @@
 ---
-title: renren-fast开发文档3.0最新版
-tags: [脚手架, SpringBoot]
-categories: 技术 
-date: 2022-03-18 17:23:00
+title: Spring Boot 2.0 集成 redis
+tags:
+- SpringBoot
+- redis
+  categories: 技术
+date: 2022-03-16 10:05:00
 ---
 
 # 版权说明
