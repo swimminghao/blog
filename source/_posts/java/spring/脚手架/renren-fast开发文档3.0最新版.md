@@ -2,8 +2,7 @@
 title: renren-fast开发文档最新版
 tags:
     - SpringBoot
-    - redis 
-categories: 技术
+    - redis
 date: 2022-03-16 10:05:00
 ---
 
