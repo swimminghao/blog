@@ -1,5 +1,5 @@
 ---
-title: Spring Boot 2.0 集成 redis
+title: renren-fast开发文档3.0最新版
 tags:
     - SpringBoot
     - redis 
