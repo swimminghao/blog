@@ -1,9 +1,9 @@
 ---
 title: Spring Boot 2.0 集成 redis
 tags:
-- SpringBoot
-- redis
-  categories: 技术
+    - SpringBoot
+    - redis 
+categories: 技术
 date: 2022-03-16 10:05:00
 ---
 
