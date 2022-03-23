@@ -1,5 +1,5 @@
 ---
-title: renren-fast开发文档3.0最新版
+title: renren-fast开发文档最新版
 tags:
     - SpringBoot
     - redis 
