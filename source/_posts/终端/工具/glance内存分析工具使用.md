@@ -1,8 +1,9 @@
 ---
 title: glance内存分析工具使用
 tags:
-    - 终端
+  - 终端
 categories: 工具
+abbrlink: b7702d4
 date: 2022-04-21 11:29:00
 ---
 

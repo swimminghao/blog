@@ -1,5 +1,5 @@
 ---
-title: jav8类型相互转
+title: java8类型互转
 tags:
   - java8
 categories: 语法
@@ -7,7 +7,7 @@ abbrlink: 74cfd586
 date: 2022-02-28 19:57:47
 ---
 
-# jav8类型相互转
+# java8类型互转
 
 ## List< Integer >、int[ ]、Integer[ ]相互转换
 
