@@ -111,5 +111,15 @@ socket-timeout 300
 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/L0Nwl6_20220217094828.png)
 ## 指令
 ```bash
-docker run -i -t -e SERVER_ADDR=n47.boom.party -e SERVER_PORT=31100 -e PASSWORD=Uk92CS -e METHOD=aes-256-cfb -e PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin -e TIME_OUT=300 -p 7070:7070 -p 8118:8118 -v /share/CACHEDEV1_DATA/Container/etc/privoxy/config:/etc/privoxy/config oldiy/ss-privoxy
+docker run -d --restart=always \
+-i -t -e SERVER_ADDR=n24.boom.party \
+-e SERVER_PORT=12000 \
+-e PASSWORD=Uk92CS \
+-e METHOD=aes-256-cfb \
+-e PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
+-e TIME_OUT=300 \
+-p 7070:7070 \
+-p 8118:8118 \
+-v /share/CACHEDEV1_DATA/Container/etc/privoxy/config:/etc/privoxy/config \
+oldiy/ss-privoxy
 ```
