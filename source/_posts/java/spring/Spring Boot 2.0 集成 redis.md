@@ -14,7 +14,7 @@ date: 2022-03-16 10:05:00
 
 **Lettuce** 是一个可伸缩的线程安全的 Redis 客户端，支持同步、异步和响应式模式。多个线程可以共享一个连接实例，而不必担心多线程并发问题。它基于优秀 Netty NIO 框架构建，支持 Redis 的高级功能，如 Sentinel、集群、流水线、自动重新连接和 Redis 数据模型
 
-Jedis 在实现上是直接连接的 **redis server**，如果在多线程环境下是非线程安全的，这个时候只有使用连接池，为每个 Jedis 实例增加物理连接。
+Jedis 实现通过直接连接的 **redis server**，如果在多线程环境下是非线程安全的，这个时候只有使用连接池，为每个 Jedis 实例增加物理连接。
 
 Lettuce 的连接是基于 Netty 的，连接实例 (StatefulRedisConnection) 可以在多个线程间并发访问，因为 StatefulRedisConnection 是线程安全的，所以一个连接实例  (StatefulRedisConnection) 就可以满足多线程环境下的并发访问，当然这个也是可伸缩的设计，一个连接实例不够的情况也可以按需增加连接实例。 　　　　　　　
 
