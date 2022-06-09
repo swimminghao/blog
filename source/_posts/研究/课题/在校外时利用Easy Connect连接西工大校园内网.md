@@ -1,9 +1,10 @@
 ---
 title: 在校外时利用Easy Connect连接西工大校园内网（FTP、内网资源）简易教程
 tags:
- - 总结
- - 课题
+  - 总结
+  - 课题
 categories: 学习
+abbrlink: a7472f7b
 date: 2022-06-09 15:43:00
 ---
 
