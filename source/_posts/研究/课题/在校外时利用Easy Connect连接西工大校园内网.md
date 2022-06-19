@@ -33,7 +33,7 @@ date: 2022-06-09 15:43:00
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/06/09/8VrU6M.png)
 
-3. 输入图片中的网址，西工大的为[https://vpn.nwpu.edu.cn](https://vpn.nwpu.edu.cn),其他高校应该在自己学校官网可以查到对应的vpn地址。点击。跳转至以下页面：
+3. 输入图片中的网址，西工大的为[https://vpn.nwpu.edu.cnµ](https://vpn.nwpu.edu.cn),其他高校应该在自己学校官网可以查到对应的vpn地址。点击。跳转至以下页面：
 
 4. 输入用户名及密码，点击登录即可。（西工大的用户名密码即为登录翱翔门户的用户名密码，其他高校可到自家官网查询要求）登陆成功，右下角会显示登陆成功的提示信息。
 
