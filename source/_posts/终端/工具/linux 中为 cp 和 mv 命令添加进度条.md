@@ -1,8 +1,9 @@
 ---
 title: linux 中为 cp 和 mv 命令添加进度条
 tags:
-    - 终端
+  - 终端
 categories: 工具
+abbrlink: 5f1a845d
 date: 2022-06-23 23:31:00
 ---
 
