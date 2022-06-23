@@ -1,8 +1,9 @@
 ---
 title: WSL2 中访问宿主机 Windows 的代理
 tags:
-    - 终端
+  - 终端
 categories: 工具
+abbrlink: 5acbe4b2
 date: 2022-06-23 23:45:00
 ---
 
