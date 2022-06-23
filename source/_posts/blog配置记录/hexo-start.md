@@ -76,3 +76,4 @@ npm install
 
 ```zsh
 hexo clean && proxy4 hexo d -g
+```
