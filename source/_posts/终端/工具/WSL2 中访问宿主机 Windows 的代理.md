@@ -15,7 +15,7 @@ date: 2022-06-23 23:45:00
 
 WSL 每次启动的时候都会有不同的 IP 地址，所以并不能直接用静态的方式来设置代理。WSL2 会把 IP 写在 `/etc/resolv.conf` 中，因此可以用下面指令获得宿主机 IP 。
 
-
+test
 
 ```zsh
 cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }'
