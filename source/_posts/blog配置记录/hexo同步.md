@@ -1,3 +1,12 @@
+---
+title: hexo同步
+tags:
+- 博客
+- 记录
+  categories: 技术
+  abbrlink: a07389a8
+  date: 2022-03-02 15:10:00
+---
 # hexo同步
 
 **以下操作在你的第二个平台上进行，并确定已安装 node.js & npm。**
