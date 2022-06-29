@@ -74,8 +74,6 @@ npm install
 
 执行hexo指令
 
-test
-
 ```zsh
 hexo clean && proxy4 hexo d -g
 ```
