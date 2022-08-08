@@ -24,7 +24,7 @@ date: 2022-08-08 11:42:00
 
 
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/ARStes.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/ARStes.png)
 
 
 
@@ -36,7 +36,7 @@ Roon的帐号挺贵的，加上我对原来的硬件还算满意，所以想最�
 
 
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/bI0HXd.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/bI0HXd.png)
 
 
 
@@ -62,7 +62,7 @@ Roon的帐号挺贵的，加上我对原来的硬件还算满意，所以想最�
 
 以Windows为例，在PC上启动Roon，就回发现群晖NAS的Core，连接就可以使用
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/xI5wDG.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/xI5wDG.png)
 
 
 
@@ -72,7 +72,7 @@ Roon本身不支持输出，但是支持Squeezebox设备（就是LMS（Logitech 
 
 下图就是在Roon设置中打开对squeezbox的支持。
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/JOJv33.jpg)打开SqueezeBox设置
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/JOJv33.jpg)打开SqueezeBox设置
 
 
 
@@ -82,7 +82,7 @@ Roon本身不支持输出，但是支持Squeezebox设备（就是LMS（Logitech 
 
 
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/tH8jk8.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/tH8jk8.png)
 
 
 
@@ -240,19 +240,21 @@ squeeze2upnp-x86-64-static -x config.xml
 
 在Roon的“设置”->"音频"中启用桥设备，并给其命名，例如命名为Huawei Sound
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/Iy4CJZ.png)打开SqueezeBox设置
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/Iy4CJZ.png)
+打开SqueezeBox设置
 
 
 
 对设备进行一些简单配置
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/7mMaKv.png)打开SqueezeBox设置
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/7mMaKv.png)
+打开SqueezeBox设置
 
 
 
 在右下角的设备选择那里选择需要播放的设备，例如Huawei Sound音箱
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/k8yphX.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/k8yphX.png)
 
 打开SqueezeBox设置
 
@@ -260,7 +262,7 @@ squeeze2upnp-x86-64-static -x config.xml
 
 然后打开设备的DSP选项
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/upQYiY.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/upQYiY.png)
 
 打开SqueezeBox设置
 
@@ -268,7 +270,7 @@ squeeze2upnp-x86-64-static -x config.xml
 
 将Huawei Sound高于96k码率的音乐和DSD音乐进行转换
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/PJD3kH.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/PJD3kH.png)
 
 打开SqueezeBox设置
 
@@ -278,7 +280,7 @@ squeeze2upnp-x86-64-static -x config.xml
 
 这下，就可以在Roon系统中使用Huawei智能音箱了
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/aNWfx5.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/aNWfx5.png)
 
 打开SqueezeBox设置
 
@@ -290,7 +292,7 @@ squeeze2upnp-x86-64-static -x config.xml
 
 首先需要在群晖上安装官方的docker套件：
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/NYNGnt.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/NYNGnt.png)
 
 Docker套件
 
@@ -298,7 +300,7 @@ Docker套件
 
 打开Docker套件界面搜索镜像hjianhao/hjianhao-squeeze2upnp
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/FUUdkE.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/FUUdkE.png)
 
 搜索镜像
 
@@ -306,7 +308,7 @@ Docker套件
 
 搜索到镜像后下载，并在映像界面启动容器
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/JHcoGG.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/JHcoGG.png)
 
 启动容器
 
@@ -314,7 +316,7 @@ Docker套件
 
 选择高级设置
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/xyI5MY.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/xyI5MY.png)
 
 高级设置
 
@@ -322,13 +324,13 @@ Docker套件
 
 在NAS上创建一个保存配置文件(config.xml)的目录，并挂接到容器的/config目录
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/emPGbd.png)挂载配置目录
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/emPGbd.png)挂载配置目录
 
 
 
 因为squeezeupnp涉及范围端口的使用，所以使用host网络
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/92EmTA.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/92EmTA.png)
 
 配置网络
 
@@ -336,7 +338,7 @@ Docker套件
 
 应用后，一路“下一步”即可启动容器。
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/bUOzYT.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/bUOzYT.png)
 
 创建容器
 
@@ -344,7 +346,7 @@ Docker套件
 
 第一次容器虽然启动了，但是功能是失效的，从上面的说明可以看到此时还没有配置文件（config.xml), 点击“详情”按钮弹出容器信息窗口，从“日志”标签中可以看到，加载配置文件失败
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/0h8vfs.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/0h8vfs.png)
 
 启动失败日志
 
@@ -352,7 +354,7 @@ Docker套件
 
 此时我们进入“终端”标签，执行/squeeze2upnp/find.sh，用于发现DLNA Render设备，并生成配置文件
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/W7nS4q.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/W7nS4q.png)
 
 发现设备
 
@@ -360,7 +362,7 @@ Docker套件
 
 执行完成后，使用“Ctrl+D”退出并停止容器运行。此时在你挂载的配置文件目录中就会有"Config.xml"配置文件。
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/4RnZnH.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/4RnZnH.png)
 
 配置文件
 
@@ -368,7 +370,7 @@ Docker套件
 
 然后配置按前面对配置文件的描述修改配置文件，再重启容器即可。重启容器前最好将自动重启勾上
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/kELb20.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/kELb20.png)
 
 配置文件
 
@@ -376,7 +378,7 @@ Docker套件
 
 启动成功后，只有一行日志
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/vGoRhB.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/vGoRhB.png)
 
 配置文件
 
@@ -390,7 +392,7 @@ Docker套件
 
 
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/i0oUff.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/i0oUff.png)
 
 
 
@@ -400,7 +402,7 @@ Docker套件
 
 
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/JyNZAA.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/JyNZAA.png)
 
 
 
@@ -408,7 +410,7 @@ Docker套件
 
 
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/e3nyvO.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/e3nyvO.png)
 
 
 
@@ -496,7 +498,7 @@ card 0: sndrpihifiberry [snd_rpi_hifiberry_digi], device 0: HifiBerry Digi HiFi 
    UDP:4500
    UDP:1701
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/SIDPjB.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/SIDPjB.png)
 
 端口映射
 
@@ -507,7 +509,7 @@ b. 共享密钥是第2步设置的预共享密钥
 
 1. 进行连接
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/nEdvdx.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/nEdvdx.png)
 
 在Windows上创建VPN连接
 
@@ -534,8 +536,8 @@ ping 192.168.1.100
 
 此时你看到Roon Core的IP地址是刚才建立的VPN的网段（Core机器上也有一个虚拟网卡）
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/rEux8b.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/rEux8b.png)
 
 同时也可以发现远程Windows机器上连接的音频设备用于播放
 
-![img](https://github.com/swimminghao/picture/blob/main/img/2022/08/08/ZUXu4N.png)
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/ZUXu4N.png)
