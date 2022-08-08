@@ -1,5 +1,5 @@
 ---
-title: 手把手教你黑白群晖NAS安装破解版ROON音乐播放器1.6
+title: 将Roon引入我的听音系统的一些经验
 tags:
   - nas
   - 影音
