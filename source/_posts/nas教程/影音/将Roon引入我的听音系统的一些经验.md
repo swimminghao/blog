@@ -478,7 +478,7 @@ card 0: sndrpihifiberry [snd_rpi_hifiberry_digi], device 0: HifiBerry Digi HiFi 
 2. 申请一个免费域名，同时将域名设置动态映射。这个每家域名提供商具体不一样，根据指导去配。
 3. 公网IP一般是动态的，会变化的，使用DDNS来做动态映射，以下以梅林固件的路由器为例：
 
-![img](https://pic2.zhimg.com/80/v2-c18aa359289185e38204328a5e7f9861_1440w.png)设置DDNS
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/SGqe84.png)
 
 
 服务器选择不同域名提供商，然后输入用户名等参数
