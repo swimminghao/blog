@@ -72,7 +72,9 @@ Roon本身不支持输出，但是支持Squeezebox设备（就是LMS（Logitech 
 
 下图就是在Roon设置中打开对squeezbox的支持。
 
-![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/JOJv33.jpg)打开SqueezeBox设置
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/08/08/1tU9eZ.png)
+
+打开SqueezeBox设置
 
 
 
