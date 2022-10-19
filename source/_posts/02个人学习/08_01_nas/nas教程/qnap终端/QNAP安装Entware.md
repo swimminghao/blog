@@ -1,3 +1,12 @@
+---
+title: QNAP安装Entware
+tags:
+  - nas
+categories: 工具
+abbrlink: '25003010'
+date: 2022-10-19 23:01:00
+---
+
 # QNAP安装Entware
 
 入坑qnap(威联通)，在ssh到NAS后，发现没有常用的zsh、git、sudo，这可让用惯了centos，debian系统的老高情何以堪。
