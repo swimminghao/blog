@@ -1,8 +1,9 @@
 ---
 title: Word技巧：如何使用正则表达式高效替换git a
 tags:
-    - word
+  - word
 categories: 技巧
+abbrlink: e78153dc
 date: 2022-10-31 16:30:00
 ---
 
