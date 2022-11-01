@@ -160,4 +160,31 @@ A、财务型保险转移风险 B、财务型非保险转移风险 C、避免型
 
 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/10/31/M6LzD4.png)
 
- 
+## word手动目录添加点点
+
+## 手动目录制作
+
+![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/EGATLv_20221101192832.png)
+
+1. ctrl选中所有2级目录，然后通过标尺上的「左缩进」按钮，来将我们的2级目录缩进一下。
+2. 手动添加页码，给每一章和节标题后面添加上页码数。 **当然，这里你可以为你的页码添加括弧，或更多个性化内容**。
+
+![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/54SLTD_20221101193048.png)
+
+3. 在每一章节标题与页码之间，按一下「Tab」键。
+
+![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/HlHA9m_20221101193120.png)
+
+4. 选中所有的目录内容，然后点击「开始」-「段落」-「段落设置」-「制表位」，在「制表位位置」中设置成“42”，这里大家可以查看自己页面中“标尺”来设定具体位置。「对齐方式」设为“居中”。最后，我们选择一种「前导符」，再点击“设置”按钮，确定即可。
+
+![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/KzDzXg_20221101193251.png)
+
+## word页码
+
+分页符作用：重置开始页码
+
+插入->页码->判断是否链接到上一页
+
+## word单页横向
+
+页面开始位置插入2个分页符，再设置该页横向
