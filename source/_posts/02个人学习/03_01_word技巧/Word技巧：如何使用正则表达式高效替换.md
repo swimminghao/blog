@@ -179,12 +179,3 @@ A、财务型保险转移风险 B、财务型非保险转移风险 C、避免型
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/KzDzXg_20221101193251.png)
 
-## word页码
-
-分页符作用：重置开始页码
-
-插入->页码->判断是否链接到上一页
-
-## word单页横向
-
-页面开始位置插入2个分页符，再设置该页横向

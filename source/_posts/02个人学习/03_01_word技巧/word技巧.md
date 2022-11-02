@@ -168,6 +168,25 @@ word匹配多个字符也和php不同，使用的是@，例如[一-龥]@匹配0�
 
 \>>Ctrl+H>>查找[0-9]@[. 、：．]，替换为^c>>F9更新域
 
-## 单页横向
+## word页码
 
-## 目录添加
+分页符作用：重置开始页码
+
+插入->页码->判断是否链接到上一页
+
+## word单页横向
+
+页面开始位置插入2个分页符，再设置该页横向
+
+## 插入黑色实心方块
+1. 打开需要操作的WORD文档，选中相关小方框，点击插入选项卡的“符号”，并选择“其他符号”。
+
+![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/11/02/GWeJnD.png)
+
+2. 在Wingdings2中找到并点击选择全黑的小方块，然后点击插入即可。
+
+![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/11/02/4KZvUF.png)
+
+3. 返回主文档，发现WORD中把小空格方框填黑操作完成。
+
+![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/11/02/3ba02U.png)
