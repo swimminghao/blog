@@ -73,6 +73,8 @@ dockerfile和jar包放同一文件夹，再执行下面指令
 ❯ docker build -t swimminghao/holer-server:latest .
 ```
 
+![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/nuW6sf_20221108211749.png)
+
 ## docker容器停止以及镜像删除
 
 ```bash

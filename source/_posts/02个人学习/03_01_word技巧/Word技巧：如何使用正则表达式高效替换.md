@@ -44,8 +44,7 @@ date: 2022-10-31 16:30:00
 Josh Barnhill
 Doris Hartwig
 Tamara Johnston
-Daniel Shimshoni
-```
+Daniel Shimshonig
 
 第二步，在「开始」选项卡上的「编辑」组中，单击「替换」以打开「查找和替换」对话框。
 
