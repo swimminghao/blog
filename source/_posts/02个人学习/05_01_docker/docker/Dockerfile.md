@@ -12,7 +12,7 @@ date: 2022-02-28 19:57:47
 
 ```bash
 ❯ docker run --restart=always -d --name holer-client -e PARAMS="www.swimminghao.top 6060 51c45156bf1c4a82b4e6ffff2150b65e" swimminghao/holer-client:latest
-❯ docker run -d --name holer-server --restart=always -p 600:600 -p 6060:6060 -p 6443:6443 -p 11000-11010:11000-11010 swimminghao/holer-server:latest
+❯ docker run -d --name holer-server --restart=always --network=host -p 600:600 -p 6060:6060 -p 6443:6443 -p 11000-11010:11000-11010 swimminghao/holer-server:latest
 ❯ docker logs -f 1ed9a5d6f0cc
 ```
 
