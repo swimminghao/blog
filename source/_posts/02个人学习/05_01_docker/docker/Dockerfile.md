@@ -18,8 +18,59 @@ date: 2022-02-28 19:57:47
 
 ## Dockerfile 打包jar成docker镜像
 
+```dockerfile
+dockerfile1
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ADD ./holer-client.jar holer-client.jar
+RUN echo "Asia/Shanghai" > /etc/timezone
+ENV PARAMS=
+ENTRYPOINT java -Djava.security.egd=file:/dev/./urandom -Duser.timezone=GMT+8 -jar /holer-client.jar ${PARAMS}
+```
+
+```dockerfile
+dockerfile2
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ADD ./holer-client.jar holer-client.jar
+RUN echo "Asia/Shanghai" > /etc/timezone
+ENV PARAMS=
+ENV JVM_XMS="256m"
+ENV JVM_XMX="256m"
+ENTRYPOINT java -Xms${JVM_XMS} -Xmx${JVM_XMX} -Djava.security.egd=file:/dev/./urandom -Duser.timezone=GMT+8 -jar /holer-client.jar ${PARAMS}
+```
+
+dockerfile和jar包放同一文件夹，再执行下面指令
+
 ```bash
 ❯ docker build -t swimminghao/holer-client:latest .
+```
+
+```dockerfile
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+
+ARG JAR_FILE=./holer-server.jar
+#ARG PORT=8090
+ARG TIME_ZONE=Asia/Shanghai
+
+ENV TZ=${TIME_ZONE}
+ENV JVM_XMS="256m"
+ENV JVM_XMX="256m"
+
+COPY ${JAR_FILE} holer-server.jar
+
+EXPOSE 600
+EXPOSE 6060
+EXPOSE 6443
+
+ENTRYPOINT java -Xms${JVM_XMS} -Xmx${JVM_XMX} -Djava.security.egd=file:/dev/./urandom -server -jar holer-server.jar
+```
+
+dockerfile和jar包放同一文件夹，再执行下面指令
+
+```bash
+❯ docker build -t swimminghao/holer-server:latest .
 ```
 
 ## docker容器停止以及镜像删除
