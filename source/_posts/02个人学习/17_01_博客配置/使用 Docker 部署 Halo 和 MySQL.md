@@ -3,7 +3,8 @@ title: 使用 Docker 部署 Halo 和 MySQL
 tags:
   - 博客
   - 记录
-categories: 技术 
+categories: 技术
+abbrlink: 3963070b
 date: 2022-03-01 09:10:00
 ---
 
