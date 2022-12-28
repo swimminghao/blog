@@ -1,8 +1,9 @@
 ---
 title: nas定时任务
 tags:
-    - nas
+  - nas
 categories: 工具
+abbrlink: b2fba1f
 date: 2022-11-03 14:31:00
 ---
 
