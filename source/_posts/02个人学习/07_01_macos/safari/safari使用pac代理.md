@@ -1,8 +1,9 @@
 ---
 title: Safari实现SwitchyOmega的PAC代理功能
 tags:
-- mac
-  categories: 工具
+  - mac
+categories: 工具
+abbrlink: b7168604
 date: 2022-12-31 20:30:00
 ---
 
