@@ -1,3 +1,11 @@
+---
+title: Safari实现SwitchyOmega的PAC代理功能
+tags:
+- mac
+  categories: 工具
+date: 2022-12-31 20:30:00
+---
+
 # Safari实现SwitchyOmega的PAC代理功能
 
 Safari 没有开放代理 API，因为 macOS 可以很方便地设置系统级的全局代理，但是全局代理则会导致所有流量走代理服务器。
