@@ -1,8 +1,9 @@
 ---
 title: photoshop技巧
 tags:
-    - photoshop
+  - photoshop
 categories: 技术
+abbrlink: 26831ab9
 date: 2023-03-22 09:10:00
 ---
 
