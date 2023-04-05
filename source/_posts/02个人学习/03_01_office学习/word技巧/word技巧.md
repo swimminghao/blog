@@ -17,7 +17,49 @@ date: 2022-10-14 15:10:00
 替换：\1\2
 ```
 
-2. 匹配中文
+2. 删除英文字母和非英文字母之间的半角空格
+   【查找】：([A-Za-z])(^32@)([!A-Za-z])
+
+   【替换】：\1\3
+
+   注：使用通配符
+
+3. 删除非英文字母和英文字母之间的半角空格
+   【查找】：([!A-Za-z])(^32@)([A-Za-z])
+
+   【替换】：\1\3
+
+   注：使用通配符
+
+4. 删除中文字符(含符号)之间的单个半角空格
+   【查找】：
+
+   ([一-龥，、。？！…；：——‘’“”……（）【】《》·~@#%&—])(^32@)([一-龥，、。？！…；：——‘’“”……（）【】《》·~@#%&—])
+
+   【替换】：\1\3
+
+   注：使用通配符
+
+5. 删除非数字与数字之间的单个半角空格
+   【查找】：([!0-9])(^32@)([0-9])
+
+   【替换】：\1\3
+
+   注：使用通配符
+
+6. 删除数字与非数字之间的单个半角空格
+   【查找】：([0-9])(^32@)([!0-9])
+
+   【替换】：\1\3
+
+7. 删除多余空白行|段首空格|段尾空格
+   1、删除段首空格：(^13)(^32@)，替换为：\1，全部替换；
+
+   2、删除段尾空格：(^32@)(^13)，替换为：\2，全部替换；
+
+   注：使用通配符
+
+8. 匹配中文
 - **方法一**
 
 在word中匹配中文可以用[一-龥]，其中龥（读yu），要用微软拼音才能输入，用紫光等其它拼音找不到这个字。如果用“颌”匹配不完全的。捕获用英文括号括起来，引用从左到右依次用\1, \2, …… 以此类推
@@ -190,3 +232,80 @@ word匹配多个字符也和php不同，使用的是@，例如[一-龥]@匹配0�
 3. 返回主文档，发现WORD中把小空格方框填黑操作完成。
 
 ![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2022/11/02/3ba02U.png)
+
+## 批量修改图片大小
+
+1. 方法一
+
+打开VBA编辑器（也可直接按【Alt+F11】快捷键），新建模块，然后将下面的代码复制粘贴到窗口中。
+
+```
+Sub FormatPics()
+    Dim Shap As InlineShape
+    For Each Shap In ActiveDocument.InlineShapes '嵌入式插入的图片
+        If Shap.Type = wdInlineShapePicture Then
+            Shap.LockAspectRatio = msoFalse '不锁定纵横比
+            Shap.Width = CentimetersToPoints(10) '宽20CM
+            Shap.Height = CentimetersToPoints(7) '高7CM
+    End If
+   Next
+End Sub
+```
+
+然后保存宏，关闭窗口。再运行宏即可批量调整图片大小。
+
+2. 方法二
+
+F4（mac版CMD+Y），重复操作，图片数量不多的时候，批量修改
+
+3. 方法三 
+
+doc版本才能用，设置选择“选择多个对象”，并且需要将图片都改成“非嵌入”的图片。（不实用）
+
+## 批量修改图片居中
+
+```
+查找替换窗口，查找框，输入：^g,替换框，格式：段落选择为居中
+```
+
+![](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/3fXkx2_20230405224218.png)
+
+## 批量图片后加回车
+
+```
+查找替换窗口，查找框，输入：^g,替换框，输入：^&^p
+```
+
+## 批量图片形状悬浮转嵌入
+
+添加宏
+
+```
+Sub 形状悬浮转嵌入()
+    Dim i As Integer
+    Dim sp As Shape
+    Dim allConv As Long
+    
+    allConv = MsgBox("转换所有形状（如文本框、矩形）[是]" & vbCrLf & "仅转换图形[否]" & vbCrLf _
+        & "退出程序[取消]", vbInformation + vbYesNoCancel + vbDefaultButton2, "被转换类型")
+
+    If allConv = vbNo Then
+        For Each sp In ActiveDocument.Shapes
+            If sp.Type = msoPicture Then
+                sp.ConvertToInlineShape
+                i = i + 1
+            End If
+        Next
+    ElseIf allConv = vbYes Then
+        For Each sp In ActiveDocument.Shapes
+            sp.ConvertToInlineShape
+            i = i + 1
+        Next
+    Else
+        Exit Sub
+    End If
+    
+    MsgBox Format(i, "完成，共转换了0个形状")
+End Sub
+```
+
