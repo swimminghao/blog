@@ -1,11 +1,11 @@
 ---
 title: hexo同步
 tags:
-- 博客
-- 记录
-  categories: 技术
-  abbrlink: a07389a8
-  date: 2022-03-02 15:10:00
+  - 博客
+  - 记录
+categories: 技术
+abbrlink: a07389a8
+date: 2022-03-02 15:10:0
 ---
 # hexo同步
 

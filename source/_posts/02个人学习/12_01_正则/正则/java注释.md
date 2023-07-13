@@ -1,10 +1,9 @@
 ---
 title: 正则表达式删除Java代码中的注释
 tags:
-- 正则
-  categories: 语法
+  - 正则
+categories: 语法
 date: 2022-11-09 15:55:47
-
 ---
 
 # 正则表达式 删除 Java 代码中的注释
