@@ -13,11 +13,11 @@ date: 2023-07-13 10:33:00
 
 下载解压文件到embyserver目录中的system里，重启emby服务，进入emby服务端设置，在Premiere Key中随便输入字符确定即可完成本地验证。
 
-![img](https://i0.hdslb.com/bfs/article/48de8a7f667d0f2ca5d6ee26d04d5c7c51bef48d.png@1256w_734h_!web-article-pic.avif)随便输入字符即可
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2023/07/13/ITe0ge.png)随便输入字符即可
 
-![img](https://i0.hdslb.com/bfs/article/7c067c438863009bfc65cd2706af211d76d640ba.png@1256w_514h_!web-article-pic.avif)已经是Emby高级会员了
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2023/07/13/0D5NWM.png)已经是Emby高级会员了
 
-![img](https://i0.hdslb.com/bfs/article/d992c67a2c61042849b4a7643ba63d2b1c33f0eb.png@1256w_734h_!web-article-pic.avif)可以使用高级会员功能
+![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2023/07/13/kn4Kc6.png)可以使用高级会员功能
 
 天翼云下载链接
 
