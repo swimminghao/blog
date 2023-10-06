@@ -18,7 +18,7 @@ content 将常用的以及推荐的软件或工具继承GUI界面，可谓一目
 使用方法：
 ```shell
 wget https://github.com/alicfeng/Linux_env/blob/master/shell/os/install/helper.sh && bash helper.sh
-```
+```git
 
 
 >为了更方便安装该软件或应用，已经编写好了一个Shell-[AShellTools](https://github.com/alicfeng/Alic_env/blob/master/dever/AShellTools.sh)。Constantly update ...
