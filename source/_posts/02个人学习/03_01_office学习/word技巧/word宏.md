@@ -29,7 +29,7 @@ Sub 首行缩进()
         .KeepTogether = False
         .PageBreakBefore = False
         .NoLineNumber = False
-        .Hyphenation = True
+        .Hyphenation = 
         .FirstLineIndent = CentimetersToPoints(0.35)
         .OutlineLevel = wdOutlineLevelBodyText
         .CharacterUnitLeftIndent = 0
