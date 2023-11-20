@@ -11,7 +11,7 @@ date: 2023-11-21 15:08:00
 # Mac python 多版本安装、删除、切换
 
 ### **一、安装pyenv**
-
+h
 ```bash
   brew install pyenv
 ```
