@@ -3,7 +3,7 @@ title: 关闭OneDrive内部的自动更新机制
 tags:
   - mac
 categories: 工具
-abbrlink: b7168604
+abbrlink: 6119b2da
 date: 2024-04-13 22:30:00
 ---
 
