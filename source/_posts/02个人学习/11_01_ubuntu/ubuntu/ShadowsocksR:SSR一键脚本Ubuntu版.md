@@ -1,11 +1,12 @@
 ---
-title: ShadowsocksR:SSR一键脚本Ubuntu版
+title: ShadowsocksR_SSR一键脚本Ubuntu版
 tags:
   - 脚本
 categories: linux
 abbrlink: d16a02f5
 date: 2024-01-09 13:57:47g
 ---
+
 
 # ShadowsocksR:SSR一键脚本Ubuntu版
 
