@@ -1,5 +1,5 @@
 ---
-title: 'ShadowsocksR:SSR一键脚本Ubuntu版'
+title: ShadowsocksR:SSR一键脚本Ubuntu版
 tags:
   - 脚本
 categories: linux
