@@ -4,7 +4,7 @@ tags:
   - mac
 categories: 工具
 abbrlink: ce2466fb
-date: 2024-02-25 15:59:00
+date: 2025-02-25 15:59:00
 ---
 
 # 解决 Parallels Desktop 17 无法连接网络问题
