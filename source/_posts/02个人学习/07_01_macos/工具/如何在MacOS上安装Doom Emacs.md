@@ -1,5 +1,5 @@
 ---
-title: DBeaver Ultimate Edition 免费破解使用
+title: 如何在MacOS上安装Doom Emacs
 tags:
   - mac
 categories: 工具
