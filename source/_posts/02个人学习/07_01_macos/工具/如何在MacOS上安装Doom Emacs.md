@@ -3,7 +3,7 @@ title: 如何在MacOS上安装Doom Emacs
 tags:
   - mac
 categories: 工具
-abbrlink: 1afe5736
+abbrlink: cdb8f127
 date: 2025-08-25 11:56:00
 ---
 
