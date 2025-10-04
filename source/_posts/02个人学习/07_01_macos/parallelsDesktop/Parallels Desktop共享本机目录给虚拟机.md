@@ -10,7 +10,7 @@ date: 2025-10-04 10:30:39
 
 本文详细介绍了在CentOS7虚拟机环境中安装ParallelsTools的过程，包括设置CD/DVD源、调整启动顺序及手动挂载镜像文件等步骤，并提供了升级ParallelsTools的方法。
 
-我的虚拟机环境：[centOS7](https://so.csdn.net/so/search?q=centOS7&spm=1001.2101.3001.7020)
+我的虚拟机环境：centOS7
 
 需要先安装Parallels Tools
 
