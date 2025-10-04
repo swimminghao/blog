@@ -1,5 +1,5 @@
 ---
-title: arallels Desktop共享本机目录给虚拟机
+title: parallels Desktop共享本机目录给虚拟机
 tags:
   - mac
 categories: 工具
