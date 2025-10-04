@@ -1,3 +1,11 @@
+---
+title: arallels Desktop共享本机目录给虚拟机
+tags:
+  - mac
+categories: 工具
+abbrlink: 42c28135
+date: 2025-10-04 10:30:39
+---
 # parallels+desktop+linux共享文件夹,Parallels Desktop共享本机目录给虚拟机
 
 本文详细介绍了在CentOS7虚拟机环境中安装ParallelsTools的过程，包括设置CD/DVD源、调整启动顺序及手动挂载镜像文件等步骤，并提供了升级ParallelsTools的方法。
