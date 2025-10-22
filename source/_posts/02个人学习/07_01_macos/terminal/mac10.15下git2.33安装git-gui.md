@@ -23,8 +23,7 @@ Tcl-tk：8.6.12
 
 1. Mac10.15安装git2.33的dmg包
 
-
-​	git2.33下载链接[git-2.33.0-intel-universal-mavericks.dmg (huaweicloud.com)](https://mirrors.huaweicloud.com/git-for-macos/git-2.33.0-intel-universal-mavericks.dmg)
+git2.33下载链接[git-2.33.0-intel-universal-mavericks.dmg (huaweicloud.com)](https://mirrors.huaweicloud.com/git-for-macos/git-2.33.0-intel-universal-mavericks.dmg)
 
 2. Tcl-tk环境安装
 
