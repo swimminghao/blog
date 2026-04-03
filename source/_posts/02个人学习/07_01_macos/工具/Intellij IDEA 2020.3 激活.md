@@ -8,9 +8,9 @@ date: 2026-03-30 18:53:36
 ---
 
 
-# Intellij IDEA 2020.3 激活
+# 123Intellij IDEA 2020.3 激活
 
-1. 先下载y下agent agent ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2026/03/26/Kvm9TJ.png) 
+1. 先下载下agent agent ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2026/03/26/Kvm9TJ.png) 
 
    链接：https://cloud.189.cn/t/NjArIbzuUF7z（访问码：cm0f）
 
