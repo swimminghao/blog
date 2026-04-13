@@ -24,7 +24,7 @@ Command-line client for Quark Drive based on libquarkpan
 
 `quarkpan` 是基于 `libquarkpan` 的夸克网盘命令行工具。
 
-它面向直接使用终端的场景，负责把底层库能力包装成可恢复、可观察、可取消的命令行体验。
+它是面向直接使用终端的场景，负责把底层库能力包装成可恢复、可观察、可取消的命令行体验。
 
 ## 功能概览
 
