@@ -1,9 +1,8 @@
 ---
 title: zsh必备插件
 tags:
-  - 终端
-  - 配置
-categories: 工具
+  - 工具
+categories: 终端
 abbrlink: 143a11e3
 date: 2022-06-10 23:01:00
 ---
@@ -70,7 +69,7 @@ date: 2022-06-10 23:01:00
 
 提供一个 src 命令，重载 zsh。对于经常折腾 zshrc 的我，这条命令非常实用。
 
-## 7. git-open
+## 7. [git-open](https://github.com/paulirish/git-open.git)
 
 提供一个 git-open 命令，在浏览器中打开当前所在 git 项目的远程仓库地址。
 
@@ -165,7 +164,7 @@ if [[ -f ~/.zplug/init.zsh ]] {
 
 这个工具不仅可以用来装 zsh 插件，事实上它可以用来自动安装任何你认为有必要的插件、主题、脚本甚至二进制程序。但是对于非 zsh 插件的程序，在安装之前要先看看 zplug 的文档，搞清楚如何安装。
 
-## 2. [zsh-syntax-highlighting](https://link.zhihu.com/?target=https%3A//github.com/zsh-users/zsh-syntax-highlighting)
+## 2. [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 shell 命令的代码高亮。你没有理由拒绝高亮。
 
