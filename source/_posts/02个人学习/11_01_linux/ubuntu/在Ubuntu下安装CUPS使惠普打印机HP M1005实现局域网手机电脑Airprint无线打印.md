@@ -53,7 +53,7 @@ hp-plugin
 
 ![img](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2026/09/28/qC9VOq.png)
 
-如下载慢卡在0%，可下载链接内博主已经上传完毕的文件，放入/root根目录，并选择p，手动指定/root路径进行安装。[下载地址](https://pdf-1258087608.cos.ap-beijing.myqcloud.com/w/hplip-3.20.3-plugin-WWW.ARTGEEK.CN.zip)
+如下载慢卡在0%，可下载链接内博主已经上传完毕的文件，放入/root根目录，并选择p，手动指定/root路径进行安装。[下载地址](https://cloud.189.cn/t/7R7VneQNZ3A3)（访问码：ay6x）
 当提示Done并且无报错时，则表示惠普插件安装完毕。
 
 现在，去浏览器界面找到Administration标签，点击add printert添加新的打印机。如果提示已禁止，则证明此时你使用的登录身份不是root，所以无法添加。
