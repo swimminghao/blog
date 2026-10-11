@@ -123,9 +123,10 @@ Install media now available at "/Volumes/Install macOS Ventura"
 分区信息：
 
 - 名称：文件存放位置（随意，同样不能有中文）
+ 
+- 格式：exfat
 
-- 格式：extfat
-- 注意：MS-DOS（FAT32）不能存单个文件超过4G的文件，想存ISO镜像得建一个通用空间（extfat mac和win里都能读）
+- 注意：MS-DOS（FAT32）不能存单个文件超过4G的文件，想存ISO镜像得建一个通用空间（exfat mac和win里都能读）
 
 - 大小：剩余空间
 ## 结束
