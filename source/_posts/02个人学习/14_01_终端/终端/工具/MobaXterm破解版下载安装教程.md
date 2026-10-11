@@ -20,8 +20,7 @@ date: 2026-10-11 21:58:18
 
 ## 1.1 下载地址：
 
-点击下载：[MobaXterm v24.3软件包](https://pan.baidu.com/s/1QP4vu1wVVGfR7sdp7Q3g-w?pwd=0871)
-点击下载：[注册机](https://pan.baidu.com/s/1u0DVJGILF_hAbVXKhdkq4Q?pwd=0871)
+点击下载：[MobaXterm v24.3软件包和注册机](https://cloud.189.cn/t/iIvUNrYBvIfe) （访问码：n8lx）
 
 ## 1.2 解压程序包和注册机文件
 
