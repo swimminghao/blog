@@ -117,6 +117,17 @@ Install media now available at "/Volumes/Install macOS Ventura"
 
 然后在Mac下，打开iso文件，将里面的文件复制到新增的WINPE分区中。
 
+## 五、剩余空间
+按照上面的方式同样新增一个分区
+
+分区信息：
+
+- 名称：文件存放位置（随意，同样不能有中文）
+
+- 格式：extfat
+- 注意：MS-DOS（FAT32）不能存单个文件超过4G的文件，想存ISO镜像得建一个通用空间（extfat mac和win里都能读）
+
+- 大小：剩余空间
 ## 结束
 
 这样，一个Mac OS的安装盘和PE盘二合一的U盘就制作好了，剩下还有多余空间，可以当做正常存储U盘使用。
