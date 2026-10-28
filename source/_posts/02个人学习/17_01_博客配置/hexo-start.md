@@ -66,7 +66,7 @@ git clone <远端主题仓库地址>
 cd # 进入到第三方主题文件夹
 git checkout customize #切换到customize分支
 # 回到 hexo 根目录，安装依赖
-npm install hexo
+npm install hexo@6.3.0
 npm install hexo-deployer-git
 npm install hexo-cli -g
 npm install
