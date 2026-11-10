@@ -36,13 +36,13 @@ date: 2025-02-25 15:59:00
 
 > 另外，有些小白朋友可能按截图中的行号来找，这是不对的。可通过 ⌘ + F 键，然后输入关键词，来快速定位。
 
-![3.webp.jpg](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2024/09/13/CleanShot 2024-09-13 at 10.23.36@2x.png)
+![3.webp.jpg](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2024/09/13/CleanShot%202024-09-13%20at%2010.23.36@2x.png)
 
 
 
 2. 打开 `network.desktop.xml` 文件，找到 `<UseKextless>1</UseKextless>` 或 `<UseKextless>-1</UseKextless>`，修改为 `<UseKextless>0</UseKextless>` 并保存。
 
-![2.webp.jpg](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2024/09/13/CleanShot 2024-09-13 at 10.24.17@2x.png)
+![2.webp.jpg](https://cdn.jsdelivr.net/gh/swimminghao/picture@main/img/2024/09/13/CleanShot%202024-09-13%20at%2010.24.17@2x.png)
 
 
 
